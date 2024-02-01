@@ -10,7 +10,7 @@ const AdminPanelBody = () => {
         <>
             <div className="bg-black">
                 {/* <----------------- Sidebar Toggle -----------------> */}
-                <div className="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-800 dark:border-gray-700">
+                <div className="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-900 dark:border-gray-700">
                     <div className="flex items-center py-4">
                         {/* <!-- Navigation Toggle --> */}
                         <button type="button" onClick={handleLog} className="text-gray-500 hover:text-gray-600" data-hs-overlay="#docs-sidebar" aria-controls="docs-sidebar" aria-label="Toggle navigation">
@@ -53,7 +53,6 @@ const AdminPanelBody = () => {
                             <li><Link to="/winners" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
                                 Winners
                             </Link></li>
-
                         </ul>
                     </nav>
                 </div>
