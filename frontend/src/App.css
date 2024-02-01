@@ -36,3 +36,8 @@ body::-webkit-scrollbar-thumb {
     background-color: #474747;
     color: #eee !important;
 }
+
+.gradent {
+    background: rgb(182, 1, 212) !important;
+    background: linear-gradient(180deg, rgba(182, 1, 212, 1) 21%, rgba(79, 39, 177, 1) 83%) !important;
+}
