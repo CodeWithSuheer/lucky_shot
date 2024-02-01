@@ -19,11 +19,11 @@ const style = {
 const Login = () => {
     return (
         <div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat" style={style.box}>
-            <div class="formWidth rounded-xl bg-gray-900 bg-opacity-50 pt-4 pb-7 shadow-lg backdrop-blur-md max-sm:px-8">
+            <div class="formWidth rounded-xl bg-gray-900 bg-opacity-50 pt-7 pb-7 shadow-lg backdrop-blur-md max-sm:px-8">
                 <div class="text-white">
-                    <div class="mb-6 flex flex-col items-center">
-                        <img src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/IT-Expert-Logo.png?v=1705563325" width="150" alt="" srcset="" />
-                        <h1 class="mb-2 text-2xl">Admin Dashboard</h1>
+                    <div class="mb-4 flex flex-col items-center">
+                        <img src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/Lucky_Logo_Casino.png?v=1706801454" width="150" alt="" srcset="" />
+                        <h1 class="mb-2 mt-2 text-2xl">Admin Dashboard</h1>
                         <span class="text-gray-300">Enter Login Details</span>
                     </div>
                     <form action="#">

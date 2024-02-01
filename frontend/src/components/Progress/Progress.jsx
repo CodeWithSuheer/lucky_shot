@@ -58,7 +58,7 @@ const CircularProgress = ({ identifier, startValue, endValue, speed, circleColor
   };
 
   return (
-    <div ref={circularProgressRef} id={`circular-progress-${identifier}`} className="circular-progress">
+    <div ref={circularProgressRef} id={`circular-progress-${identifier}`} className=" circular-progress">
       <span className="progress-value">{`${progressValue}%`}</span>
     </div>
   );
