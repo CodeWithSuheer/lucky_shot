@@ -7,6 +7,7 @@ import Dashboard from './admin/Dashboard';
 import AmountDetails from './admin/AmountDetails';
 import Login from "./components/Login/Login";
 import './App.css'
+import WithDraw from "./admin/WithDraw";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="bettables" element={<BetTable />} />
             <Route path="winners" element={<Winners />} />
             <Route path="amountdetails" element={<AmountDetails />} />
+            <Route path="WithDraw" element={<WithDraw />} />
 
           </Route>
         </Routes>
