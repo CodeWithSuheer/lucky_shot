@@ -19,7 +19,7 @@ const style = {
 const Login = () => {
     return (
         <div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat" style={style.box}>
-            <div class="formWidth rounded-xl bg-gray-900 bg-opacity-50 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
+            <div class="formWidth rounded-xl bg-gray-900 bg-opacity-50 pt-4 pb-7 shadow-lg backdrop-blur-md max-sm:px-8">
                 <div class="text-white">
                     <div class="mb-6 flex flex-col items-center">
                         <img src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/IT-Expert-Logo.png?v=1705563325" width="150" alt="" srcset="" />
@@ -39,7 +39,7 @@ const Login = () => {
 
                             <input type="password" class="input_style block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
-                        <div class="mt-8 flex justify-center text-lg text-black">
+                        <div class="mt-8 flex justify-center items-center text-lg text-black">
                             <Link to="/admin" type="submit" class="rounded-3xl bg-red-700 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600">Login</Link>
                         </div>
                     </form>

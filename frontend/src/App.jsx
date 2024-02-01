@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Login/Login";
 import AdminPanel from './admin/AdminPanel';
 import Users from './admin/Users';
 import Winners from './admin/Winners';
 import BetTable from './admin/BetTable';
 import Dashboard from './admin/Dashboard';
 import AmountDetails from './admin/AmountDetails';
-import Login from "./components/Login/Login";
+import AddAccount from './admin/AddAccount';
+import RemoveAccount from './admin/RemoveAccount';
 import './App.css'
 import WithDraw from "./admin/WithDraw";
 
@@ -24,7 +26,8 @@ function App() {
             <Route path="winners" element={<Winners />} />
             <Route path="amountdetails" element={<AmountDetails />} />
             <Route path="WithDraw" element={<WithDraw />} />
-
+            <Route path="addaccounts" element={<AddAccount />} />
+            <Route path="removeaccounts" element={<RemoveAccount />} />
           </Route>
         </Routes>
       </BrowserRouter>

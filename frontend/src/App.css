@@ -31,3 +31,8 @@ body::-webkit-scrollbar-thumb {
     border-radius: 12px;
 
 }
+
+.active-link {
+    background-color: #474747;
+    color: #eee !important;
+}
