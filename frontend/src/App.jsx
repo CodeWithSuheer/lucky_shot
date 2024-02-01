@@ -9,6 +9,7 @@ import AmountDetails from './admin/AmountDetails';
 import AddAccount from './admin/AddAccount';
 import RemoveAccount from './admin/RemoveAccount';
 import './App.css'
+import WithDraw from "./admin/WithDraw";
 
 function App() {
 
@@ -24,9 +25,9 @@ function App() {
             <Route path="bettables" element={<BetTable />} />
             <Route path="winners" element={<Winners />} />
             <Route path="amountdetails" element={<AmountDetails />} />
+            <Route path="WithDraw" element={<WithDraw />} />
             <Route path="addaccounts" element={<AddAccount />} />
             <Route path="removeaccounts" element={<RemoveAccount />} />
-
           </Route>
         </Routes>
       </BrowserRouter>

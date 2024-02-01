@@ -119,14 +119,14 @@ const Winners = () => {
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-[#676767]">
                                 <tr>
-    <th scope="col" className="px-6 lg:ps-3 xl:ps-6 py-3 text-start">
+    <th scope="col" className="px-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
         <div className="flex items-center gap-x-2">
             <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
                 No
             </span>
         </div>
     </th>
-    <th scope="col" className="px-6 lg:ps-3 xl:ps-0  py-3 text-start">
+    <th scope="col" className="px-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start">
         <div className="flex items-center gap-x-2">
             <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
                 Name

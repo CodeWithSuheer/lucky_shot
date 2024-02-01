@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-const AmountDetails = () => {
+const WithDraw = () => {
     const [activeFilter, setActiveFilter] = useState('100 PKR');
     const [searchText, setSearchText] = useState('');
     const tableData = [
@@ -11,8 +11,9 @@ const AmountDetails = () => {
             betAmount: '100 PKR',
             phoneNumber: '0332 4700802',
             accountTitle: 'John Doe',
-            accountNumber: '0345 1234567', // Example account number
-            paymentMethod: 'EasyPaisa' // Added payment method
+            accountNumber: '0345 1234567',
+            paymentMethod: 'EasyPaisa',
+            withdraw: false
         },
         {
             id: 2,
@@ -21,8 +22,9 @@ const AmountDetails = () => {
             betAmount: '200 PKR',
             phoneNumber: '0332 4700802',
             accountTitle: 'Alice Smith',
-            accountNumber: '0321 7654321', // Example account number
-            paymentMethod: 'JazzCash' // Added payment method
+            accountNumber: '0321 7654321',
+            paymentMethod: 'JazzCash',
+            withdraw: false
         },
         {
             id: 3,
@@ -31,8 +33,9 @@ const AmountDetails = () => {
             betAmount: '100 PKR',
             phoneNumber: '0332 4700802',
             accountTitle: 'Bob Johnson',
-            accountNumber: '0300 9876543', // Example account number
-            paymentMethod: 'Sadapay' // Added payment method
+            accountNumber: '0300 9876543',
+            paymentMethod: 'Sadapay',
+            withdraw: true
         },
         {
             id: 4,
@@ -41,8 +44,9 @@ const AmountDetails = () => {
             betAmount: '500 PKR',
             phoneNumber: '0336 4700802',
             accountTitle: 'Emma Brown',
-            accountNumber: '0312 4567890', // Example account number
-            paymentMethod: 'EasyPaisa' // Added payment method
+            accountNumber: '0312 4567890',
+            paymentMethod: 'EasyPaisa',
+            withdraw: false
         },
         {
             id: 5,
@@ -51,8 +55,9 @@ const AmountDetails = () => {
             betAmount: '100 PKR',
             phoneNumber: '0332 4700802',
             accountTitle: 'Michael Johnson',
-            accountNumber: '0344 6543210', // Example account number
-            paymentMethod: 'JazzCash' // Added payment method
+            accountNumber: '0344 6543210',
+            paymentMethod: 'JazzCash',
+            withdraw: true
         },
         {
             id: 6,
@@ -61,10 +66,12 @@ const AmountDetails = () => {
             betAmount: '100 PKR',
             phoneNumber: '0332 4700802',
             accountTitle: 'Sarah Williams',
-            accountNumber: '0320 9876543', // Example account number
-            paymentMethod: 'Sadapay' // Added payment method
+            accountNumber: '0320 9876543',
+            paymentMethod: 'Sadapay',
+            withdraw: false
         }
     ];
+    
     const filteredData = tableData.filter(row => {
         const matchFilter = row.betAmount === activeFilter;
         const matchSearch = row.phoneNumber.toLowerCase().includes(searchText.toLowerCase());
@@ -82,7 +89,7 @@ const AmountDetails = () => {
 
             {/* <!-- Header --> */}
             <div className="flex justify-between flex-wrap items-center text-white">
-                <h2 className='text-4xl font-semibold tracking-wide'>Amount Detail</h2>
+                <h2 className='text-4xl font-semibold tracking-wide'>Add WithDraw</h2>
 
 
 
@@ -202,17 +209,22 @@ const AmountDetails = () => {
 
                                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
 
-                                {filteredData.map((rowData) => (
+                                {filteredData.map((rowData,index) => (
                                     <tr key={rowData.id}>
-                                        <td className="h-px w-px whitespace-nowrap">
-                                            <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
-                                                <div className="flex items-center gap-x-3">
-                                                    <div className="grow bg-[#B600D4] rounded-full ">
-                                                        <span className="block text-sm text-gray-200 text-center px-1">{rowData?.id}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
+
+<td className="h-px w-px whitespace-nowrap">
+    <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
+        <div className="flex items-center gap-x-3">
+            {rowData.withdraw && ( // Conditionally render circle element
+                <span className="bg-[#B600D4] rounded-full h-3 w-3"></span>
+            )}
+            <div className={` ${rowData.withdraw ? 'bg-[#B600D4] grow' : 'bg-[#B600D4] '} rounded-full`}>
+                <span className="block text-sm text-gray-200 text-center px-2 py-0.5">{index+1}</span>
+            </div>
+        </div>
+    </div>
+</td>
+
                                         <td className="h-px w-px whitespace-nowrap">
                                             <div className="ps-6 lg:ps-3 xl:ps-0 xl:pe-24 pe-6 py-3">
                                                 <div className="flex items-center gap-x-3">
@@ -304,4 +316,4 @@ const AmountDetails = () => {
     )
 }
 
-export default AmountDetails
+export default WithDraw

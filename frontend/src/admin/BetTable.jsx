@@ -72,7 +72,13 @@ const BetTable = () => {
 
 
                     <div className="relative flex rounded-md shadow-sm border-2 border-white ">
-                        <input type="text" placeholder='Search by Phone Number' id="hs-trailing-button-add-on-with-icon-and-button" name="hs-trailing-button-add-on-with-icon-and-button" className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm   " />
+                    <input
+                    type="text"
+                    placeholder="Search by Phone Number"
+                    value={searchText}
+                    onChange={handleSearch}
+                    className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm"
+                />
                         <div className="absolute border-r-2 border-white inset-y-0 start-0 flex items-center pointer-events-none  p-2.5">
                             <svg className="flex-shrink-0 h-4   w-4 text-[#B600D4]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
 
@@ -112,18 +118,18 @@ const BetTable = () => {
                             <div className="bg-white rounded-md shadow-sm overflow-hidden dark:bg-[#474747] dark:border-gray-700">
                                 {/* <!-- Table --> */}
                                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-[#676767]">
+                                <thead className="bg-gray-50 dark:bg-[#676767]">
                                         <tr>
-                                            <th scope="col" className="px-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
+                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                         No
                                                     </span>
                                                 </div>
                                             </th>
-                                            <th scope="col" className="px-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start">
+                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                         Name
                                                     </span>
                                                 </div>
@@ -131,55 +137,56 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                        Bet No
+                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                      Bet No
                                                     </span>
                                                 </div>
                                             </th>
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                        Bet Amount
+                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                       Bet Amount
                                                     </span>
                                                 </div>
                                             </th>
 
-                                            <th scope="col" className="px-6 py-3 text-center">
+                                            <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                         Phone Number
                                                     </span>
                                                 </div>
                                             </th>
-
+                                            <th scope="col" className="px-6 py-3 text-end"></th>
                                         </tr>
                                     </thead>
 
-                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-
-                                        {filteredData.map((rowData) => (
-                                            <tr key={rowData.id}>
+                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
+                                        
+                                    {filteredData.map((rowData,index) => (
+                                            <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
                                                         <div className="flex items-center gap-x-3">
-                                                            <div className="grow bg-[#B600D4] rounded-full ">
-                                                                <span className="block text-sm text-gray-200 text-center px-1">{rowData?.id}</span>
+                                                            <div className="grow">
+                                                                <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index + 1}</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-px whitespace-nowrap">
-                                                    <div className="ps-6 lg:ps-3 xl:ps-0 xl:pe-24 pe-6 py-3">
+                                                    <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-24 pe-6 py-3">
                                                         <div className="flex items-center gap-x-3">
                                                             <div className="grow">
-                                                                <span className="block text-sm text-gray-200">{rowData?.name}</span>
+                                                                <span className="block text-md lg:text-md text-gray-200">{rowData.name}</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
-                                                    <div className=" py-3">
+                                                    <div className="px-6 py-3">
+                                                  
                                                         <div className="flex item-center gap-2">
                                                             {rowData.betNo.map((bet, index) => (
                                                                 <button key={index} className="border border-[#B600D4] bg-transparent px-3 py-2 rounded-lg text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
@@ -187,22 +194,23 @@ const BetTable = () => {
                                                         </div>
                                                     </div>
 
+                                             
+                                                
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.betAmount}</span>
+                                                        <span className="block text-md lg:text-md font-semibold text-gray-800 dark:text-gray-200">{rowData.betAmount}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.phoneNumber}</span>
+                                                        <span className="block text-md lg:text-md font-semibold text-gray-800 dark:text-gray-200">{rowData.phoneNumber}</span>
                                                     </div>
                                                 </td>
                                             </tr>
-
                                         ))}
-
                                     </tbody>
+                                
                                 </table>
                                 {/* <!-- End Table --> */}
 

@@ -57,6 +57,10 @@ const AdminPanelBody = () => {
                             <li><Link to="/admin/amountdetails" className={`${location.pathname === "/admin/amountdetails" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Amount Details
                             </Link></li>
+
+                            <li><Link to="/admin/WithDraw" className={`w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"`}>
+                                WithDraw
+                             </Link></li>
                             <li><Link to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Add Account
                             </Link></li>
