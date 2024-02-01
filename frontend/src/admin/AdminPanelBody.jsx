@@ -41,16 +41,16 @@ const AdminPanelBody = () => {
 
                     <nav className="hs-accordion-group p-6 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
                         <ul className="space-y-1.5">
-                            <li><Link to="/" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
+                            <li><Link to="/admin/" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
                                 Dashboard
                             </Link></li>
-                            <li><Link to="/users" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
+                            <li><Link to="/admin/users" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
                                 Users
                             </Link></li>
-                            <li><Link to="/bettables" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
+                            <li><Link to="/admin/bettables" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
                                 Bet Table
                             </Link></li>
-                            <li><Link to="/winners" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
+                            <li><Link to="/admin/winners" className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
                                 Winners
                             </Link></li>
                         </ul>
