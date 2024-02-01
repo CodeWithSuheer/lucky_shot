@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { CalendarDays } from 'lucide-react';
 
 
@@ -7,41 +7,72 @@ const userData = [
         name: 'Umer Javaid',
         accountTitle: 'UMER JAVAID',
         payment: 'sadapay',
-        accountNumber: '03324700802'
+        accountNumber: '03324700802',
+        betAmount: '100 PKR',
+        Date:"30-1-2024"
     },
     {
         name: 'Umer Javaid',
         accountTitle: 'UMER JAVAID',
         payment: 'sadapay',
-        accountNumber: '03324700802'
+        accountNumber: '03324700802',
+        betAmount: '100 PKR',
+        Date:"1-2-2024"
     },
     {
         name: 'Umer Javaid',
         accountTitle: 'UMER JAVAID',
         payment: 'sadapay',
-        accountNumber: '03324700802'
+        accountNumber: '03324700802',
+        betAmount: '100 PKR',
+        Date:"1-2-2024"
     },
     {
         name: 'Umer Javaid',
         accountTitle: 'UMER JAVAID',
         payment: 'sadapay',
-        accountNumber: '03324700802'
+        accountNumber: '03324700802',
+        betAmount: '100 PKR',
+        Date:"1-2-2024"
     },
     {
         name: 'Umer Javaid',
         accountTitle: 'UMER JAVAID',
         payment: 'sadapay',
-        accountNumber: '03324700802'
+        accountNumber: '03324700802',
+        betAmount: '100 PKR',
+        Date:"1-2-2024"
     },
     {
         name: 'Umer Javaid',
         accountTitle: 'UMER JAVAID',
         payment: 'sadapay',
-        accountNumber: '03324700802'
+        accountNumber: '03324700802',
+        betAmount: '100 PKR',
+        Date:"1-2-2024"
     },
 ]
 
+
 const Users = () => {
+    const [activeFilter, setActiveFilter] = useState('100 PKR');
+const [selectedDate, setSelectedDate] = useState(null);
+
+const handleTabClick = (filter) => {
+    setActiveFilter(filter);
+};
+
+const handleDateSelect = (date) => {
+    setSelectedDate(date);
+};
+
+// Filter data based on active filter and selected date
+const filteredData = userData.filter(row => {
+    const matchFilter = !activeFilter || row.betAmount === activeFilter;
+    const matchDate = !selectedDate || row.Date === selectedDate;
+    return matchFilter && matchDate;
+});
+
     return (
         <>
             {/* <!-- Table Section --> */}
@@ -59,10 +90,26 @@ const Users = () => {
 
                 {/* <!-- Tabs --> */}
                 <div className="my-5 flex justify-center sm:justify-start flex-wrap gap-2.5 lg:gap-4 items-center text-white">
-                    <button className='px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium bg-[#B600D4] border rounded-md border-[#B600D4]'>100 PKR</button>
-                    <button className='px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md border-[#B600D4]'>200 PKR</button>
-                    <button className='px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md border-[#B600D4]'>500 PKR</button>
-                </div>
+                <button
+                    onClick={() => handleTabClick('100 PKR')}
+                    className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '100 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                >
+                    100 PKR
+                </button>
+                <button
+                    onClick={() => handleTabClick('200 PKR')}
+                    className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '200 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                >
+                    200 PKR
+                </button>
+                <button
+                    onClick={() => handleTabClick('500 PKR')}
+                    className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '500 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                >
+                    500 PKR
+                </button>
+            </div>
+
 
 
                 {/* <!-- Table Block --> */}
@@ -117,7 +164,7 @@ const Users = () => {
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
-                                        {userData.map((data, index) => (
+                                        {filteredData.map((data, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
@@ -163,7 +210,7 @@ const Users = () => {
                                 <div className="px-6 py-4 grid gap-3 md:flex md:justify-between dark:bg-black md:items-center border-t border-gray-200 dark:border-gray-700">
                                     <div>
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                                            <span className="font-semibold text-gray-800 dark:text-gray-200">6</span> results
+                                            <span className="font-semibold text-gray-800 dark:text-gray-200">{filteredData?.length}</span> results
                                         </p>
                                     </div>
 
