@@ -71,13 +71,13 @@ const BetTable = () => {
 
 
 
-                    <div className="relative flex rounded-md shadow-sm border-2 border-white ">
+                    <div className="relative flex rounded-md shadow-sm border-2 border-white focus:border-2 rounded-md shadow-sm border-2 ">
                     <input
                     type="text"
                     placeholder="Search by Phone Number"
                     value={searchText}
                     onChange={handleSearch}
-                    className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm"
+                    className="py-3 px-4 ps-11 bg-black  w-full border-gray-200 shadow-sm rounded-s-lg text-sm "
                 />
                         <div className="absolute border-r-2 border-white inset-y-0 start-0 flex items-center pointer-events-none  p-2.5">
                             <svg className="flex-shrink-0 h-4   w-4 text-[#B600D4]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
