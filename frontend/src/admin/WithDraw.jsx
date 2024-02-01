@@ -250,7 +250,7 @@ const WithDraw = () => {
                                                     <div className=" py-3">
                                                         <div className="flex item-center gap-2">
                                                             {rowData.betNo.map((bet, index) => (
-                                                                <button key={index} className="border border-[#B600D4] bg-transparent px-2 py-1 rounded-md text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
+                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-[#B600D4] dark:text-gray-200 cursor-text">{bet}</button>
                                                             ))}
                                                         </div>
                                                     </div>

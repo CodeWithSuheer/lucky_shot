@@ -188,7 +188,7 @@ const BetTable = () => {
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-px whitespace-nowrap">
-                                                    <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-24 pe-6 py-3">
+                                                    <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-20 pe-6 py-3">
                                                         <div className="flex items-center gap-x-3">
                                                             <div className="grow">
                                                                 <span className="block text-md lg:text-md text-gray-200">{rowData.name}</span>
@@ -199,15 +199,13 @@ const BetTable = () => {
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
 
-                                                        <div className="flex item-center gap-2">
+                                                        <div className="flex item-center gap-1">
                                                             {rowData.betNo.map((bet, index) => (
-                                                                <button key={index} className="border border-[#B600D4] bg-transparent px-3 py-2 rounded-lg text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
+                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-[#B600D4] dark:text-gray-200 cursor-text">{bet}</button>
                                                             ))}
                                                         </div>
+
                                                     </div>
-
-
-
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">

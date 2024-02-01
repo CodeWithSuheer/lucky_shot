@@ -164,7 +164,7 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
                                                         Bet No
                                                     </span>
                                                 </div>
@@ -172,14 +172,14 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
                                                         Amount
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
                                                         Account Title
                                                     </span>
                                                 </div>
@@ -187,7 +187,7 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
                                                         Account Number
                                                     </span>
                                                 </div>
@@ -195,14 +195,14 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-center">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
                                                         Phone Number
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-center">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
                                                         P.O.P
                                                     </span>
                                                 </div>
@@ -238,7 +238,7 @@ const AmountDetails = () => {
                                                     <div className=" py-3">
                                                         <div className="flex item-center gap-2">
                                                             {rowData.betNo.map((bet, index) => (
-                                                                <button key={index} className="border border-[#B600D4] bg-transparent px-2 py-1 rounded-md text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
+                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-[#B600D4] dark:text-gray-200 cursor-text">{bet}</button>
                                                             ))}
                                                         </div>
                                                     </div>
