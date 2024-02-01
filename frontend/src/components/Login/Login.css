@@ -1,0 +1,33 @@
+.formWidth {
+    padding-inline: 2rem !important;
+}
+
+.input_style {
+    width: 20rem !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .input_style {
+        width: 18rem !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .formWidth {
+        padding-inline: 1rem !important;
+    }
+
+    .input_style {
+        width: 17rem !important;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .formWidth {
+        padding-inline: .7rem !important;
+    }
+
+    .input_style {
+        width: 16rem !important;
+    }
+}

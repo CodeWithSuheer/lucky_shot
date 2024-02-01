@@ -69,46 +69,40 @@ const BetTable = () => {
                 <div className="flex justify-between flex-wrap items-center text-white">
                     <h2 className='text-4xl font-semibold tracking-wide'>Bet Table</h2>
 
-                 
-  
-  <div className="relative flex rounded-md shadow-sm border-2 border-white ">
-  <input
-                    type="text"
-                    placeholder="Search by Phone Number"
-                    value={searchText}
-                    onChange={handleSearch}
-                    className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm"
-                />
-    <div className="absolute border-r-2 border-white inset-y-0 start-0 flex items-center pointer-events-none  p-2.5">
-      <svg className="flex-shrink-0 h-4   w-4 text-[#B600D4]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    
-    </div>
-  </div>
-</div>
 
-             
+
+                    <div className="relative flex rounded-md shadow-sm border-2 border-white ">
+                        <input type="text" placeholder='Search by Phone Number' id="hs-trailing-button-add-on-with-icon-and-button" name="hs-trailing-button-add-on-with-icon-and-button" className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm   " />
+                        <div className="absolute border-r-2 border-white inset-y-0 start-0 flex items-center pointer-events-none  p-2.5">
+                            <svg className="flex-shrink-0 h-4   w-4 text-[#B600D4]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+
+                        </div>
+                    </div>
+                </div>
+
+
 
                 {/* <!-- Tabs --> */}
                 <div className="my-5 flex justify-center sm:justify-start flex-wrap gap-2.5 lg:gap-4 items-center text-white">
-                <button
-                    onClick={() => setActiveFilter('100 PKR')} // Set active filter and change state
-                    className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '100 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
-                >
-                    100 PKR
-                </button>
-                <button
-                    onClick={() => setActiveFilter('200 PKR')}
-                    className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '200 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
-                >
-                    200 PKR
-                </button>
-                <button
-                    onClick={() => setActiveFilter('500 PKR')}
-                    className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '500 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
-                >
-                    500 PKR
-                </button>
-            </div>
+                    <button
+                        onClick={() => setActiveFilter('100 PKR')} // Set active filter and change state
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '100 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                    >
+                        100 PKR
+                    </button>
+                    <button
+                        onClick={() => setActiveFilter('200 PKR')}
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '200 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                    >
+                        200 PKR
+                    </button>
+                    <button
+                        onClick={() => setActiveFilter('500 PKR')}
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '500 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                    >
+                        500 PKR
+                    </button>
+                </div>
 
 
                 {/* <!-- Card --> */}
@@ -158,55 +152,55 @@ const BetTable = () => {
                                                     </span>
                                                 </div>
                                             </th>
-                                           
+
                                         </tr>
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
 
-                                    {filteredData.map((rowData) => (
-                                        <tr key={rowData.id}>
-                                            <td className="h-px w-px whitespace-nowrap">
-                                                <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
-                                                    <div className="flex items-center gap-x-3">
-                                                        <div className="grow bg-[#B600D4] rounded-full ">
-                                                            <span className="block text-sm text-gray-200 text-center px-1">{rowData?.id}</span>
+                                        {filteredData.map((rowData) => (
+                                            <tr key={rowData.id}>
+                                                <td className="h-px w-px whitespace-nowrap">
+                                                    <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
+                                                        <div className="flex items-center gap-x-3">
+                                                            <div className="grow bg-[#B600D4] rounded-full ">
+                                                                <span className="block text-sm text-gray-200 text-center px-1">{rowData?.id}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td className="h-px w-px whitespace-nowrap">
-                                                <div className="ps-6 lg:ps-3 xl:ps-0 xl:pe-24 pe-6 py-3">
-                                                    <div className="flex items-center gap-x-3">
-                                                        <div className="grow">
-                                                            <span className="block text-sm text-gray-200">{rowData?.name}</span>
+                                                </td>
+                                                <td className="h-px w-px whitespace-nowrap">
+                                                    <div className="ps-6 lg:ps-3 xl:ps-0 xl:pe-24 pe-6 py-3">
+                                                        <div className="flex items-center gap-x-3">
+                                                            <div className="grow">
+                                                                <span className="block text-sm text-gray-200">{rowData?.name}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td className="h-px w-72 whitespace-nowrap">
-                                            <div className=" py-3">
-    <div className="flex item-center gap-2">
-    {rowData.betNo.map((bet, index) => (
-                                <button key={index} className="border border-[#B600D4] bg-transparent px-2 py-1 rounded-md text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
-                            ))}
-    </div>
-</div>
+                                                </td>
+                                                <td className="h-px w-72 whitespace-nowrap">
+                                                    <div className=" py-3">
+                                                        <div className="flex item-center gap-2">
+                                                            {rowData.betNo.map((bet, index) => (
+                                                                <button key={index} className="border border-[#B600D4] bg-transparent px-3 py-2 rounded-lg text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
+                                                            ))}
+                                                        </div>
+                                                    </div>
 
-                                            </td>
-                                            <td className="h-px w-72 whitespace-nowrap">
-                                                <div className="px-6 py-3 flex gap-1 items-center">
-                                                    <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.betAmount}</span>
-                                                </div>
-                                            </td>
-                                            <td className="h-px w-72 whitespace-nowrap">
-                                                <div className="px-6 py-3">
-                                                    <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.phoneNumber}</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                     
-                                   ) )}
+                                                </td>
+                                                <td className="h-px w-72 whitespace-nowrap">
+                                                    <div className="px-6 py-3 flex gap-1 items-center">
+                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.betAmount}</span>
+                                                    </div>
+                                                </td>
+                                                <td className="h-px w-72 whitespace-nowrap">
+                                                    <div className="px-6 py-3">
+                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.phoneNumber}</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        ))}
 
                                     </tbody>
                                 </table>
