@@ -8,8 +8,9 @@ import Dashboard from './admin/Dashboard';
 import AmountDetails from './admin/AmountDetails';
 import AddAccount from './admin/AddAccount';
 import RemoveAccount from './admin/RemoveAccount';
-import './App.css'
+import BackupAccounts from './admin/BackupAccounts';
 import WithDraw from "./admin/WithDraw";
+import './App.css'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="WithDraw" element={<WithDraw />} />
             <Route path="addaccounts" element={<AddAccount />} />
             <Route path="removeaccounts" element={<RemoveAccount />} />
+            <Route path="backupaccounts" element={<BackupAccounts />} />
           </Route>
         </Routes>
       </BrowserRouter>
