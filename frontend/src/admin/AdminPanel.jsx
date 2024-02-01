@@ -1,12 +1,12 @@
 import React from 'react'
-import Dashboard from './Dashboard'
 import AdminHeader from './AdminHeader'
+import AdminPanelBody from './AdminPanelBody'
 
 const AdminPanel = () => {
     return (
         <>
             <AdminHeader />
-            <Dashboard />
+            <AdminPanelBody />
         </>
     )
 }

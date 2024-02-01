@@ -1,8 +1,9 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminPanel from './admin/AdminPanel';
 import Users from './admin/Users';
-import Home from './components/Home/Home';
+import Winners from './admin/Winners';
+import BetTable from './admin/BetTable';
+import Dashboard from './admin/Dashboard';
 import './App.css'
 
 function App() {
@@ -11,10 +12,13 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<AdminPanel />}>
-            <Route index element={<Users />} />
+          <Route path="/" element={<AdminPanel />}>  // Parent route
+
+            <Route index element={<Dashboard />} />
             <Route path="users" element={<Users />} />
+            <Route path="bettables" element={<BetTable />} />
+            <Route path="winners" element={<Winners />} />
+
           </Route>
         </Routes>
       </BrowserRouter>
