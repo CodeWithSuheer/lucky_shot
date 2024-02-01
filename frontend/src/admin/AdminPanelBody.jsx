@@ -40,22 +40,28 @@ const AdminPanelBody = () => {
                 <div id="application-sidebar" className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-20 start-0 bottom-0 z-[60] w-64 bg-white border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-black">
                     {/* <div className="px-6"><a className="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">Brand</a></div> */}
 
-                    <nav className="hs-accordion-group py-6 px-2 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
+                    <nav className="hs-accordion-group py-6 px-0 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
                         <ul className="space-y-1.5">
-                            <li><Link to="/admin/" className={`w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"`}>
+                            <li><Link to="/admin/" className={`${location.pathname === "/admin/" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Dashboard
                             </Link></li>
-                            <li><Link to="/admin/users" className={`w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"`}>
+                            <li><Link to="/admin/users" className={`${location.pathname === "/admin/users" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Users
                             </Link></li>
-                            <li><Link to="/admin/bettables" className={`w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"`}>
+                            <li><Link to="/admin/bettables" className={`${location.pathname === "/admin/bettables" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Bet Table
                             </Link></li>
-                            <li><Link to="/admin/winners" className={`w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"`}>
+                            <li><Link to="/admin/winners" className={`${location.pathname === "/admin/winners" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Winners
                             </Link></li>
-                            <li><Link to="/admin/amountdetails" className={`w-full flex items-center gap-x-3.5 py-2 px-2.5 text-xl font-normal text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-200 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"`}>
+                            <li><Link to="/admin/amountdetails" className={`${location.pathname === "/admin/amountdetails" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Amount Details
+                            </Link></li>
+                            <li><Link to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                Add Account
+                            </Link></li>
+                            <li><Link to="/admin/removeaccounts" className={`${location.pathname === "/admin/removeaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                Remove Account
                             </Link></li>
                         </ul>
                     </nav>
