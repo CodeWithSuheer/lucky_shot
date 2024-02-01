@@ -1,8 +1,8 @@
 import React from 'react'
-import { CalendarDays } from 'lucide-react';
 import { useState } from 'react';
 const BetTable = () => {
     const [activeFilter, setActiveFilter] = useState('100 PKR');
+    const [searchText, setSearchText] = useState('');
     const tableData = [
         {
             id: 1,
@@ -30,7 +30,7 @@ const BetTable = () => {
             name: 'Umer Javaid',
             betNo: [1, 2, 3],
             betAmount: '500 PKR',
-            phoneNumber: '0332 4700802'
+            phoneNumber: '0336 4700802'
         },
         {
             id: 5,
@@ -49,7 +49,16 @@ const BetTable = () => {
         }
         // Add more objects as needed
     ];
-    const filteredData = tableData.filter(row => row.betAmount === activeFilter);
+    const filteredData = tableData.filter(row => {
+        const matchFilter = row.betAmount === activeFilter;
+        const matchSearch = row.phoneNumber.toLowerCase().includes(searchText.toLowerCase());
+        return matchFilter && matchSearch;
+    });
+
+    // Event handler for search input
+    const handleSearch = (event) => {
+        setSearchText(event.target.value);
+    };
 
     return (
         <>
@@ -201,7 +210,7 @@ const BetTable = () => {
                                 <div className="px-6 py-4 grid gap-3 md:flex md:justify-between dark:bg-black md:items-center border-t border-gray-200 dark:border-gray-700">
                                     <div>
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                                            <span className="font-semibold text-gray-800 dark:text-gray-200">6</span> results
+                                        <span className="font-semibold text-gray-800 dark:text-gray-200">{filteredData.length}</span> results
                                         </p>
                                     </div>
 
