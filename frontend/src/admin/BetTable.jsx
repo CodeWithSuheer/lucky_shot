@@ -70,18 +70,30 @@ const BetTable = () => {
                     <h2 className='text-4xl font-semibold tracking-wide'>Bet Table</h2>
 
 
+                    {/* <!-- search bar --> */}
+                    <div className="search_bar mr-10">
+                        <div className="relative mt-4 md:mt-0">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg
+                                    className="w-5 h-5 text-[#B600D4]"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    ></path>
+                                </svg>
+                            </span>
 
-                    <div className="relative flex rounded-md shadow-sm border-2 border-white focus:border-2 rounded-md shadow-sm border-2 ">
-                    <input
-                    type="text"
-                    placeholder="Search by Phone Number"
-                    value={searchText}
-                    onChange={handleSearch}
-                    className="py-3 px-4 ps-11 bg-black  w-full border-gray-200 shadow-sm rounded-s-lg text-sm "
-                />
-                        <div className="absolute border-r-2 border-white inset-y-0 start-0 flex items-center pointer-events-none  p-2.5">
-                            <svg className="flex-shrink-0 h-4   w-4 text-[#B600D4]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
-
+                            <input
+                                type="text"
+                                className="md:w-64 lg:w-72 py-2 pl-10 pr-4 text-gray-700 bg-transparent border border-[#D9D9D9] rounded-lg focus:border-[#D9D9D9] focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-[#D9D9D9] placeholder:text-sm"
+                                placeholder="Search by Phone Number"
+                            />
                         </div>
                     </div>
                 </div>
@@ -118,7 +130,7 @@ const BetTable = () => {
                             <div className="bg-white rounded-md shadow-sm overflow-hidden dark:bg-[#474747] dark:border-gray-700">
                                 {/* <!-- Table --> */}
                                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                <thead className="bg-gray-50 dark:bg-[#676767]">
+                                    <thead className="bg-gray-50 dark:bg-[#676767]">
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
@@ -138,7 +150,7 @@ const BetTable = () => {
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                      Bet No
+                                                        Bet No
                                                     </span>
                                                 </div>
                                             </th>
@@ -146,7 +158,7 @@ const BetTable = () => {
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                       Bet Amount
+                                                        Bet Amount
                                                     </span>
                                                 </div>
                                             </th>
@@ -163,8 +175,8 @@ const BetTable = () => {
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
-                                        
-                                    {filteredData.map((rowData,index) => (
+
+                                        {filteredData.map((rowData, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
@@ -186,7 +198,7 @@ const BetTable = () => {
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                  
+
                                                         <div className="flex item-center gap-2">
                                                             {rowData.betNo.map((bet, index) => (
                                                                 <button key={index} className="border border-[#B600D4] bg-transparent px-3 py-2 rounded-lg text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
@@ -194,8 +206,8 @@ const BetTable = () => {
                                                         </div>
                                                     </div>
 
-                                             
-                                                
+
+
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
@@ -210,7 +222,7 @@ const BetTable = () => {
                                             </tr>
                                         ))}
                                     </tbody>
-                                
+
                                 </table>
                                 {/* <!-- End Table --> */}
 
@@ -218,7 +230,7 @@ const BetTable = () => {
                                 <div className="px-6 py-4 grid gap-3 md:flex md:justify-between dark:bg-black md:items-center border-t border-gray-200 dark:border-gray-700">
                                     <div>
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                                        <span className="font-semibold text-gray-800 dark:text-gray-200">{filteredData.length}</span> results
+                                            <span className="font-semibold text-gray-800 dark:text-gray-200">{filteredData.length}</span> results
                                         </p>
                                     </div>
 

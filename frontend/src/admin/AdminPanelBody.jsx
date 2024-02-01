@@ -62,34 +62,34 @@ const AdminPanelBody = () => {
                                 Amount Details
                             </Link></li>
                             <li >
-        <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer" onClick={toggleSubMenu}>
-          Edit Account
-          {
-          isSubMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6"/></svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
-)}
-        </button>
+                                <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer" onClick={toggleSubMenu}>
+                                    Edit Account
+                                    {
+                                        isSubMenuOpen ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6" /></svg>
+                                        ) : (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
+                                        )}
+                                </button>
 
-        <div id="account-accordion" className={`hs-accordion-content w-full overflow-hidden transition-[height] ${isSubMenuOpen ? 'block' : 'hidden'}`}>
-          <ul className="pt-2 ps-5">
-          <li><Link to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
-                                Add Account
-                            </Link></li>
-                            <li><Link to="/admin/removeaccounts" className={`${location.pathname === "/admin/removeaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
-                                Remove Account
-                            </Link></li>
-                            <li><Link to="/admin/backupaccounts" className={`${location.pathname === "/admin/backupaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
-                                Backup Account
-                            </Link></li>
-          </ul>
-        </div>
-      </li>
+                                <div id="account-accordion" className={`hs-accordion-content w-full overflow-hidden transition-[height] ${isSubMenuOpen ? 'block' : 'hidden'}`}>
+                                    <ul className="pt-2 ps-5">
+                                        <li><Link to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                            Add Account
+                                        </Link></li>
+                                        <li><Link to="/admin/removeaccounts" className={`${location.pathname === "/admin/removeaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                            Remove Account
+                                        </Link></li>
+                                        <li><Link to="/admin/backupaccounts" className={`${location.pathname === "/admin/backupaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                            Backup Account
+                                        </Link></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><Link to="/admin/WithDraw" className={`${location.pathname === "/admin/WithDraw" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
-                                WithDraw
+                                Add Withdrawal
                             </Link></li>
-                         
+
                         </ul>
                     </nav>
                 </div>

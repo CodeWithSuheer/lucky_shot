@@ -9,36 +9,37 @@ const AddAccount = () => {
                         <h2 className='text-2xl xs:text-3xl sm:text-4xl font-semibold tracking-wide'>Add Accounts</h2>
                     </div>
 
-                    <form class="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2">
+                    <form className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2">
                         {/* ------------ INPUT FIELDS ------------ */}
                         <div>
-                            <label class="block mb-2 text-md font-medium text-gray-600 dark:text-gray-200">Account Number</label>
-                            <input type="text" placeholder="Enter Your Name" class="block w-full px-5 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b4b4b4] dark:bg-transparent dark:text-gray-300 dark:border-[#B600D4] focus:border-[#B600D4] dark:focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <label className="block mb-2 text-md font-medium text-gray-600 dark:text-gray-200">Account Number</label>
+                            <input type="text" placeholder="Enter Your Name" className="block w-full px-5 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b4b4b4] dark:bg-transparent dark:text-gray-300 dark:border-[#B600D4] focus:border-[#B600D4] dark:focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
 
                         <div>
-                            <label class="block mb-2 text-md font-medium text-gray-600 dark:text-gray-200">Account Title</label>
-                            <input type="text" placeholder="Enter Your Account Title" class="block w-full px-5 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b4b4b4] dark:bg-transparent dark:text-gray-300 dark:border-[#B600D4] focus:border-[#B600D4] dark:focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <label className="block mb-2 text-md font-medium text-gray-600 dark:text-gray-200">Account Title</label>
+                            <input type="text" placeholder="Enter Your Account Title" className="block w-full px-5 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b4b4b4] dark:bg-transparent dark:text-gray-300 dark:border-[#B600D4] focus:border-[#B600D4] dark:focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
 
+
                         {/* ------------ CHECK BOX ------------ */}
-                        <div class="grid sm:grid-cols-2 gap-2">
-                            <label for="hs-radio-on-right" class="flex items-center p-3 w-full bg-white rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-transparent dark:text-gray-400">
+                        <div className="flex justify-start">
+                            <label htmlFor="hs-radio-on-right" className="flex items-center p-3 w-full bg-white rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-transparent dark:text-gray-400">
                                 <span className='h-8 w-8 p-[3px] bg-white rounded-md mr-2'>
                                     <img className='rounded-md' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
                                 </span>
-                                <span class="text-lg mr-3 text-gray-500 dark:text-[#cfcfcf]">Jazz Cash</span>
+                                <span className="text-lg mr-3 text-gray-500 dark:text-[#cfcfcf]">Jazz Cash</span>
 
-                                <input type="radio" name="hs-radio-on-right" class="mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-radio-on-right" />
+                                <input type="radio" name="hs-radio-on-right" className="mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-radio-on-right" />
                             </label>
 
-                            <label for="hs-radioradio-on-right" class="flex items-center p-3 w-full bg-white rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-transparent dark:text-gray-400">
+                            <label htmlFor="hs-radioradio-on-right" className="flex items-center p-3 w-full bg-white rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-transparent dark:text-gray-400">
                                 <span className='h-8 w-8 p-[3px] bg-white rounded-md mr-2'>
                                     <img className='rounded-md' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
                                 </span>
-                                <span class="text-lg mr-3 text-gray-500 dark:text-[#cfcfcf]">Easy Paisa</span>
+                                <span className="text-lg mr-3 text-gray-500 dark:text-[#cfcfcf]">Easy Paisa</span>
 
-                                <input type="radio" name="hs-radio-on-right" class="mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-radioradio-on-right" checked />
+                                <input type="radio" name="hs-radio-on-right" className="mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-radioradio-on-right" />
                             </label>
                         </div>
 

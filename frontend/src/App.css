@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -41,3 +42,4 @@ body::-webkit-scrollbar-thumb {
     background: rgb(182, 1, 212) !important;
     background: linear-gradient(180deg, rgba(182, 1, 212, 1) 21%, rgba(79, 39, 177, 1) 83%) !important;
 }
+
