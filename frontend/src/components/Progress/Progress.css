@@ -1,0 +1,34 @@
+/* Google Fonts - Poppins */
+
+.circular-progress {
+    /* position: relative; */
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#000000 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    background-color: #676767;
+}
+
+.progress-value {
+    position: relative;
+    font-size: 30px;
+    font-weight: 700 !important;
+    color: white;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: 500;
+    color: #606060;
+}
