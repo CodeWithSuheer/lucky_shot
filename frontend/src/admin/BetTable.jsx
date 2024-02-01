@@ -1,8 +1,8 @@
 import React from 'react'
-import { CalendarDays } from 'lucide-react';
 import { useState } from 'react';
 const BetTable = () => {
     const [activeFilter, setActiveFilter] = useState('100 PKR');
+    const [searchText, setSearchText] = useState('');
     const tableData = [
         {
             id: 1,
@@ -30,7 +30,7 @@ const BetTable = () => {
             name: 'Umer Javaid',
             betNo: [1, 2, 3],
             betAmount: '500 PKR',
-            phoneNumber: '0332 4700802'
+            phoneNumber: '0336 4700802'
         },
         {
             id: 5,
@@ -49,7 +49,16 @@ const BetTable = () => {
         }
         // Add more objects as needed
     ];
-    const filteredData = tableData.filter(row => row.betAmount === activeFilter);
+    const filteredData = tableData.filter(row => {
+        const matchFilter = row.betAmount === activeFilter;
+        const matchSearch = row.phoneNumber.toLowerCase().includes(searchText.toLowerCase());
+        return matchFilter && matchSearch;
+    });
+
+    // Event handler for search input
+    const handleSearch = (event) => {
+        setSearchText(event.target.value);
+    };
 
     return (
         <>
@@ -63,7 +72,13 @@ const BetTable = () => {
                  
   
   <div className="relative flex rounded-md shadow-sm border-2 border-white ">
-    <input type="text" placeholder='Search by Phone Number' id="hs-trailing-button-add-on-with-icon-and-button" name="hs-trailing-button-add-on-with-icon-and-button" className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm   "/>
+  <input
+                    type="text"
+                    placeholder="Search by Phone Number"
+                    value={searchText}
+                    onChange={handleSearch}
+                    className="py-3 px-4 ps-11 bg-black block w-full border-gray-200 shadow-sm rounded-s-lg text-sm"
+                />
     <div className="absolute border-r-2 border-white inset-y-0 start-0 flex items-center pointer-events-none  p-2.5">
       <svg className="flex-shrink-0 h-4   w-4 text-[#B600D4]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     
@@ -173,7 +188,7 @@ const BetTable = () => {
                                             <div className=" py-3">
     <div className="flex item-center gap-2">
     {rowData.betNo.map((bet, index) => (
-                                <button key={index} className="border border-[#B600D4] bg-transparent px-3 py-2 rounded-lg text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
+                                <button key={index} className="border border-[#B600D4] bg-transparent px-2 py-1 rounded-md text-sm font-semibold text-[#B600D4] dark:text-gray-200">{bet}</button>
                             ))}
     </div>
 </div>
@@ -201,7 +216,7 @@ const BetTable = () => {
                                 <div className="px-6 py-4 grid gap-3 md:flex md:justify-between dark:bg-black md:items-center border-t border-gray-200 dark:border-gray-700">
                                     <div>
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                                            <span className="font-semibold text-gray-800 dark:text-gray-200">6</span> results
+                                        <span className="font-semibold text-gray-800 dark:text-gray-200">{filteredData.length}</span> results
                                         </p>
                                     </div>
 
