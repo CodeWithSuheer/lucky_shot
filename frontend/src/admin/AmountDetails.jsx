@@ -164,7 +164,7 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 ">
                                                         Bet No
                                                     </span>
                                                 </div>
@@ -172,14 +172,14 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 ">
                                                         Amount
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 ">
                                                         Account Title
                                                     </span>
                                                 </div>
@@ -187,7 +187,7 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 ">
                                                         Account Number
                                                     </span>
                                                 </div>
@@ -195,14 +195,14 @@ const AmountDetails = () => {
 
                                             <th scope="col" className="px-6 py-3 text-center">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 ">
                                                         Phone Number
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-center">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 uppercase">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200 ">
                                                         P.O.P
                                                     </span>
                                                 </div>

@@ -134,14 +134,14 @@ const BetTable = () => {
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold  tracking-wide text-gray-800 dark:text-gray-200">
                                                         No
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold  tracking-wide text-gray-800 dark:text-gray-200">
                                                         Name
                                                     </span>
                                                 </div>
@@ -149,7 +149,7 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold  tracking-wide text-gray-800 dark:text-gray-200">
                                                         Bet No
                                                     </span>
                                                 </div>
@@ -157,7 +157,7 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold  tracking-wide text-gray-800 dark:text-gray-200">
                                                         Bet Amount
                                                     </span>
                                                 </div>
@@ -165,7 +165,7 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-semibold  tracking-wide text-gray-800 dark:text-gray-200">
                                                         Phone Number
                                                     </span>
                                                 </div>
