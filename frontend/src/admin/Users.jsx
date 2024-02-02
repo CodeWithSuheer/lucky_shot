@@ -118,7 +118,7 @@ const filteredData = userData.filter(row => {
                         <div className="p-1.5 min-w-full inline-block align-middle">
                             <div className="bg-white rounded-md shadow-sm overflow-hidden dark:bg-[#474747] dark:border-gray-700">
                                 {/* <!-- Table --> */}
-                                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <table className="min-w-full divide-y divide-[#555555]">
                                     <thead className="bg-gray-50 dark:bg-[#676767]">
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
@@ -163,7 +163,7 @@ const filteredData = userData.filter(row => {
                                         </tr>
                                     </thead>
 
-                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
+                                    <tbody className="divide-y divide-[#555555]">
                                         {filteredData.map((data, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
