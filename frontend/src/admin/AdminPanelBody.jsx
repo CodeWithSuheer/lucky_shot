@@ -15,10 +15,10 @@ const AdminPanelBody = () => {
         <>
             <div className="bg-black">
                 {/* <----------------- Sidebar Toggle -----------------> */}
-                <div className="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-900 dark:border-gray-700">
+                <div className="sticky top-0 inset-x-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-900 dark:border-gray-700">
                     <div className="flex items-center py-4">
                         {/* <!-- Navigation Toggle --> */}
-                        <button type="button" onClick={handleLog} className="text-gray-500 hover:text-gray-600" data-hs-overlay="#docs-sidebar" aria-controls="docs-sidebar" aria-label="Toggle navigation">
+                        <button type="button" onClick={handleLog} className="hover:text-gray-600" data-hs-overlay="#docs-sidebar" aria-controls="docs-sidebar" aria-label="Toggle navigation">
                             <span className="sr-only">Toggle Navigation</span>
                             <svg className="flex-shrink-0 w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -41,28 +41,27 @@ const AdminPanelBody = () => {
                     </div>
                 </div>
 
-                <div id="application-sidebar" className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-20 start-0 bottom-0 z-[60] w-64 bg-white border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-black">
-                    {/* <div className="px-6"><a className="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">Brand</a></div> */}
+                <div id="application-sidebar" className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-20 start-0 bottom-0 z-[60] w-64 border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-black">
 
                     <nav className="hs-accordion-group py-0 px-0 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
                         <ul className="space-y-1.5">
-                            <li><Link to="/admin/" className={`${location.pathname === "/admin/" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                            <li><Link to="/admin/" className={`${location.pathname === "/admin/" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Dashboard
                             </Link></li>
-                            <li><Link to="/admin/users" className={`${location.pathname === "/admin/users" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                            <li><Link to="/admin/users" className={`${location.pathname === "/admin/users" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Users
                             </Link></li>
-                            <li><Link to="/admin/bettables" className={`${location.pathname === "/admin/bettables" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                            <li><Link to="/admin/bettables" className={`${location.pathname === "/admin/bettables" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Bet Table
                             </Link></li>
-                            <li><Link to="/admin/winners" className={`${location.pathname === "/admin/winners" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                            <li><Link to="/admin/winners" className={`${location.pathname === "/admin/winners" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Winners
                             </Link></li>
-                            <li><Link to="/admin/amountdetails" className={`${location.pathname === "/admin/amountdetails" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                            <li><Link to="/admin/amountdetails" className={`${location.pathname === "/admin/amountdetails" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Amount Details
                             </Link></li>
                             <li >
-                                <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer" onClick={toggleSubMenu}>
+                                <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointe" onClick={toggleSubMenu}>
                                     Edit Account
                                     {
                                         isSubMenuOpen ? (
@@ -74,19 +73,19 @@ const AdminPanelBody = () => {
 
                                 <div id="account-accordion" className={`hs-accordion-content w-full overflow-hidden transition-[height] ${isSubMenuOpen ? 'block' : 'hidden'}`}>
                                     <ul className="pt-2 ps-5">
-                                        <li><Link to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                        <li><Link to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointe"`}>
                                             Add Account
                                         </Link></li>
-                                        <li><Link to="/admin/removeaccounts" className={`${location.pathname === "/admin/removeaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                        <li><Link to="/admin/removeaccounts" className={`${location.pathname === "/admin/removeaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointe"`}>
                                             Remove Account
                                         </Link></li>
-                                        <li><Link to="/admin/backupaccounts" className={`${location.pathname === "/admin/backupaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                                        <li><Link to="/admin/backupaccounts" className={`${location.pathname === "/admin/backupaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointe"`}>
                                             Backup Account
                                         </Link></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li><Link to="/admin/WithDraw" className={`${location.pathname === "/admin/WithDraw" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+                            <li><Link to="/admin/WithDraw" className={`${location.pathname === "/admin/WithDraw" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointe"`}>
                                 Add Withdrawal
                             </Link></li>
 

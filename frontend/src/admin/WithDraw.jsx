@@ -91,8 +91,6 @@ const WithDraw = () => {
                 <div className="flex justify-between flex-wrap items-center text-white">
                     <h2 className='text-4xl font-semibold tracking-wide'>Add WithDraw</h2>
 
-
-
                     <div className="search_bar mr-10">
                         <div className="relative mt-4 md:mt-0">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -119,8 +117,6 @@ const WithDraw = () => {
                         </div>
                     </div>
                 </div>
-
-
 
                 {/* <!-- Tabs --> */}
                 <div className="my-5 flex justify-center sm:justify-start flex-wrap gap-2.5 lg:gap-4 items-center text-white">
@@ -149,21 +145,21 @@ const WithDraw = () => {
                 <div className="flex flex-col">
                     <div className="-m-1.5 overflow-x-auto">
                         <div className="p-1.5 min-w-full inline-block align-middle">
-                            <div className="bg-white rounded-md shadow-sm overflow-hidden dark:bg-[#474747] dark:border-gray-700">
+                            <div className="rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
                                 {/* <!-- Table --> */}
-                                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-[#676767]">
+                                <table className="min-w-full divide-y divide-gray-700">
+                                    <thead className="bg-[#676767]">
                                         <tr>
                                             <th scope="col" className="px-6 lg:ps-3 xl:ps-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         No
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 lg:ps-3 xl:ps-0  py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         Name
                                                     </span>
                                                 </div>
@@ -171,7 +167,7 @@ const WithDraw = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         Bet No
                                                     </span>
                                                 </div>
@@ -179,14 +175,14 @@ const WithDraw = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         Amount
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         Account Title
                                                     </span>
                                                 </div>
@@ -194,7 +190,7 @@ const WithDraw = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         Account Number
                                                     </span>
                                                 </div>
@@ -202,14 +198,14 @@ const WithDraw = () => {
 
                                             <th scope="col" className="px-6 py-3 text-center">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         Phone Number
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-center">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200">
+                                                    <span className="text-sm font-semibold tracking-wide text-gray-200">
                                                         P.O.P
                                                     </span>
                                                 </div>
@@ -219,7 +215,7 @@ const WithDraw = () => {
 
                                     </thead>
 
-                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tbody className="divide-y divide-gray-700">
 
                                         {filteredData.map((rowData, index) => (
                                             <tr key={rowData.id}>
@@ -250,7 +246,7 @@ const WithDraw = () => {
                                                     <div className=" py-3">
                                                         <div className="flex item-center gap-2">
                                                             {rowData.betNo.map((bet, index) => (
-                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-[#B600D4] dark:text-gray-200 cursor-text">{bet}</button>
+                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text">{bet}</button>
                                                             ))}
                                                         </div>
                                                     </div>
@@ -258,27 +254,27 @@ const WithDraw = () => {
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.betAmount}</span>
+                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.betAmount}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.accountTitle}</span>
+                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.accountTitle}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.accountNumber}</span>
+                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.accountNumber}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">{rowData?.phoneNumber}</span>
+                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.phoneNumber}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+                                                        <span className="block text-sm font-semibold text-gray-200">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg>
                                                         </span>
                                                     </div>
@@ -292,29 +288,6 @@ const WithDraw = () => {
                                 </table>
                                 {/* <!-- End Table --> */}
 
-                                {/* <!-- Footer --> */}
-                                <div className="px-6 py-4 grid gap-3 md:flex md:justify-between dark:bg-black md:items-center border-t border-gray-200 dark:border-gray-700">
-                                    <div>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                                            <span className="font-semibold text-gray-800 dark:text-gray-200">{filteredData.length}</span> results
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <div className="inline-flex gap-x-2">
-                                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                                <svg className="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-                                                Prev
-                                            </button>
-
-                                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                                Next
-                                                <svg className="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                {/* <!-- End Footer --> */}
                             </div>
                         </div>
                     </div>
