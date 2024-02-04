@@ -33,7 +33,7 @@ const AdminPanelBody = () => {
                 </div>
 
 
-                <div className={`  transition-all duration-300 transform fixed top-20 start-0 bottom-0 z-60 w-64 border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ${isSidebarOpen ? 'block' : 'hidden'} [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-700 [&::-webkit-scrollbar-thumb]:bg-slate-500 bg-black`}>
+                <div className={`  transition-all duration-300 transform fixed top-20 start-0 bottom-0 z-50 w-64 border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ${isSidebarOpen ? 'block' : 'hidden'} [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-700 [&::-webkit-scrollbar-thumb]:bg-slate-500 bg-black`}>
 
 
                     <nav className=" py-0 px-0 w-full flex flex-col flex-wrap" >
