@@ -13,7 +13,6 @@ function setMongoose() {
   });
 };
 
-
 export const createBet = async (req,res,next) => {
   try {
     const {

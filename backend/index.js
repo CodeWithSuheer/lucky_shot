@@ -60,6 +60,13 @@ cron.schedule("10 0 * * *", async () => {
   timezone: "Asia/Karachi" 
 });
 
+// cron.schedule("30 17 * * *", async () => {
+//   console.log("Running backup account job");
+//   await updateBackupAccount();
+// }, {
+//   timezone: "Asia/Karachi" 
+// });
+
 
 mongoose
 .connect(process.env.MONGODB_URI)
