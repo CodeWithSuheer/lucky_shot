@@ -38,7 +38,7 @@ const CircularProgress = ({ identifier, startValue, endValue, speed, circleColor
       setProgressValue(prevValue => {
         const newValue = prevValue + 1;
         if (circularProgressRef.current) {
-          circularProgressRef.current.style.background = `conic-gradient(${circleColor} ${newValue * 3.6}deg, #ededed 0deg)`;
+          circularProgressRef.current.style.background = `conic-gradient(${circleColor} ${newValue * 3.6}deg, #6c6c6c 0deg)`;
         }
 
         if (newValue === endValue) {

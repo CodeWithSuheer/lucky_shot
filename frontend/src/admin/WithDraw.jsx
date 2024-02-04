@@ -223,10 +223,13 @@ const WithDraw = () => {
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
                                                         <div className="flex items-center gap-x-3">
-                                                            {rowData.withdraw && ( // Conditionally render circle element
-                                                                <span className="bg-[#B600D4] rounded-full h-3 w-3"></span>
-                                                            )}
-                                                            <div className={` ${rowData.withdraw ? 'bg-[#B600D4] grow' : 'bg-[#B600D4] '} rounded-full`}>
+                                                            {rowData.withdraw ? ( // Conditionally render circle element
+                                                                <span className="bg-[#00c14d] rounded-full h-3 w-3"></span>
+                                                            ):(
+                                                                <span className=" border-2 border-[#00c14d] rounded-full h-3 w-3"></span>   
+                                                            )
+                                                        }
+                                                            <div className={` ${rowData.withdraw ? 'bg-[#B600D4] grow' : 'bg-[#B600D4] grow'} rounded-full`}>
                                                                 <span className="block text-sm text-gray-200 text-center px-2 py-0.5">{index + 1}</span>
                                                             </div>
                                                         </div>

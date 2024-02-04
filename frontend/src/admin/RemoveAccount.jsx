@@ -43,7 +43,6 @@ const RemoveAccount = () => {
                             <div className="rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
                                 {/* <!-- Table --> */}
                                 <table className="min-w-full divide-y divide-gray-700">
-
                                     <thead className="bg-[#676767]">
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">

@@ -129,6 +129,7 @@ const BetTable = () => {
                         <div className="p-1.5 min-w-full inline-block align-middle">
                             <div className=" rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
                                 {/* <!-- Table --> */}
+
                                 <table className="min-w-full divide-y  divide-gray-700">
                                     <thead className="bg-[#676767]">
                                         <tr>

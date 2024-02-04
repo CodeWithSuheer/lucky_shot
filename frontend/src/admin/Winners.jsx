@@ -170,6 +170,7 @@ const Winners = () => {
 
                                     </thead>
 
+
                                     <tbody className="divide-y divide-gray-700">
 
                                         {filteredData.map((rowData) => (
@@ -179,7 +180,7 @@ const Winners = () => {
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
                                                         <div className="flex items-center gap-x-3">
                                                             <div className="grow">
-                                                                <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{rowData?.id}</span>
+                                                                <span className="flex items-center justify-center bg-[#d1ae57] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{rowData?.id}</span>
                                                             </div>
                                                         </div>
                                                     </div>

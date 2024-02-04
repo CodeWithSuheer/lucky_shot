@@ -124,6 +124,7 @@ const Users = () => {
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+
                                                         No
                                                     </span>
                                                 </div>
