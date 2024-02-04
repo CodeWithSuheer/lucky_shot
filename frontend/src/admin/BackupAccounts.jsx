@@ -1,27 +1,17 @@
 import React from 'react'
 import { Trash2 } from 'lucide-react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { GetAccounts } from '../Features/AccountSlice';
+import { useEffect } from 'react';
 const BackupAccounts = () => {
-    const userData = [
-        {
-            name: 'Umer Javaid',
-            accountTitle: 'UMER JAVAID',
-            payment: 'sadapay',
-            accountNumber: '03324700802'
-        },
-        {
-            name: 'Umer Javaid',
-            accountTitle: 'UMER JAVAID',
-            payment: 'sadapay',
-            accountNumber: '03324700802'
-        },
-        {
-            name: 'Umer Javaid',
-            accountTitle: 'UMER JAVAID',
-            payment: 'sadapay',
-            accountNumber: '03324700802'
-        },
-    ]
+    const dispatch = useDispatch();
+    const data = useSelector(state => state.Account.data);
+    const loading = useSelector(state => state.Account.loading);
+
+    useEffect(() => {
+        dispatch(GetAccounts());
+    }, [dispatch]);
+    const backupData = data?.filter(item => item.backupAccount === true);
     return (
         <>
             {/* <!-- Table Section --> */}
@@ -75,13 +65,26 @@ const BackupAccounts = () => {
                                                 </div>
                                             </th>
 
-
+                                            <th scope="col" className="px-6 py-3 text-start">
+                                                <div className="flex items-center gap-x-2">
+                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                        Account Limit
+                                                    </span>
+                                                </div>
+                                            </th>
 
                                         </tr>
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-600">
-                                        {userData.map((data, index) => (
+                                    {loading ? (
+                                            
+                                            <div className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                       
+                                    ) : (
+                                        backupData?.map((data, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
@@ -106,15 +109,28 @@ const BackupAccounts = () => {
                                                 </td>
 
                                                 <td className="h-px w-72 whitespace-nowrap">
-                                                    <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <img className='h-4' src="https://www.software786.com/wp-content/uploads/2023/04/sadapay-logo-600x445.png" alt="" />
-                                                        <span className="block text-md lg:text-md font-semibold text-gray-200">{data.payment}</span>
-                                                    </div>
-                                                </td>
-
+    <div className="px-6 py-3 flex gap-1 items-center">
+        {data.paymentMethod === 'Jazz Cash' ? (
+            <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
+        ) : (
+            <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
+        )}
+        <span className="block text-md lg:text-md font-semibold text-gray-200">{data.paymentMethod}</span>
+    </div>
+</td>
+<td className="h-px w-72 whitespace-nowrap">
+    <div className="px-6 py-3 flex gap-1 items-center">
+        {data?.backupAccountCounter < 4 ? (
+            <span className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-[#676767] text-white ">Daily Limit Complete</span>
+        ) : (
+            <span className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-[#676767] text-white ">Monthly Limit Complete</span>
+        )}
+    </div>
+</td>
 
                                             </tr>
-                                        ))}
+                                        ))
+                                    )}
                                     </tbody>
 
                                 </table>

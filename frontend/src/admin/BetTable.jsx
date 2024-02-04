@@ -1,65 +1,33 @@
 import React from 'react'
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetBets } from '../Features/BetSlice';
+import { useEffect } from 'react';
 const BetTable = () => {
-    const [activeFilter, setActiveFilter] = useState('100 PKR');
+    const [activeFilter, setActiveFilter] = useState(100);
     const [searchText, setSearchText] = useState('');
-    const tableData = [
-        {
-            id: 1,
-            name: 'Umer Javaid',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802'
-        },
-        {
-            id: 2,
-            name: 'Umer Javaid',
-            betNo: [1, 2, 3],
-            betAmount: '200 PKR',
-            phoneNumber: '0332 4700802'
-        },
-        {
-            id: 3,
-            name: 'Umer Javaid',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802'
-        },
-        {
-            id: 4,
-            name: 'Umer Javaid',
-            betNo: [1, 2, 3],
-            betAmount: '500 PKR',
-            phoneNumber: '0336 4700802'
-        },
-        {
-            id: 5,
-            name: 'Umer Javaid',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802'
-        },
-
-        {
-            id: 6,
-            name: 'Umer Javaid',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802'
-        }
-        // Add more objects as needed
-    ];
-    const filteredData = tableData.filter(row => {
-        const matchFilter = row.betAmount === activeFilter;
-        const matchSearch = row.phoneNumber.toLowerCase().includes(searchText.toLowerCase());
-        return matchFilter && matchSearch;
+    const dispatch = useDispatch();
+    const data = useSelector(state => state.Bet.data);
+    const loading = useSelector(state => state.Bet.loading);
+    useEffect(() => {
+        dispatch(GetBets());
+    }, [dispatch]);
+ 
+    const filteredData = data?.filter(row => {
+        // Check if betAmount matches the activeFilter
+        const matchAmount = row.betAmount === activeFilter;
+        // Check if mobileNumber contains the searchText (case insensitive)
+        const matchSearch = row.mobileNumber.toLowerCase().includes(searchText.toLowerCase());
+        // Return true if both conditions are met
+        return matchAmount && matchSearch;
     });
+    
 
     // Event handler for search input
     const handleSearch = (event) => {
         setSearchText(event.target.value);
     };
-
+console.log('filtered data',filteredData)
     return (
         <>
             {/* <!-- Table Section --> */}
@@ -105,20 +73,20 @@ const BetTable = () => {
                 {/* <!-- Tabs --> */}
                 <div className="my-5 flex justify-center sm:justify-start flex-wrap gap-2.5 lg:gap-4 items-center text-white">
                     <button
-                        onClick={() => setActiveFilter('100 PKR')} // Set active filter and change state
-                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '100 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                        onClick={() => setActiveFilter(100)} // Set active filter and change state
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === 100 ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
                     >
-                        100 PKR
+                        100  PKR
                     </button>
                     <button
-                        onClick={() => setActiveFilter('200 PKR')}
-                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '200 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                        onClick={() => setActiveFilter(200)}
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === 200 ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
                     >
                         200 PKR
                     </button>
                     <button
-                        onClick={() => setActiveFilter('500 PKR')}
-                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '500 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                        onClick={() => setActiveFilter(500)}
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === 500 ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
                     >
                         500 PKR
                     </button>
@@ -178,8 +146,14 @@ const BetTable = () => {
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-600">
-
-                                        {filteredData.map((rowData, index) => (
+                                    {loading ? (
+                                            
+                                            <div className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                       
+                                    ) : (
+                                        filteredData?.map((rowData, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
@@ -201,27 +175,28 @@ const BetTable = () => {
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
+                                                    <div className="flex item-center gap-1">
+    {rowData.betNumber.toString().split('').map((digit, index) => (
+        <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text">{digit}</button>
+    ))}
+</div>
 
-                                                        <div className="flex item-center gap-1">
-                                                            {rowData.betNo.map((bet, index) => (
-                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text">{bet}</button>
-                                                            ))}
-                                                        </div>
 
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-md lg:text-md font-semibold text-gray-200">{rowData.betAmount}</span>
+                                                        <span className="block text-md lg:text-md  text-gray-200">{rowData.betAmount} PKR</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-md lg:text-md font-semibold text-gray-200">{rowData.phoneNumber}</span>
+                                                        <span className="block text-md lg:text-md  text-gray-200">{rowData.mobileNumber}</span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        ))}
+                                        ))
+                                    )}
                                     </tbody>
 
                                 </table>
