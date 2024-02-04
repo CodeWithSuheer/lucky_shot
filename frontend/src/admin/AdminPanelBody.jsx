@@ -51,7 +51,7 @@ const AdminPanelBody = () => {
                                 Amount Details
                             </Link></li>
                             <li >
-                                <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer" >
+                                <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer" onClick={toggleSubMenu} >
                                     Edit Account
                                     {
                                         isSubMenuOpen ? (
