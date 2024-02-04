@@ -93,6 +93,8 @@ const BetTable = () => {
                                 type="text"
                                 className="md:w-64 lg:w-72 py-2 pl-10 pr-4 text-gray-700 bg-transparent border border-[#D9D9D9] rounded-lg focus:border-[#D9D9D9] focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-[#D9D9D9] placeholder:text-sm"
                                 placeholder="Search by Phone Number"
+                                value={searchText}
+                                onChange={handleSearch}
                             />
                         </div>
                     </div>
