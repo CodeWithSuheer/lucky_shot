@@ -6,11 +6,13 @@ const updateBackupAccount = async () => {
   try {
     const currentDate = moment();
     const thirtyOneDaysAgo = moment().subtract(31,'days');
+    console.log(thirtyOneDaysAgo);
     const accountsToUpdate = await Accounts.find({
         backupAccount: true,
         backupAccountCounter: 4,
-        updatedAt: { $gte: thirtyOneDaysAgo },
+        lastUpdated: { $gte: thirtyOneDaysAgo },
     });
+    console.log(accountsToUpdate);
     if (accountsToUpdate.length > 0) {
         await Accounts.updateMany(
             { _id: { $in: accountsToUpdate.map(account => account._id) } },
