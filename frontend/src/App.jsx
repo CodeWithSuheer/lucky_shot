@@ -11,7 +11,7 @@ import RemoveAccount from './admin/RemoveAccount';
 import BackupAccounts from './admin/BackupAccounts';
 import WithDraw from "./admin/WithDraw";
 import './App.css'
-
+import  { Toaster } from 'react-hot-toast';
 function App() {
 
   return (
@@ -32,6 +32,7 @@ function App() {
             <Route path="backupaccounts" element={<BackupAccounts />} />
           </Route>
         </Routes>
+        <Toaster/>
       </BrowserRouter>
     </>
   )

@@ -1,76 +1,30 @@
 import React from 'react'
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetBets } from '../Features/BetSlice';
+import { useEffect } from 'react';
 const Winners = () => {
-    const [activeFilter, setActiveFilter] = useState('100 PKR');
-
-    const tableData = [
-        {
-            id: 1,
-            name: 'John Doe',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802',
-            accountTitle: 'John Doe',
-            accountNumber: '0345 1234567', // Example account number
-            paymentMethod: 'EasyPaisa' // Added payment method
-        },
-        {
-            id: 2,
-            name: 'Alice Smith',
-            betNo: [1, 2, 3],
-            betAmount: '200 PKR',
-            phoneNumber: '0332 4700802',
-            accountTitle: 'Alice Smith',
-            accountNumber: '0321 7654321', // Example account number
-            paymentMethod: 'JazzCash' // Added payment method
-        },
-        {
-            id: 3,
-            name: 'Bob Johnson',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802',
-            accountTitle: 'Bob Johnson',
-            accountNumber: '0300 9876543', // Example account number
-            paymentMethod: 'Sadapay' // Added payment method
-        },
-        {
-            id: 4,
-            name: 'Emma Brown',
-            betNo: [1, 2, 3],
-            betAmount: '500 PKR',
-            phoneNumber: '0336 4700802',
-            accountTitle: 'Emma Brown',
-            accountNumber: '0312 4567890', // Example account number
-            paymentMethod: 'EasyPaisa' // Added payment method
-        },
-        {
-            id: 5,
-            name: 'Michael Johnson',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802',
-            accountTitle: 'Michael Johnson',
-            accountNumber: '0344 6543210', // Example account number
-            paymentMethod: 'JazzCash' // Added payment method
-        },
-        {
-            id: 6,
-            name: 'Sarah Williams',
-            betNo: [1, 2, 3],
-            betAmount: '100 PKR',
-            phoneNumber: '0332 4700802',
-            accountTitle: 'Sarah Williams',
-            accountNumber: '0320 9876543', // Example account number
-            paymentMethod: 'Sadapay' // Added payment method
-        }
-    ];
-
-    const filteredData = tableData.filter(row => {
-        const matchFilter = row.betAmount === activeFilter;
-        return matchFilter
+   
+ const [activeFilter, setActiveFilter] = useState(100);
+    const [searchText, setSearchText] = useState('');
+    const dispatch = useDispatch();
+    const data = useSelector(state => state.Bet.data);
+    const loading = useSelector(state => state.Bet.loading);
+    useEffect(() => {
+        dispatch(GetBets());
+    }, [dispatch]);
+ 
+    const filteredData = data?.filter(row => {
+        // Check if betAmount matches the activeFilter
+        const matchAmount = row.betAmount === activeFilter;
+        // Check if mobileNumber contains the searchText (case insensitive)
+        const matchSearch = row.mobileNumber.toLowerCase().includes(searchText.toLowerCase());
+        // Return true if both conditions are met
+        return matchAmount && matchSearch;
     });
+    const WinnerData = filteredData?.filter(item => item.isBetWinner === true);
 
+console.log('Winner Data',WinnerData)
     return (
         <>
             {/* <!-- Table Section --> */}
@@ -84,20 +38,20 @@ const Winners = () => {
                 {/* <!-- Tabs --> */}
                 <div className="my-5 flex justify-center sm:justify-start flex-wrap gap-2.5 lg:gap-4 items-center text-white">
                     <button
-                        onClick={() => setActiveFilter('100 PKR')} // Set active filter and change state
-                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '100 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                        onClick={() => setActiveFilter(100)} // Set active filter and change state
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === 100 ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
                     >
-                        100 PKR
+                        100  PKR
                     </button>
                     <button
-                        onClick={() => setActiveFilter('200 PKR')}
-                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '200 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                        onClick={() => setActiveFilter(200)}
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === 200 ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
                     >
                         200 PKR
                     </button>
                     <button
-                        onClick={() => setActiveFilter('500 PKR')}
-                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === '500 PKR' ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
+                        onClick={() => setActiveFilter(500)}
+                        className={`px-3 sm:px-6 lg:px-8 py-2 text-sm sm:text-sm lg:text-md font-medium border rounded-md ${activeFilter === 500 ? 'bg-[#B600D4] border-[#B600D4]' : 'border-[#B600D4] text-white hover:bg-[#B600D4] hover:text-white'}`}
                     >
                         500 PKR
                     </button>
@@ -172,15 +126,21 @@ const Winners = () => {
 
 
                                     <tbody className="divide-y divide-gray-700">
-
-                                        {filteredData.map((rowData) => (
+                                    {loading ? (
+                                            
+                                            <div className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                       
+                                    ) : (
+                                        WinnerData.map((rowData,index) => (
                                             <tr key={rowData.id}>
 
                                                 <td className="h-px w-px whitespace-nowrap">
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
                                                         <div className="flex items-center gap-x-3">
                                                             <div className="grow">
-                                                                <span className="flex items-center justify-center bg-[#d1ae57] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{rowData?.id}</span>
+                                                                <span className="flex items-center justify-center bg-[#d1ae57] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index+1}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -196,37 +156,39 @@ const Winners = () => {
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className=" py-3">
-                                                        <div className="flex item-center gap-2">
-                                                            {rowData.betNo.map((bet, index) => (
-                                                                <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text">{bet}</button>
-                                                            ))}
-                                                        </div>
+                                                    <div className="flex item-center gap-2">
+    {rowData.betNumber.toString().split('').map((digit, index) => (
+        <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text">{digit}</button>
+    ))}
+</div>
+
                                                     </div>
 
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.betAmount}</span>
+                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.betAmount} PKR</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.accountTitle}</span>
+                                                        <span className="block text-sm  text-gray-200">{rowData?.prizeAcntInfo.acntTitle}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.accountNumber}</span>
+                                                        <span className="block text-sm  text-gray-200">{rowData?.prizeAcntInfo.acntNumber}</span>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-sm font-semibold text-gray-200">{rowData?.phoneNumber}</span>
+                                                        <span className="block text-sm  text-gray-200">{rowData?.mobileNumber}</span>
                                                     </div>
                                                 </td>
                                             </tr>
 
-                                        ))}
+                                        ))
+                                    )}
 
                                     </tbody>
                                 </table>
