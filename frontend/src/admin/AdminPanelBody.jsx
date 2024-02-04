@@ -17,9 +17,10 @@ const AdminPanelBody = () => {
         <>
             <div className={`bg-black `}>
                 {/* <----------------- Sidebar Toggle -----------------> */}
-                <div className="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-900 dark:border-gray-700">
+                <div className="sticky top-0 inset-x-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-900 dark:border-gray-700">
                     <div className="flex items-center py-4">
                         {/* <!-- Navigation Toggle --> */}
+
                         <button type="button" class="text-gray-500 hover:text-gray-600" aria-label="Toggle navigation" onClick={toggleSidebar}>
         <span class="sr-only">Toggle Navigation</span>
         <svg class="w-5 h-5" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -31,10 +32,13 @@ const AdminPanelBody = () => {
                     </div>
                 </div>
 
+
                 <div  className={`  transition-all duration-300 transform fixed top-20 start-0 bottom-0 z-60 w-64 bg-white border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ${isSidebarOpen ? 'block' : 'hidden'} [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-black`}>
+
 
                     <nav className=" py-0 px-0 w-full flex flex-col flex-wrap" >
                         <ul className="space-y-1.5">
+
                             <li><Link onClick={toggleSidebar} to="/admin/" className={`${location.pathname === "/admin/" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Dashboard
                             </Link></li>
@@ -52,6 +56,7 @@ const AdminPanelBody = () => {
                             </Link></li>
                             <li >
                                 <button type="button" className="w-full flex items-center gap-10 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer" onClick={toggleSubMenu} >
+
                                     Edit Account
                                     {
                                         isSubMenuOpen ? (
@@ -63,6 +68,7 @@ const AdminPanelBody = () => {
 
                                 <div id="account-accordion" className={`hs-accordion-content w-full overflow-hidden transition-[height] ${isSubMenuOpen ? 'block' : 'hidden'}`}>
                                     <ul className="pt-2 ps-5">
+
                                         <li><Link onClick={toggleSidebar} to="/admin/addaccounts" className={`${location.pathname === "/admin/addaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                             Add Account
                                         </Link></li>
@@ -70,11 +76,13 @@ const AdminPanelBody = () => {
                                             Remove Account
                                         </Link></li>
                                         <li><Link onClick={toggleSidebar} to="/admin/backupaccounts" className={`${location.pathname === "/admin/backupaccounts" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
+
                                             Backup Account
                                         </Link></li>
                                     </ul>
                                 </div>
                             </li>
+
                             <li><Link onClick={toggleSidebar} to="/admin/WithDraw" className={`${location.pathname === "/admin/WithDraw" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide  font-normal text-[#eee] hover:bg-gray-100 dark:hover:bg-[#474747] dark:text-[#eee] dark:hover:text-[#eee] cursor-pointer"`}>
                                 Add Withdrawal
                             </Link></li>
