@@ -79,7 +79,6 @@ export const updateAccountLimit = async (req, res, next) => {
     if (!account) {
       return res.status(404).json({ msg: "Account not found." });
     }
-    console.log(account);
     await account.updateOne({
       $set: {
         backupAccount: true,

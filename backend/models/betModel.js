@@ -50,7 +50,8 @@ const schema = new mongoose.Schema({
   isBetWinner:{
     type : Boolean ,
     default : false,
-  }
+  },
+  published: { type: Boolean , default: false}
 },{ timestamps: true });
 
 export const Bets = mongoose.model("Bets", schema);

@@ -12,6 +12,6 @@ const adminRouter = express.Router();
 adminRouter.post("/signup", signUp);
 adminRouter.post("/login", login);
 adminRouter.delete("/logout",logout);
-adminRouter.delete("/authAdminSessionEverytime",authAdmin);
+adminRouter.post("/authAdminSessionEverytime",authAdmin);
 
 export default adminRouter;
