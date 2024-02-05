@@ -4,7 +4,8 @@ import App from './App.jsx'
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 import './index.css'
-
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

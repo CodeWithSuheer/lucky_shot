@@ -3,11 +3,13 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 
 import AccountSlice from "../Features/AccountSlice";
 import BetSlice from '../Features/BetSlice'
+import AuthSlice from "../Features/AuthSlice";
 export const store = configureStore({
   reducer: {
    
     Account: AccountSlice,
-    Bet:BetSlice
+    Bet:BetSlice,
+    Auth:AuthSlice
   
   },
  

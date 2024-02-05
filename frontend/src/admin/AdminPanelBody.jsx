@@ -1,9 +1,26 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { LogOut } from "lucide-react";
+import { useDispatch } from 'react-redux';
+import { Logout } from '../Features/AuthSlice';
+import { useNavigate } from 'react-router-dom';
 const AdminPanelBody = () => {
     const location = useLocation();
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const dispatch = useDispatch()
+const navigate = useNavigate()
+const LogoutAdmin = ( ) => {
+    dispatch(Logout())
+    .then((response) => {
+        if (response.payload && response.payload.msg) {
+           navigate('/')
+        }
+    })
+    .catch((error) => {
+        console.error('Error occurred:', error);
+    });
+}
     const toggleSubMenu = () => {
         setIsSubMenuOpen(!isSubMenuOpen);
     };
@@ -18,7 +35,7 @@ const AdminPanelBody = () => {
             <div className={`bg-black `}>
                 {/* <----------------- Sidebar Toggle -----------------> */}
                 <div className="sticky top-0 inset-x-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden bg-gray-900 border-gray-700">
-                    <div className="flex items-center py-4">
+                    <div className="flex justify-between items-center py-4">
                         {/* <!-- Navigation Toggle --> */}
 
                         <button type="button" class="text-gray-500 hover:text-gray-600" aria-label="Toggle navigation" onClick={toggleSidebar}>
@@ -27,6 +44,8 @@ const AdminPanelBody = () => {
                                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </button>
+
+                <button  onClick={LogoutAdmin} className='mr-10  p-1 rounded-lg bg-[#474747]'><LogOut /></button>
 
 
                     </div>
@@ -39,9 +58,19 @@ const AdminPanelBody = () => {
                     <nav className=" py-0 px-0 w-full flex flex-col flex-wrap" >
                         <ul className="space-y-1.5">
 
-                            <li><Link onClick={toggleSidebar} to="/admin/" className={`${location.pathname === "/admin/" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal hover:bg-[#474747] text-[#eee] hover:text-[#eee] cursor-pointer"`}>
-                                Dashboard
-                            </Link></li>
+                        <li>
+            <Link
+                onClick={toggleSidebar}
+                to="/admin"
+                className={`${
+                    location.pathname === "/admin" || location.pathname === "/admin/"
+                        ? "active-link"
+                        : ""
+                } w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal hover:bg-[#474747] text-[#eee] hover:text-[#eee] cursor-pointer`}
+            >
+                Dashboard
+            </Link>
+        </li>
                             <li><Link onClick={toggleSidebar} to="/admin/users" className={`${location.pathname === "/admin/users" ? "active-link" : ""} w-full flex items-center gap-x-3.5 py-2.5 pl-6 mb-2 text-xl tracking-wide font-normal hover:bg-[#474747] text-[#eee] hover:text-[#eee] cursor-pointer"`}>
                                 Users
                             </Link></li>
