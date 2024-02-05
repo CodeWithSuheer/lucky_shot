@@ -22,8 +22,14 @@ const BackupAccounts = () => {
                     <h2 className='text-2xl xs:text-3xl sm:text-4xl font-semibold tracking-wide'>Backup Account</h2>
                 </div>
 
-
-                {/* <!-- Table Block --> */}
+                {loading ? (
+                                            <div className="flex justify-center mt-12 items-center">
+                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                            </div>
+                                    ) : (
+                
                 <div className="flex flex-col">
                     <div className="-m-1.5 overflow-x-auto">
                         <div className="p-1.5 min-w-full inline-block align-middle">
@@ -77,13 +83,7 @@ const BackupAccounts = () => {
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-600">
-                                    {loading ? (
-                                            
-                                            <div className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full " role="status" aria-label="loading">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                       
-                                    ) : (
+                                    {
                                         backupData?.map((data, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
@@ -130,7 +130,7 @@ const BackupAccounts = () => {
 
                                             </tr>
                                         ))
-                                    )}
+                                    }
                                     </tbody>
 
                                 </table>
@@ -141,7 +141,7 @@ const BackupAccounts = () => {
                         </div>
                     </div>
                 </div>
-                {/* <!-- End Table Block --> */}
+                                    )}
             </div>
         </>
     )

@@ -27,7 +27,7 @@ const BetTable = () => {
     const handleSearch = (event) => {
         setSearchText(event.target.value);
     };
-console.log('filtered data',filteredData)
+
     return (
         <>
             {/* <!-- Table Section --> */}
@@ -91,9 +91,16 @@ console.log('filtered data',filteredData)
                         500 PKR
                     </button>
                 </div>
+                {loading ? (
+                                            <div className="flex justify-center mt-12 items-center">
+                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                            </div>
+                                    ) : (
 
 
-                {/* <!-- Card --> */}
+              
                 <div className="flex flex-col">
                     <div className="-m-1.5 overflow-x-auto">
                         <div className="p-1.5 min-w-full inline-block align-middle">
@@ -146,13 +153,7 @@ console.log('filtered data',filteredData)
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-600">
-                                    {loading ? (
-                                            
-                                            <div className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full " role="status" aria-label="loading">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                       
-                                    ) : (
+                                 {
                                         filteredData?.map((rowData, index) => (
                                             <tr>
                                                 <td className="h-px w-px whitespace-nowrap">
@@ -196,7 +197,7 @@ console.log('filtered data',filteredData)
                                                 </td>
                                             </tr>
                                         ))
-                                    )}
+                                    }
                                     </tbody>
 
                                 </table>
@@ -207,7 +208,7 @@ console.log('filtered data',filteredData)
                         </div>
                     </div>
                 </div>
-                {/* <!-- End Card --> */}
+                                    )}
             </div>
         </>
     )

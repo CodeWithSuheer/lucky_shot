@@ -101,8 +101,14 @@ const AmountDetails = () => {
                     </button>
                 </div>
 
+                {loading ? (
+                                            <div className="flex justify-center mt-12 items-center">
+                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                            </div>
+                                    ) : (
 
-                {/* <!-- Card --> */}
                 <div className="flex flex-col">
                     <div className="-m-1.5 overflow-x-auto">
                         <div className="p-1.5 min-w-full inline-block align-middle">
@@ -177,13 +183,7 @@ const AmountDetails = () => {
                                     </thead>
 
                                     <tbody className="divide-y divide-gray-700">
-                                    {loading ? (
-                                            
-                                            <div className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full " role="status" aria-label="loading">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                       
-                                    ) : (
+                                   {
                                         filteredData.map((rowData,index) => (
                                             <tr key={rowData.id}>
                                                 <td className="h-px w-px whitespace-nowrap">
@@ -245,7 +245,7 @@ const AmountDetails = () => {
                                             </tr>
 
                                         ))
-                                    )}
+                                    }
 
                                     </tbody>
                                 </table>
@@ -256,11 +256,11 @@ const AmountDetails = () => {
                         </div>
                     </div>
                 </div>
-
+                                    )}
 {showModal && <div class="w-full max-w-md mx-auto p-6">
     
   
-    <div  class="hs-overlay  w-full h-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
+    <div  class="  w-full h-full fixed top-0 start-0 z-50 overflow-x-hidden overflow-y-auto">
       <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
         <div class="relative flex flex-col bg-white shadow-lg rounded-xl ">
           <div class="absolute top-2 end-2 z-[10]">
