@@ -5,38 +5,20 @@ import toast from "react-hot-toast";
 //API URL
 const Url = "http://localhost:8080/api/bets";
 
-
-
-
-export const AddBetSLice = createAsyncThunk("admin/AddBetSLice", async (formdata) => {
+export const createBetWiners = createAsyncThunk("Bets/createBetWinners", async (ids) => {
   try {
-   
-
-    const response = await axios.post(`${Url}/createBet`,formdata);
-    
+    const response = await axios.post(`${Url}/createBetWinners`,ids);
     toast.success(response.data.message);
+    console.log(response.data);
+    console.log(ids);
     return response.data;
   } catch (error) {
- 
     toast.error(error.response.data.msg);
   }
 }
 );
 
-export const RemoveBetSlice = createAsyncThunk("admin/RemoveBetSlice", async (id) => {
-    try {
-     
-  
-      const response = await axios.post(`${Url}/deleteBet`,id);
-      console.log('dleter Bet',response)
-      toast.success(response.data.message);
-      return response.data;
-    } catch (error) {
-      toast.error(error.response.data.msg);
-    }
-  }
-  );
-  export const GetBets = createAsyncThunk("admin/getAllBets", async () => {
+  export const GetBets = createAsyncThunk("Bets/getAllBets", async () => {
     try {
 
       const response = await axios.post(`${Url}/getAllBets`);
@@ -62,21 +44,6 @@ const BetSlice = createSlice({
   extraReducers: (builder) => {
     builder
 
-     
-      // allFormDataAsync
-      .addCase(AddBetSLice.pending, (state, action) => {
-        state.loading = true;
-      })
-      .addCase(AddBetSLice.fulfilled, (state, action) => {
-        state.loading = false;
-      })
-      .addCase(RemoveBetSlice.pending, (state, action) => {
-        state.loading = true;
-      })
-      .addCase(RemoveBetSlice.fulfilled, (state, action) => {
-        state.loading = false;
-        
-      })
       .addCase(GetBets.pending, (state, action) => {
         state.loading = true;
       })
