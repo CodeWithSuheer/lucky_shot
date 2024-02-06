@@ -81,7 +81,7 @@ const WithDraw = () => {
 
   const handleSearch = (e) => {
     setSearchText(e.target.value);
-   
+
   };
 
   const handleselected = (id) => {
@@ -189,7 +189,7 @@ const WithDraw = () => {
                         >
                           <div className="flex items-center gap-x-2">
                             <span className="text-sm font-medium tracking-wide text-gray-200">
-                              NO.
+                              No
                             </span>
                           </div>
                         </th>
@@ -385,7 +385,7 @@ const WithDraw = () => {
                   overlay: 'customOverlay',
                   modal: 'customModal',
                 }}>
-                <div className="w-72 h-50 my-9 flex items-center justify-center "  >
+                <div className="h-50 my-9 flex items-center justify-center "  >
                   <img class="object-cover rounded-t-xl" src={selectedRow?.image?.secure_url} alt="Image Description" />
                 </div>
               </Modal>

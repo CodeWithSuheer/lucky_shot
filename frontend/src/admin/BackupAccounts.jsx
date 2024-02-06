@@ -121,13 +121,12 @@ const BackupAccounts = () => {
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
                                                                 {data?.backupAccountCounter < 4 ? (
-                                                                    <span className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-[#676767] text-white ">Daily Limit Complete</span>
+                                                                    <span className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-[#b4be1fe7] text-white ">Daily Limit Complete</span>
                                                                 ) : (
-                                                                    <span className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-[#676767] text-white ">Monthly Limit Complete</span>
+                                                                    <span className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-[#e64242] text-white ">Monthly Limit Complete</span>
                                                                 )}
                                                             </div>
                                                         </td>
-
                                                     </tr>
                                                 ))
                                             }
