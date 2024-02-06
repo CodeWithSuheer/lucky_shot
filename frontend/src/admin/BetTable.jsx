@@ -35,7 +35,7 @@ const BetTable = () => {
 
                 {/* <!-- Header --> */}
                 <div className="flex justify-between flex-wrap items-center text-white">
-                    <h2 className='text-4xl font-semibold tracking-wide'>Bet Table</h2>
+                    <h2 className='text-3xl md:text-4xl font-semibold tracking-wide'>Bet Table</h2>
 
 
                     {/* <!-- search bar --> */}

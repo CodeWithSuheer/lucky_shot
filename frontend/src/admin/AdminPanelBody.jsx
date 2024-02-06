@@ -44,7 +44,7 @@ const AdminPanelBody = () => {
                                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </button>
-                        <button onClick={LogoutAdmin} className='mr-10  p-1 rounded-lg bg-[#474747]'><LogOut /></button>
+                        <button onClick={LogoutAdmin} className='mr-3 sm:mr-10 p-1 rounded-lg bg-[#474747]'><LogOut /></button>
                     </div>
                 </div>
 

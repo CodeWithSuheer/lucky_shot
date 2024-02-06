@@ -309,28 +309,28 @@ const WithDraw = () => {
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm font-semibold text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.betAmount}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.prizeAcntInfo.acntTitle}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.prizeAcntInfo.acntNumber}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.mobileNumber}
                                 </span>
                               </div>
@@ -378,11 +378,20 @@ const WithDraw = () => {
         {/* <!-- End Card --> */}
 
         {open &&
-          <Modal open={open} onClose={onCloseModal} center>
-            <div className="aspect-w-16 h-50 my-9"  >
-              <img class="w-full object-cover rounded-t-xl" src={selectedRow?.image?.secure_url} alt="Image Description" />
-            </div>
-          </Modal>
+          <>
+            <section className="bg-black">
+              <Modal open={open} onClose={onCloseModal} center
+                classNames={{
+                  overlay: 'customOverlay',
+                  modal: 'customModal',
+                }}>
+                <div className="w-72 h-50 my-9 flex items-center justify-center "  >
+                  <img class="object-cover rounded-t-xl" src={selectedRow?.image?.secure_url} alt="Image Description" />
+                </div>
+              </Modal>
+            </section>
+          </>
+
         }
 
       </div>

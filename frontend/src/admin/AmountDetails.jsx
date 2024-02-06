@@ -87,7 +87,7 @@ const AmountDetails = () => {
 
                 {/* <!-- Header --> */}
                 <div className="flex justify-between flex-wrap items-center text-white">
-                    <h2 className='text-4xl font-semibold tracking-wide'>Amount Detail</h2>
+                    <h2 className='text-3xl md:text-4xl font-semibold tracking-wide'>Amount Detail</h2>
 
                     <div className="search_bar mr-10">
                         <div className="relative mt-4 md:mt-0">
@@ -256,22 +256,22 @@ const AmountDetails = () => {
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                <span className="block text-sm md:text-md  font-semibold text-gray-200">{rowData?.betAmount} PKR</span>
+                                                                <span className="block text-sm md:text-md  font-normal text-gray-200">{rowData?.betAmount} PKR</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                <span className="block text-sm md:text-md font-light   text-gray-200">{rowData?.prizeAcntInfo.acntTitle}</span>
+                                                                <span className="block text-sm md:text-md font-normal text-gray-200">{rowData?.prizeAcntInfo.acntTitle}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-76 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                <span className="block text-sm md:text-md font-light  text-gray-200">{rowData?.prizeAcntInfo.acntNumber}</span>
+                                                                <span className="block text-sm md:text-md font-normal text-gray-200">{rowData?.prizeAcntInfo.acntNumber}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3">
-                                                                <span className="block text-sm md:text-md font-light  text-gray-200">{rowData?.mobileNumber}</span>
+                                                                <span className="block text-sm md:text-md font-normal text-gray-200">{rowData?.mobileNumber}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
@@ -297,41 +297,36 @@ const AmountDetails = () => {
                         </div>
                     </div>
                 )}
+
                 {open &&
                     <Modal open={open} onClose={onCloseModal} center classNames={{
                         overlay: 'customOverlay',
                         modal: 'customModal',
                     }}>
+                        <div class=" px-2 py-4 my-4 md:my-1 sm:px-6 lg:px-4 lg:py-8">
 
-
-
-
-                        <div class=" px-2 py-4 my-4 md:my-1 sm:px-6 lg:px-10 lg:py-8 mx-auto">
-
-                            <div class=" md:p-6">
-                                <h5 class="block mb-1 text-md font-medium  text-white ">
+                            <div class="mb-6">
+                                <h5 class="text-sm sm:text-lg font-normal  text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total Winning Amount : {totalWinningAmount}
                                 </h5>
-                                <h5 class="text-md font-medium text-white  ">
+                                <h5 class="text-sm sm:text-lg font-normal text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total Winning Bets : {totalWinningBets}
                                 </h5>
-                                <h5 class="text-md font-medium text-white  ">
+                                <h5 class="text-sm sm:text-lg font-normal text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total Amount  : {totalAmount}
                                 </h5>
-                                <h5 class="text-md font-medium text-white  ">
+                                <h5 class="text-sm sm:text-lg font-normal text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total  Bets : {totalBets}
                                 </h5>
 
                             </div>
 
 
-                            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="flex justify-start items-center">
                                 {selectedRow.map((data) => (
-
-
-                                    <div class=" flex flex-col h-full bg-black    rounded-md  ">
-                                        <div class="h-60 object-cover  flex flex-col justify-center items-center  rounded-t-xl">
-                                            <img class="h-full w-full " src={data?.image?.secure_url} alt="Image " />
+                                    <div class=" flex flex-col h-full bg-[#0f0f0f] rounded-md">
+                                        <div class="h-60 object-cover  flex flex-col justify-center items-center rounded-t-xl">
+                                            <img class="" src={data?.image?.secure_url} alt="Image " />
                                         </div>
                                         <div class="p-4 md:p-6">
                                             <span class="block mb-1 text-md  uppercase text-white ">
@@ -347,22 +342,19 @@ const AmountDetails = () => {
                                                 <span class="block mb-1 text-md   text-white ">
                                                     Account Number : {data?.prizeAcntInfo.acntNumber}
                                                 </span>
-
                                             </div>
                                         </div>
-                                        <div class="mt-auto  p-4 md:p-6 border-t border-gray-200 divide-x divide-gray-200 border-gray-700 divide-gray-700">
+
+                                        <div class="mt-auto  p-4 md:p-6 border-t border-gray-200 divide-x divide-gray-200">
                                             <span class="  text-white text-sm  ">
                                                 Created Date : {new Date(data.createdAt).toLocaleString()}
                                             </span>
 
                                         </div>
                                     </div>
-
                                 ))}
                             </div>
                         </div>
-
-
                     </Modal>
                 }
 

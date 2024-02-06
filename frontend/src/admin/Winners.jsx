@@ -49,7 +49,7 @@ const Winners = () => {
       <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
         {/* <!-- Header --> */}
         <div className=" text-white">
-          <h2 className="text-4xl font-semibold tracking-wide">Winners</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-wide">Winners</h2>
         </div>
 
         {/* <!-- Tabs --> */}
@@ -201,28 +201,28 @@ const Winners = () => {
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm font-semibold text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.betAmount} PKR
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.prizeAcntInfo.acntTitle}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.prizeAcntInfo.acntNumber}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.mobileNumber}
                                 </span>
                               </div>
@@ -235,10 +235,10 @@ const Winners = () => {
                   {/* <!-- End Table --> */}
                 </div>
               </div>
-              <div className="flex pt-2 items-center justify-center ">
+              <div className="flex pt-3 items-center justify-center ">
                 <button
                   onClick={handlePublishingWinners}
-                  className="bg-[#B600D4] text-xl px-8 py-2 rounded-md"
+                  className="bg-[#B600D4] text-lg px-7 py-1.5 rounded-md"
                 >
                   Publish
                 </button>

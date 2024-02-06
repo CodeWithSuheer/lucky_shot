@@ -8,7 +8,7 @@ import { GetBets } from '../Features/BetSlice';
 import { useEffect } from 'react';
 import moment from 'moment';
 const Dashboard = () => {
- 
+
   const dispatch = useDispatch();
   const Betdata = useSelector(state => state.Bet.data);
   const loading = useSelector(state => state.Bet.loading);
@@ -19,7 +19,8 @@ const Dashboard = () => {
   const [totalRevenuelast, setTotalRevenuelast] = useState(0);
   const [totalSaleslast, setTotalSaleslast] = useState(0);
   const [mostRepeatedNumbers, setMostRepeatedNumbers] = useState([]);
- 
+  console.log('data', Betdata)
+
   useEffect(() => {
     dispatch(GetBets());
   }, [dispatch]);
@@ -124,18 +125,18 @@ console.log('last saven days data',sevenDaysAgodata)
 
 
 
- const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
-        <p className="intro">{`Frequency : ${payload[0].value}`}</p>
-      </div>
-    );
-  }
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
+          <p className="intro">{`Frequency : ${payload[0].value}`}</p>
+        </div>
+      );
+    }
 
-  return null;
-};
+    return null;
+  };
 
 
 
@@ -207,14 +208,14 @@ console.log('last saven days data',sevenDaysAgodata)
         </a>
 
 
-     
+
 
 
 
       </div>
 
       <div style={{ width: '100%', height: 300 }}>
-     <ResponsiveContainer>
+        <ResponsiveContainer>
           <AreaChart
             data={mostRepeatedNumbers}
             margin={{
@@ -223,12 +224,12 @@ console.log('last saven days data',sevenDaysAgodata)
               left: 0,
               bottom: 0,
             }}
-            
+
           >
-            <CartesianGrid strokeDasharray="3 3"  />
+            <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <Tooltip content={<CustomTooltip />} />
-            <Area type="monotone" dataKey="frequency" stroke="#B600D4" fill="#B600D4"  />
+            <Area type="monotone" dataKey="frequency" stroke="#B600D4" fill="#B600D4" />
           </AreaChart>
         </ResponsiveContainer>
 
@@ -236,9 +237,9 @@ console.log('last saven days data',sevenDaysAgodata)
       </div>
 
 
- 
 
-   
+
+
 
       <div className="grid sm:grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
       <div className="bg-[#474747] px-4 py-4 rounded-md">
@@ -247,32 +248,32 @@ console.log('last saven days data',sevenDaysAgodata)
 <p className='text-md font-normal text-white'>Punjab</p>
 <p className='text-lg font-medium text-white'>80%</p>
 
-</div>
-<div className="flex justify-between items-center py-1">
-<p className='text-md font-normal text-white'>Sindh</p>
-<p className='text-lg font-medium text-white'>60%</p>
+          </div>
+          <div className="flex justify-between items-center py-1">
+            <p className='text-md font-normal text-white'>Sindh</p>
+            <p className='text-lg font-medium text-white'>60%</p>
 
-</div>
-<div className="flex justify-between items-center py-1">
-<p className='text-md font-normal text-white'>KPK</p>
-<p className='text-lg font-medium text-white'>25%</p>
+          </div>
+          <div className="flex justify-between items-center py-1">
+            <p className='text-md font-normal text-white'>KPK</p>
+            <p className='text-lg font-medium text-white'>25%</p>
 
-</div>
-<div className="flex justify-between items-center py-1">
-<p className='text-md font-normal text-white'>Balochistan</p>
-<p className='text-lg font-medium text-white'>80%</p>
+          </div>
+          <div className="flex justify-between items-center py-1">
+            <p className='text-md font-normal text-white'>Balochistan</p>
+            <p className='text-lg font-medium text-white'>80%</p>
 
-</div>
-
-
+          </div>
 
 
-      </div>
 
 
-    <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
+        </div>
 
-    </div>
+
+        <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
+
+        </div>
 
 
       </div>
