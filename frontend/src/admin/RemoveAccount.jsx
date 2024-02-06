@@ -25,7 +25,7 @@ const RemoveAccount = () => {
         });
     }
 
-   
+
     return (
         <>
             {/* Table Section */}
@@ -36,111 +36,111 @@ const RemoveAccount = () => {
                     <h2 className='text-2xl xs:text-3xl sm:text-4xl font-semibold tracking-wide'>Remove Accounts</h2>
                 </div>
                 {loading ? (
-                                            <div className="flex justify-center mt-12 items-center">
-                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                            </div>
-                                    ) : (
-               
-                <div className="flex flex-col">
-                    <div className="-m-1.5 overflow-x-auto">
-                        <div className="p-1.5 min-w-full inline-block align-middle">
-                            <div className="rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
-                                {/* Table */}
-                                <table className="min-w-full divide-y divide-gray-700">
-                                    <thead className="bg-[#676767]">
-                                        <tr>
-                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium uppercase tracking-wide text-gray-200">
-                                                        NO.
-                                                    </span>
-                                                </div>
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Account Title
-                                                    </span>
-                                                </div>
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Account Number
-                                                    </span>
-                                                </div>
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Payment Method
-                                                    </span>
-                                                </div>
-                                            </th>
-                                          
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Remove
-                                                    </span>
-                                                </div>
-                                            </th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-gray-600 " >
-                                       {
-                                            data.map((data, index) => (
-                                                <tr key={index}>
-                                                    <td className="h-px w-px whitespace-nowrap">
-                                                        <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
-                                                            <div className="flex items-center gap-x-3">
-                                                                <div className="grow">
-                                                                    <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index + 1}</span>
+                    <div className="flex justify-center mt-12 items-center">
+                        <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
+
+                    <div className="flex flex-col">
+                        <div className="-m-1.5 overflow-x-auto">
+                            <div className="p-1.5 min-w-full inline-block align-middle">
+                                <div className="rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
+                                    {/* Table */}
+                                    <table className="min-w-full divide-y divide-gray-700">
+                                        <thead className="bg-[#676767]">
+                                            <tr>
+                                                <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium tracking-wide text-gray-200">
+                                                            No
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
+                                                            Account Title
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
+                                                            Account Number
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
+                                                            Payment Method
+                                                        </span>
+                                                    </div>
+                                                </th>
+
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
+                                                            Remove
+                                                        </span>
+                                                    </div>
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-600 " >
+                                            {
+                                                data.map((data, index) => (
+                                                    <tr key={index}>
+                                                        <td className="h-px w-px whitespace-nowrap">
+                                                            <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
+                                                                <div className="flex items-center gap-x-3">
+                                                                    <div className="grow">
+                                                                        <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index + 1}</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className="h-px w-72 whitespace-nowrap">
-                                                        <div className="px-6 py-3">
-                                                            <span className="block text-md lg:text-md tracking-wider font-semiboldtext-gray-200">{data.accountTitle}</span>
-                                                        </div>
-                                                    </td>
-                                                    <td className="h-px w-72 whitespace-nowrap">
-                                                        <div className="px-6 py-3">
-                                                            <span className="block text-md lg:text-md font-semibold text-gray-200">{data.accountNumber}</span>
-                                                        </div>
-                                                    </td>
-                                                    <td className="h-px w-72 whitespace-nowrap">
-                                                        <div className="px-6 py-3 flex gap-3 items-center">
-                                                            {data.paymentMethod === 'Jazz Cash' ? (
-                                                                <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
-                                                            ) : (
-                                                                <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
-                                                            )}
-                                                            <span className="block text-md lg:text-md font-semibold text-gray-200">{data.paymentMethod}</span>
-                                                        </div>
-                                                    </td>
-                                                  
+                                                        </td>
+                                                        <td className="h-px w-24 sm:w-44 whitespace-nowrap">
+                                                            <div className="px-6 py-3">
+                                                                <span className="block text-md lg:text-md tracking-wider font-semiboldtext-gray-200">{data.accountTitle}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-72 whitespace-nowrap">
+                                                            <div className="px-6 py-3">
+                                                                <span className="block text-md lg:text-md font-normal text-gray-200">{data.accountNumber}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-72 whitespace-nowrap">
+                                                            <div className="px-6 py-3 flex gap-3 items-center">
+                                                                {data.paymentMethod === 'Jazz Cash' ? (
+                                                                    <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
+                                                                ) : (
+                                                                    <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
+                                                                )}
+                                                                <span className="block text-md lg:text-md font-normal text-gray-200">{data.paymentMethod}</span>
+                                                            </div>
+                                                        </td>
 
 
-                                                    <td className="flex items-center justify-center py-3" onClick={() => DeleteAccount(data?.id)}>
-                                                        <div className="trash_button rounded-full bg-[#676767] text-[#ffffff] p-2 ms-2.5 transition hover:scale-110 cursor-pointer">
-                                                            <Trash2 size={18} />
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))
-                                        }
-                                    </tbody>
-                                </table>
+
+                                                        <td className="flex items-center justify-center py-3" onClick={() => DeleteAccount(data?.id)}>
+                                                            <div className="trash_button rounded-full bg-[#676767] text-[#ffffff] p-2 ms-2.5 transition hover:scale-110 cursor-pointer">
+                                                                <Trash2 size={18} />
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                                    )}
+                )}
             </div>
         </>
     )

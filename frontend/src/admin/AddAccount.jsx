@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AddAccountSLice } from '../Features/AccountSlice';
 import { useDispatch } from 'react-redux';
 const AddAccount = () => {
-       const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         accountNumber: '',
         accountTitle: '',
         limit: '50,000', // Initialize limit to 50,000
@@ -13,13 +13,13 @@ const AddAccount = () => {
     const dispatch = useDispatch();
 
     // Handle input changes
-  // Handle input changes
-// Handle input changes
-const handleChange = (e) => {
-    const { name, value } = e.target;
+    // Handle input changes
+    // Handle input changes
+    const handleChange = (e) => {
+        const { name, value } = e.target;
 
-    setFormData({ ...formData, [name]: value });
-};
+        setFormData({ ...formData, [name]: value });
+    };
 
     // Handle radio button selection
     const handleRadioChange = (e) => {
@@ -27,48 +27,48 @@ const handleChange = (e) => {
     };
 
     // Handle form submission
-// Handle form submission
-const handleSubmit = (e) => {
-    e.preventDefault();
-    const limitValue = parseFloat(formData.limit.replace(/,/g, ''));
-  
-    // Create a new payload with the limit value as a number
-    const payloadData = {
-        ...formData,
-        limit: limitValue
-    };
-    
-    // Dispatch the synchronous action with the form data
-    dispatch(AddAccountSLice(payloadData))
-        .then((response) => {
-            if (response.payload && response.payload.message) {
-                setFormData({
-                    accountNumber: '',
-                    accountTitle: '',
-                    limit: '50,000',
-                    paymentMethod: ''
-                });
-            }
-        })
-        .catch((error) => {
-            console.error('Error occurred:', error);
-        });
-};
+    // Handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const limitValue = parseFloat(formData.limit.replace(/,/g, ''));
 
-       
+        // Create a new payload with the limit value as a number
+        const payloadData = {
+            ...formData,
+            limit: limitValue
+        };
+
+        // Dispatch the synchronous action with the form data
+        dispatch(AddAccountSLice(payloadData))
+            .then((response) => {
+                if (response.payload && response.payload.message) {
+                    setFormData({
+                        accountNumber: '',
+                        accountTitle: '',
+                        limit: '50,000',
+                        paymentMethod: ''
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error occurred:', error);
+            });
+    };
+
+
 
     return (
         <>
-            <div className="max-w-[85rem] px-8 py-10 sm:px-6 lg:px-1 lg:py-4 mx-auto">
-                <div className="bg-[#474747] rounded-sm pt-9 pb-7 px-7">
+            <div className="md:max-w-[85rem] px-1 py-10 sm:px-6 lg:px-1 lg:py-4 mx-auto">
+                <div className="bg-[#474747] rounded-md pt-9 pb-7 px-4 md:px-7">
                     <div className="mb-7 flex justify-center items-center text-white">
-                        <h2 className='text-2xl xs:text-3xl sm:text-4xl font-semibold tracking-wide'>Add Accounts</h2>
+                        <h2 className='text-3xl xs:text-3xl sm:text-4xl font-medium sm:font-semibold tracking-wide'>Add Accounts</h2>
                     </div>
 
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 gap-3 mt-5 sm:grid-cols-1 md:grid-cols-2">
-                            <div className='md:col-span-1'>
-                                <label className="block mb-2 text-md font-medium text-gray-200">Account Number</label>
+                            <div className='md:col-span-1 mb-3 sm:mb-0'>
+                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Number :</label>
                                 <input
                                     type="text"
                                     name="accountNumber"
@@ -80,8 +80,8 @@ const handleSubmit = (e) => {
                                 />
                             </div>
 
-                            <div className='md:col-span-1'>
-                                <label className="block mb-2 text-md font-medium text-gray-200">Account Title</label>
+                            <div className='md:col-span-1 mb-3 sm:mb-0'>
+                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Title :</label>
                                 <input
                                     type="text"
                                     name="accountTitle"
@@ -93,7 +93,7 @@ const handleSubmit = (e) => {
                                 />
                             </div>
                             <div className='md:col-span-2'>
-                                <label className="block mb-2 text-md font-medium text-gray-200">Account Limit</label>
+                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Limit :</label>
                                 <input
                                     type="text"
                                     name="limit"
@@ -101,7 +101,7 @@ const handleSubmit = (e) => {
                                     className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
                                     value={formData.limit}
                                     onChange={handleChange}
-                                 
+
                                 />
                             </div>
 
@@ -148,7 +148,7 @@ const handleSubmit = (e) => {
                         <div className="flex justify-center items-center">
                             <div className="button_div w-full">
                                 <div className="flex justify-center">
-                                    <button type="submit" className='gradent px-8 py-2.5 rounded-md text-xl font-semibold'>Submit</button>
+                                    <button type="submit" className='gradent px-7 py-2 rounded-md text-lg font-normal'>Submit</button>
                                 </div>
                             </div>
                         </div>

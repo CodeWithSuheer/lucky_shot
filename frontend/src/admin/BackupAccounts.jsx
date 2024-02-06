@@ -41,15 +41,15 @@ const BackupAccounts = () => {
                                             <tr>
                                                 <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                     <div className="flex items-center gap-x-2">
-                                                        <span className="text-sm lg:text-md  font-medium uppercase tracking-wide text-gray-200">
-                                                            NO.
+                                                        <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200">
+                                                            No
                                                         </span>
                                                     </div>
                                                 </th>
 
                                                 <th scope="col" className="px-6 py-3 text-start">
                                                     <div className="flex items-center gap-x-2">
-                                                        <span className="text-sm lg:text-md  font-medium tracking-wide text-gray-200">
+                                                        <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200">
                                                             Account Title
                                                         </span>
                                                     </div>
@@ -57,7 +57,7 @@ const BackupAccounts = () => {
 
                                                 <th scope="col" className="px-6 py-3 text-start">
                                                     <div className="flex items-center gap-x-2">
-                                                        <span className="text-sm lg:text-md  font-medium tracking-wide text-gray-200">
+                                                        <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200">
                                                             Account Number
                                                         </span>
                                                     </div>
@@ -98,13 +98,13 @@ const BackupAccounts = () => {
 
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3">
-                                                                <span className="block text-md lg:text-md tracking-wider font-semibold text-gray-200">{data.accountTitle}</span>
+                                                                <span className="block text-md lg:text-md tracking-wider font-normal text-gray-200">{data.accountTitle}</span>
                                                             </div>
                                                         </td>
 
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3">
-                                                                <span className="block text-md lg:text-md font-semibold text-gray-200">{data.accountNumber}</span>
+                                                                <span className="block text-md lg:text-md font-normal text-gray-200">{data.accountNumber}</span>
                                                             </div>
                                                         </td>
 
@@ -115,7 +115,7 @@ const BackupAccounts = () => {
                                                                 ) : (
                                                                     <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
                                                                 )}
-                                                                <span className="block text-md lg:text-md font-semibold text-gray-200">{data.paymentMethod}</span>
+                                                                <span className="block text-md lg:text-md font-normal text-gray-200">{data.paymentMethod}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
