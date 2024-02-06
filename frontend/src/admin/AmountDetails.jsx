@@ -87,7 +87,7 @@ const AmountDetails = () => {
 
                 {/* <!-- Header --> */}
                 <div className="flex justify-between flex-wrap items-center text-white">
-                    <h2 className='text-4xl font-semibold tracking-wide'>Amount Detail</h2>
+                    <h2 className='text-3xl md:text-4xl font-semibold tracking-wide'>Amount Detail</h2>
 
                     <div className="search_bar mr-10">
                         <div className="relative mt-4 md:mt-0">
