@@ -125,15 +125,15 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium uppercase tracking-wide text-gray-200">
 
-                                                        No
+                                                        N0.
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Name
                                                     </span>
                                                 </div>
@@ -141,7 +141,7 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Account Title
                                                     </span>
                                                 </div>
@@ -149,7 +149,7 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium   text-gray-200">
                                                         Payment Method
                                                     </span>
                                                 </div>
@@ -157,12 +157,12 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Account Number
                                                     </span>
                                                 </div>
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-end"></th>
+                                          
                                         </tr>
                                     </thead>
 
@@ -175,7 +175,7 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
                                                     <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
                                                         <div className="flex items-center gap-x-3">
                                                             <div className="grow">
-                                                                <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index + 1}</span>
+                                                                <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-md lg:text-md text-gray-200">{index + 1}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -184,14 +184,14 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
                                                     <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-24 pe-6 py-3">
                                                         <div className="flex items-center gap-x-3">
                                                             <div className="grow">
-                                                                <span className="block text-md lg:text-md text-gray-200">{data.name}</span>
+                                                                <span className="block text-md md:text-lg  text-gray-200">{data.name}</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td className="h-px w-72 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-md lg:text-md tracking-wider  text-gray-200">{data?.prizeAcntInfo.acntTitle}</span>
+                                                        <span className="block text-md lg:text-lg tracking-wider  text-gray-200">{data?.prizeAcntInfo.acntTitle}</span>
                                                     </div>
                                                 </td>
                                                 <div className="px-6 py-3 flex gap-2 items-center">
@@ -200,11 +200,11 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
         ) : (
             <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
         )}
-        <span className="block text-sm text-wider lg:text-md  text-gray-200">{data.prizeAcntInfo.paymentMethod}</span>
+        <span className="block text-sm text-wider md:text-lg  text-gray-200">{data.prizeAcntInfo.paymentMethod}</span>
     </div>
-                                                <td className="h-px w-72 whitespace-nowrap">
+                                                <td className="h-px w-78 whitespace-nowrap">
                                                     <div className="px-6 py-3">
-                                                        <span className="block text-md lg:text-md  text-gray-200">{data?.prizeAcntInfo.acntNumber}</span>
+                                                        <span className="block text-md md:text-lg  text-gray-200">{data?.prizeAcntInfo.acntNumber}</span>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -225,6 +225,8 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
     <Modal open={open} onClose={onCloseModal} center>
         <div style={{ overflowX: "auto" }}>
         <DateRange
+        color='#B600D4'
+        rangeColors={'#B600D4'}
   editableDateInputs={true}
   onChange={item => {
     if (item.selection.endDate === null) {

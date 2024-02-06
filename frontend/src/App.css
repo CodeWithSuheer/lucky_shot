@@ -43,3 +43,24 @@ body::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, rgba(182, 1, 212, 1) 21%, rgba(79, 39, 177, 1) 83%) !important;
 }
 
+.customOverlay {
+  backdrop-filter: blur(5px); /* Adjust the blur radius as needed */
+}
+
+  .customModal {
+   
+    max-width: 90%;
+    background: #474747;
+    
+  }
+
+  /* Add this media query at the end of your CSS */
+@media screen and (max-width: 768px) {
+    
+    .customModal {
+      max-width: 90%;
+      margin-top: 20px;
+  
+    }
+  }
+  

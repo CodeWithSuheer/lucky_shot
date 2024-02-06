@@ -112,14 +112,14 @@ const BetTable = () => {
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-semibold uppercase tracking-wide text-gray-200">
-                                                        No
+                                                    <span className="text-sm lg:text-md font-medium uppercase  tracking-wide text-gray-200">
+                                                        NO.
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
                                                         Name
                                                     </span>
                                                 </div>
@@ -127,7 +127,7 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
                                                         Bet No
                                                     </span>
                                                 </div>
@@ -135,7 +135,7 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
                                                         Bet Amount
                                                     </span>
                                                 </div>
@@ -143,7 +143,7 @@ const BetTable = () => {
 
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
                                                         Phone Number
                                                     </span>
                                                 </div>
@@ -178,7 +178,7 @@ const BetTable = () => {
                                                     <div className="px-6 py-3">
                                                     <div className="flex item-center gap-1">
     {rowData.betNumber.toString().split('').map((digit, index) => (
-        <button key={index} className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text">{digit}</button>
+        <button key={index} className="border-[1px] border-[#B600D4] bg-transparent h-6 w-6 rounded-sm text-sm md:text-md font-semibold text-gray-200 cursor-text">{digit}</button>
     ))}
 </div>
 

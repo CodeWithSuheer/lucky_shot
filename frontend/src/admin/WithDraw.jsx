@@ -2,13 +2,20 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetBets, createBetWiners } from "../Features/BetSlice";
 import { useEffect, useState } from "react";
+import Modal from "react-responsive-modal";
 const WithDraw = () => {
   const [activeFilter, setActiveFilter] = useState(100);
   const [searchText, setSearchText] = useState("");
-  const [selectedRow, setSelectedRow] = useState(null); // State to hold the selected data
   const [showModal, setShowModal] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
+  const [selectedRow, setSelectedRow] = useState(null); 
+  const [open, setOpen] = useState(false);
 
+  const onOpenModal = (rowData) => {
+      setOpen(true);
+      setSelectedRow(rowData);
+  }
+  const onCloseModal = () => setOpen(false);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Bet.data);
   const loading = useSelector((state) => state.Bet.loading);
@@ -16,29 +23,69 @@ const WithDraw = () => {
     dispatch(GetBets());
   }, [dispatch]);
 
-  let filteredData ;
-
-   filteredData = data?.filter((row) => {
+console.log('data',data)
+  const filteredData = data?.filter((row) => {
     const matchAmount = row.betAmount === activeFilter;
-    const matchSearch = row.mobileNumber
-      .toLowerCase()
-      .includes(searchText.toLowerCase());
-    return matchAmount && matchSearch;
+    const matchSearch = row.mobileNumber.toLowerCase().includes(searchText.toLowerCase());
+    const createdAt = new Date(row.createdAt);
+    // Check if the bet amount matches the active filter
+    if (!matchAmount) return false;
+  
+    // Check if the createdAt timestamp falls within the specific time interval
+    const currentTimestamp = new Date(); // Get the current timestamp
+
+    if (activeFilter === 100) {
+        // Time interval: 2 PM to current timestamp
+        console.log('active filter 100', activeFilter);
+        console.log('created at', createdAt);
+    
+        const startTimestamp = new Date();
+        startTimestamp.setHours(13, 30, 0, 0); // 2 PM
+    
+       const endTimestamp = new Date(currentTimestamp);
+        return createdAt >= startTimestamp && createdAt < endTimestamp;
+    
+    } else if (activeFilter === 200) {
+        // Time interval: 6 PM to current timestamp
+        console.log('active filter 200', activeFilter);
+        console.log('created at', createdAt);
+    
+        const startTimestamp = new Date();
+        startTimestamp.setHours(17, 30, 0, 0); // 6 PM
+    
+        const endTimestamp = new Date(currentTimestamp); // Set endTimestamp to current timestamp
+        console.log("startTimestamp 200:", startTimestamp);
+        console.log("endTimestamp 200:", endTimestamp);
+        return createdAt >= startTimestamp && createdAt < endTimestamp;
+    } else if (activeFilter === 500) {
+        // Time interval: 10 PM to current timestamp
+        console.log('active filter 500', activeFilter);
+        console.log('created at', createdAt);
+    
+        const startTimestamp = new Date();
+        startTimestamp.setHours(21, 30, 0, 0); // 10 PM
+    
+        const endTimestamp = new Date(currentTimestamp); // Set endTimestamp to current timestamp
+        console.log("startTimestamp 500:", startTimestamp);
+        console.log("endTimestamp 500:", endTimestamp);
+        return createdAt >= startTimestamp && createdAt < endTimestamp;
+    }
+    
+  
+    // Default case
+    return matchSearch;
   });
+  
+  
+ 
+
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     const searchFilteredData = data.filter((bet)=>bet.mobileNumber.includes(searchText)) 
     console.log(filteredData);
     filteredData === searchFilteredData
   };
-  const openModal = (rowData) => {
-    console.log("Opening modal with rowData:", rowData);
-    setSelectedRow(rowData); // Set the selected data
-    setShowModal(true); // Show the modal
-  };
-  const closeModal = () => {
-    setShowModal(false);
-  };
+ 
   const handleselected = (id) => {
     setSelectedIds((prevSelectedIds) => {
       const isSelected = prevSelectedIds.includes(id);
@@ -52,6 +99,8 @@ const WithDraw = () => {
   const handleCreateWinners = () => {
    dispatch(createBetWiners({ids:selectedIds}))
   };
+
+
 
   return (
     <>
@@ -124,7 +173,13 @@ const WithDraw = () => {
           </button>
         </div>
 
-        {/* <!-- Card --> */}
+        {loading ? (
+                                            <div className="flex justify-center mt-12 items-center">
+                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                            </div>
+                                    ) : (
         <div className="flex flex-col">
           <div className="-m-1.5 overflow-x-auto">
             <div className="p-1.5 min-w-full inline-block align-middle">
@@ -138,8 +193,8 @@ const WithDraw = () => {
                         className="px-6 lg:ps-3 xl:ps-6 py-3 text-start"
                       >
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
-                            No
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
+                            NO.
                           </span>
                         </div>
                       </th>
@@ -148,7 +203,7 @@ const WithDraw = () => {
                         className="px-6 lg:ps-3 xl:ps-0  py-3 text-start"
                       >
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             Name
                           </span>
                         </div>
@@ -156,7 +211,7 @@ const WithDraw = () => {
 
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             Bet No
                           </span>
                         </div>
@@ -164,14 +219,14 @@ const WithDraw = () => {
 
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             Amount
                           </span>
                         </div>
                       </th>
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             Account Title
                           </span>
                         </div>
@@ -179,7 +234,7 @@ const WithDraw = () => {
 
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             Account Number
                           </span>
                         </div>
@@ -187,14 +242,14 @@ const WithDraw = () => {
 
                       <th scope="col" className="px-6 py-3 text-center">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             Phone Number
                           </span>
                         </div>
                       </th>
                       <th scope="col" className="px-6 py-3 text-center">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200">
+                          <span className="text-sm font-medium tracking-wide text-gray-200">
                             P.O.P
                           </span>
                         </div>
@@ -203,20 +258,12 @@ const WithDraw = () => {
                   </thead>
 
                   <tbody className="divide-y divide-gray-700">
-                    {loading ? (
-                      <div
-                        className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full "
-                        role="status"
-                        aria-label="loading"
-                      >
-                        <span className="sr-only">Loading...</span>
-                      </div>
-                    ) : (
+                  {
                       filteredData.map((rowData, index) => (
                         <tr key={rowData.id}>
                           <td className="h-px w-px whitespace-nowrap">
-                            <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
-                              <div className="flex items-center gap-x-3">
+                            <div className="ps-6 lg:ps-3 xl:ps-6 pe-8 py-4">
+                              <div className="flex items-center gap-x-1">
                                 {rowData.isBetWinner || selectedIds.includes(rowData.id) ? ( 
                                   <span
                                     className="bg-[#00c14d] rounded-full h-3 w-3 cursor-pointer"
@@ -261,12 +308,7 @@ const WithDraw = () => {
                                   .toString()
                                   .split("")
                                   .map((digit, index) => (
-                                    <button
-                                      key={index}
-                                      className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text"
-                                    >
-                                      {digit}
-                                    </button>
+                                    <button key={index} className="border-[1px] border-[#B600D4] bg-transparent h-6 w-6 rounded-sm text-sm md:text-md font-semibold text-gray-200 cursor-text">{digit}</button>
                                   ))}
                               </div>
                             </div>
@@ -303,7 +345,7 @@ const WithDraw = () => {
                             <div className="px-6 py-3">
                               <button
                                 className="block text-sm  cursur-pointer text-gray-200"
-                                onClick={() => openModal(rowData)}
+                                onClick={() => onOpenModal(rowData)}
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -325,88 +367,30 @@ const WithDraw = () => {
                           </td>
                         </tr>
                       ))
-                    )}
+                  }
                   </tbody>
                 </table>
                 {/* <!-- End Table --> */}
               </div>
             </div>
             <div className="flex pt-2 items-center justify-center ">
-            <button onClick={handleCreateWinners} className="bg-[#B600D4] text-3xl p-2 rounded-lg">Done</button>
+            <button onClick={handleCreateWinners} className="bg-[#B600D4] text-xl px-8 py-2 rounded-md">Done</button>
             </div>
           </div>
         </div>
-
-        {showModal && (
-          <div class="w-full max-w-md mx-auto p-6">
-            <div class="hs-overlay  w-full h-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
-              <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-                <div class="relative flex flex-col bg-white shadow-lg rounded-xl ">
-                  <div class="absolute top-2 end-2 z-[10]">
-                    <button
-                      type="button"
-                      onClick={closeModal}
-                      class="inline-flex justify-center items-center w-8 h-8 text-sm font-semibold rounded-lg border border-transparent bg-white/10 text-white hover:bg-white/20 disabled:opacity-50 disabled:pointer-events-none "
-                    >
-                      <span class="sr-only">Close</span>
-                      <svg
-                        class="flex-shrink-0 w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M18 6 6 18" />
-                        <path d="m6 6 12 12" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="aspect-w-16 aspect-h-8">
-                    <img
-                      class="w-full object-cover rounded-t-xl"
-                      src="https://images.unsplash.com/photo-1648747067020-73f77da74e8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3425&q=80"
-                      alt="Image Description"
-                    />
-                  </div>
-
-                  <div class="p-4 sm:p-10 text-center overflow-y-auto">
-                    <h3 class="mb-2 text-2xl font-bold text-gray-800 dark:text-gray-200">
-                      Yeahhhh 🎉
-                    </h3>
-                    <p class="text-gray-500">
-                      Thank you for your subscription. You will be sent the next
-                      issue of our newsletter shortly.
-                    </p>
-
-                    <div class="mt-6 flex justify-center gap-x-4">
-                      <button
-                        type="button"
-                        class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none "
-                        data-hs-overlay="#hs-subscription-with-image"
-                      >
-                        Got it
-                      </button>
-                      <a
-                        class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none "
-                        href="#"
-                      >
-                        Settings
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+                                    )}
+      
 
         {/* <!-- End Card --> */}
+
+        {open && 
+<Modal open={open} onClose={onCloseModal} center>
+<div className="aspect-w-16 h-50 my-9"  >
+            <img class="w-full object-cover rounded-t-xl" src={selectedRow?.image?.secure_url} alt="Image Description" />
+          </div>
+    </Modal>
+}
+
       </div>
     </>
   );
