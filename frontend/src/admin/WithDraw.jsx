@@ -81,9 +81,7 @@ const WithDraw = () => {
 
   const handleSearch = (e) => {
     setSearchText(e.target.value);
-    const searchFilteredData = data.filter((bet) => bet.mobileNumber.includes(searchText))
-    console.log(filteredData);
-    filteredData === searchFilteredData
+   
   };
 
   const handleselected = (id) => {
