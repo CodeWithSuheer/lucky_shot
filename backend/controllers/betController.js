@@ -26,11 +26,11 @@ export const createBet = async (req, res, next) => {
       prizeAcntInfo,
     } = req.body;
 
-    // const result = await uploadImageToCloudinary(image,"Payment ScreenShots");
-    // const imageData = {
-    //   public_id:result.public_id,
-    //   secure_url:result.secure_url
-    // }
+    const result = await uploadImageToCloudinary(image,"Payment ScreenShots");
+    const imageData = {
+      public_id:result.public_id,
+      secure_url:result.secure_url
+    }
 
     try {
       const account = await Accounts.findOne({ _id: accountUsed.Id });
@@ -48,7 +48,7 @@ export const createBet = async (req, res, next) => {
       betAmount,
       betNumber,
       name,
-      image,
+      image:imageData,
       accountUsed,
       prizeAcntInfo,
       mobileNumber,
