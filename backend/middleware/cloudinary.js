@@ -1,6 +1,9 @@
 
 
 import { v2 as cloudinary } from 'cloudinary';
+import dotenv from "dotenv";
+
+dotenv.config();
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -23,7 +26,7 @@ const uploadImageToCloudinary = async (image,folder = '') => {
         });
         return result;
     } catch (error) {
-      throw new Error(error.message)
+      throw new Error(error)
     }
 };
 
