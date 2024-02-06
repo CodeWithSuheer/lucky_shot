@@ -12,7 +12,7 @@ const BetTable = () => {
     useEffect(() => {
         dispatch(GetBets());
     }, [dispatch]);
- 
+
     const filteredData = data?.filter(row => {
         // Check if betAmount matches the activeFilter
         const matchAmount = row.betAmount === activeFilter;
@@ -21,7 +21,7 @@ const BetTable = () => {
         // Return true if both conditions are met
         return matchAmount && matchSearch;
     });
-    
+
 
     // Event handler for search input
     const handleSearch = (event) => {
@@ -31,7 +31,7 @@ const BetTable = () => {
     return (
         <>
             {/* <!-- Table Section --> */}
-            <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
+            <div className="max-w-[85rem] px-1 py-5 sm:px-6 lg:px-2 lg:py-4 mx-auto">
 
                 {/* <!-- Header --> */}
                 <div className="flex justify-between flex-wrap items-center text-white">
@@ -59,7 +59,7 @@ const BetTable = () => {
 
                             <input
                                 type="text"
-                                className="md:w-64 lg:w-72 py-2 pl-10 pr-4 text-gray-700 bg-transparent border border-[#D9D9D9] rounded-lg focus:border-[#D9D9D9] focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-[#D9D9D9] placeholder:text-sm"
+                                className="md:w-64 lg:w-72 py-2 pl-10 pr-4 text-gray-100 bg-transparent border border-[#D9D9D9] rounded-lg focus:border-[#D9D9D9] focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-[#D9D9D9] placeholder:text-sm"
                                 placeholder="Search by Phone Number"
                                 value={searchText}
                                 onChange={handleSearch}
@@ -91,124 +91,123 @@ const BetTable = () => {
                         500 PKR
                     </button>
                 </div>
+
+
                 {loading ? (
-                                            <div className="flex justify-center mt-12 items-center">
-                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                            </div>
-                                    ) : (
+                    <div className="flex justify-center mt-12 items-center">
+                        <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="flex flex-col">
+                        <div className="-m-1.5 overflow-x-auto">
+                            <div className="p-1.5 min-w-full inline-block align-middle">
+                                <div className=" rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
+                                    {/* <!-- Table --> */}
 
-
-              
-                <div className="flex flex-col">
-                    <div className="-m-1.5 overflow-x-auto">
-                        <div className="p-1.5 min-w-full inline-block align-middle">
-                            <div className=" rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
-                                {/* <!-- Table --> */}
-
-                                <table className="min-w-full divide-y  divide-gray-700">
-                                    <thead className="bg-[#676767]">
-                                        <tr>
-                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-medium uppercase  tracking-wide text-gray-200">
-                                                        NO.
-                                                    </span>
-                                                </div>
-                                            </th>
-                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
-                                                        Name
-                                                    </span>
-                                                </div>
-                                            </th>
-
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
-                                                        Bet No
-                                                    </span>
-                                                </div>
-                                            </th>
-
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
-                                                        Bet Amount
-                                                    </span>
-                                                </div>
-                                            </th>
-
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
-                                                        Phone Number
-                                                    </span>
-                                                </div>
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-end"></th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody className="divide-y divide-gray-600">
-                                 {
-                                        filteredData?.map((rowData, index) => (
+                                    <table className="min-w-full divide-y  divide-gray-700">
+                                        <thead className="bg-[#676767]">
                                             <tr>
-                                                <td className="h-px w-px whitespace-nowrap">
-                                                    <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
-                                                        <div className="flex items-center gap-x-3">
-                                                            <div className="grow">
-                                                                <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index + 1}</span>
-                                                            </div>
-                                                        </div>
+                                                <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200">
+                                                            No
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <td className="h-px w-px whitespace-nowrap">
-                                                    <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-20 pe-6 py-3">
-                                                        <div className="flex items-center gap-x-3">
-                                                            <div className="grow">
-                                                                <span className="block text-md lg:text-md text-gray-200">{rowData.name}</span>
-                                                            </div>
-                                                        </div>
+                                                </th>
+                                                <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
+                                                            Name
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <td className="h-px w-72 whitespace-nowrap">
-                                                    <div className="px-6 py-3">
-                                                    <div className="flex item-center gap-1">
-    {rowData.betNumber.toString().split('').map((digit, index) => (
-        <button key={index} className="border-[1px] border-[#B600D4] bg-transparent h-6 w-6 rounded-sm text-sm md:text-md font-semibold text-gray-200 cursor-text">{digit}</button>
-    ))}
-</div>
+                                                </th>
 
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
+                                                            Bet No
+                                                        </span>
+                                                    </div>
+                                                </th>
 
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
+                                                            Bet Amount
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <td className="h-px w-72 whitespace-nowrap">
-                                                    <div className="px-6 py-3 flex gap-1 items-center">
-                                                        <span className="block text-md lg:text-md  text-gray-200">{rowData.betAmount} PKR</span>
+                                                </th>
+
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium  tracking-wide text-gray-200">
+                                                            Phone Number
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <td className="h-px w-72 whitespace-nowrap">
-                                                    <div className="px-6 py-3">
-                                                        <span className="block text-md lg:text-md  text-gray-200">{rowData.mobileNumber}</span>
-                                                    </div>
-                                                </td>
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-end"></th>
                                             </tr>
-                                        ))
-                                    }
-                                    </tbody>
+                                        </thead>
 
-                                </table>
-                                {/* <!-- End Table --> */}
+                                        <tbody className="divide-y divide-gray-600">
+                                            {
+                                                filteredData?.map((rowData, index) => (
+                                                    <tr>
+                                                        <td className="h-px w-px whitespace-nowrap">
+                                                            <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
+                                                                <div className="flex items-center gap-x-3">
+                                                                    <div className="grow">
+                                                                        <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-md text-gray-200">{index + 1}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-px whitespace-nowrap">
+                                                            <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-20 pe-6 py-3">
+                                                                <div className="flex items-center gap-x-3">
+                                                                    <div className="grow">
+                                                                        <span className="block text-md lg:text-md text-gray-200">{rowData.name}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-72 whitespace-nowrap">
+                                                            <div className="px-6 py-3">
+                                                                <div className="flex item-center gap-1">
+                                                                    {rowData.betNumber.toString().split('').map((digit, index) => (
+                                                                        <button key={index} className="border-[1px] border-[#B600D4] bg-transparent h-8 w-8 rounded-md text-sm md:text-md font-semibold text-gray-200 cursor-text">{digit}</button>
+                                                                    ))}
+                                                                </div>
 
 
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-72 whitespace-nowrap">
+                                                            <div className="px-6 py-3 flex gap-1 items-center">
+                                                                <span className="block text-md lg:text-md  text-gray-200">{rowData.betAmount} PKR</span>
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-72 whitespace-nowrap">
+                                                            <div className="px-6 py-3">
+                                                                <span className="block text-md lg:text-md  text-gray-200">{rowData.mobileNumber}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                    {/* <!-- End Table --> */}
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                                    )}
+                )}
             </div>
         </>
     )

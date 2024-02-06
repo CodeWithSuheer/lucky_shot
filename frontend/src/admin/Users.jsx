@@ -11,15 +11,15 @@ const Users = () => {
     const [activeFilter, setActiveFilter] = useState(100);
     const [state, setState] = useState([
         {
-          startDate: new Date(),
-          endDate: null,
-          key: 'selection'
+            startDate: new Date(),
+            endDate: null,
+            key: 'selection'
         }
-      ]);
+    ]);
     const [open, setOpen] = useState(false);
 
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
     const dispatch = useDispatch();
     const data = useSelector(state => state.Bet.data);
     const loading = useSelector(state => state.Bet.loading);
@@ -32,26 +32,26 @@ const Users = () => {
     const filteredData = data?.filter(row => {
         // Check if betAmount matches the activeFilter
         const matchAmount = row.betAmount === activeFilter;
-    
+
         if (state[0]?.startDate && state[0]?.endDate && state[0]?.startDate.toLocaleDateString() !== state[0]?.endDate.toLocaleDateString()) {
             // Parse ISO format createdAt string to Date object
             const createdAtDate = parseISO(row.createdAt);
-    
+
             // Check if the createdAtDate falls within the selected date range
             return (
                 (!state[0]?.startDate || createdAtDate >= state[0]?.startDate) &&
                 (!state[0]?.endDate || createdAtDate <= state[0]?.endDate)
             ) && matchAmount;
-        }  else if (state[0]?.startDate && state[0]?.endDate && state[0]?.startDate.toLocaleDateString() === state[0]?.endDate.toLocaleDateString()) {
+        } else if (state[0]?.startDate && state[0]?.endDate && state[0]?.startDate.toLocaleDateString() === state[0]?.endDate.toLocaleDateString()) {
             // If startDate and endDate are the same, filter data for that single date
-          console.log('single date ')
+            console.log('single date ')
             const selectedDate = state[0]?.startDate.toLocaleDateString();
-          
+
             const createdAtDate = new Date(row?.createdAt);
-const formattedDate = createdAtDate.toLocaleDateString("en-GB");
+            const formattedDate = createdAtDate.toLocaleDateString("en-GB");
 
 
-    
+
             return (
                 formattedDate === selectedDate
             ) && matchAmount;
@@ -60,13 +60,13 @@ const formattedDate = createdAtDate.toLocaleDateString("en-GB");
             return matchAmount;
         }
     });
-    
-    
-    
-    
-    
-console.log('payment method',filteredData)
-console.log('date range',state[0]?.startDate.toLocaleDateString())
+
+
+
+
+
+    console.log('payment method', filteredData)
+    console.log('date range', state[0]?.startDate.toLocaleDateString())
 
     return (
         <>
@@ -81,7 +81,6 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
                         <span className="text-xs md:text-sm">{currentdate}</span>
                         <span><CalendarDays size={20} /></span>
                     </button>
-           
                 </div>
 
                 {/* <!-- Tabs --> */}
@@ -107,150 +106,150 @@ console.log('date range',state[0]?.startDate.toLocaleDateString())
                 </div>
 
                 {loading ? (
-                                            <div className="flex justify-center mt-12 items-center">
-                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                            </div>
-                                    ) : (
+                    <div className="flex justify-center mt-12 items-center">
+                        <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
 
-             
-                <div className="flex flex-col">
-                    <div className="-m-1.5 overflow-x-auto">
-                        <div className="p-1.5 min-w-full inline-block align-middle">
-                            <div className="rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
-                                {/* <!-- Table --> */}
-                                <table className="min-w-full divide-y  divide-gray-700">
-                                    <thead className="bg-[#676767]">
-                                        <tr>
-                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium uppercase tracking-wide text-gray-200">
 
-                                                        N0.
-                                                    </span>
-                                                </div>
-                                            </th>
-                                            <th scope="col" className="ps-6 lg:ps-3 xl:ps-10 pe-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Name
-                                                    </span>
-                                                </div>
-                                            </th>
-
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Account Title
-                                                    </span>
-                                                </div>
-                                            </th>
-
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium   text-gray-200">
-                                                        Payment Method
-                                                    </span>
-                                                </div>
-                                            </th>
-
-                                            <th scope="col" className="px-6 py-3 text-start">
-                                                <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
-                                                        Account Number
-                                                    </span>
-                                                </div>
-                                            </th>
-                                          
-                                        </tr>
-                                    </thead>
-
-                                    <tbody className="divide-y divide-gray-600">
-                                 
-                                        {
-                                        filteredData.map((data, index) => (
+                    <div className="flex flex-col">
+                        <div className="-m-1.5 overflow-x-auto">
+                            <div className="p-1.5 min-w-full inline-block align-middle">
+                                <div className="rounded-md shadow-sm overflow-hidden bg-[#474747] border-gray-700">
+                                    {/* <!-- Table --> */}
+                                    <table className="min-w-full divide-y  divide-gray-700">
+                                        <thead className="bg-[#676767]">
                                             <tr>
-                                                <td className="h-px w-px whitespace-nowrap">
-                                                    <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
-                                                        <div className="flex items-center gap-x-3">
-                                                            <div className="grow">
-                                                                <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-md lg:text-md text-gray-200">{index + 1}</span>
-                                                            </div>
-                                                        </div>
+                                                <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200">
+                                                            No
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <td className="h-px w-px whitespace-nowrap">
-                                                    <div className="ps-6 lg:ps-3 xl:ps-10 xl:pe-24 pe-6 py-3">
-                                                        <div className="flex items-center gap-x-3">
-                                                            <div className="grow">
-                                                                <span className="block text-md md:text-lg  text-gray-200">{data.name}</span>
-                                                            </div>
-                                                        </div>
+                                                </th>
+                                                <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200">
+                                                            Name
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <td className="h-px w-72 whitespace-nowrap">
-                                                    <div className="px-6 py-3">
-                                                        <span className="block text-md lg:text-lg tracking-wider  text-gray-200">{data?.prizeAcntInfo.acntTitle}</span>
+                                                </th>
+
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
+                                                            Account Title
+                                                        </span>
                                                     </div>
-                                                </td>
-                                                <div className="px-6 py-3 flex gap-2 items-center">
-        {data.prizeAcntInfo.paymentMethod === 'Jazz Cash' ? (
-            <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
-        ) : (
-            <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
-        )}
-        <span className="block text-sm text-wider md:text-lg  text-gray-200">{data.prizeAcntInfo.paymentMethod}</span>
-    </div>
-                                                <td className="h-px w-78 whitespace-nowrap">
-                                                    <div className="px-6 py-3">
-                                                        <span className="block text-md md:text-lg  text-gray-200">{data?.prizeAcntInfo.acntNumber}</span>
+                                                </th>
+
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium   text-gray-200">
+                                                            Payment Method
+                                                        </span>
                                                     </div>
-                                                </td>
+                                                </th>
+
+                                                <th scope="col" className="px-6 py-3 text-start">
+                                                    <div className="flex items-center gap-x-2">
+                                                        <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
+                                                            Account Number
+                                                        </span>
+                                                    </div>
+                                                </th>
+
                                             </tr>
-                                        ))}
-                                   
-                                    </tbody>
-                                </table>
-                                {/* <!-- End Table --> */}
+                                        </thead>
+
+                                        <tbody className="divide-y divide-gray-600">
+
+                                            {
+                                                filteredData.map((data, index) => (
+                                                    <tr>
+                                                        <td className="h-px w-px whitespace-nowrap">
+                                                            <div className="ps-6 lg:ps-3 xl:ps-5 pe-6 py-4">
+                                                                <div className="flex items-center gap-x-3">
+                                                                    <div className="grow">
+                                                                        <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-md lg:text-md text-gray-200">{index + 1}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+
+                                                        <td className="h-px w-px whitespace-nowrap">
+                                                            <div className="ps-6 lg:ps-3 xl:ps-5 xl:pe-14 pe-6 py-3">
+                                                                <div className="flex items-center gap-x-3">
+                                                                    <div className="grow">
+                                                                        <span className="block text-md md:text-md text-gray-200">{data.name}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="h-px w-72 whitespace-nowrap">
+                                                            <div className="px-6 py-3">
+                                                                <span className="block text-md lg:text-md tracking-wider  text-gray-200">{data?.prizeAcntInfo.acntTitle}</span>
+                                                            </div>
+                                                        </td>
+                                                        <div className="px-6 py-3 flex gap-2 items-center">
+                                                            {data.prizeAcntInfo.paymentMethod === 'Jazz Cash' ? (
+                                                                <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
+                                                            ) : (
+                                                                <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
+                                                            )}
+                                                            <span className="block text-sm text-wider md:text-md  text-gray-200">{data.prizeAcntInfo.paymentMethod}</span>
+                                                        </div>
+                                                        <td className="h-px w-78 whitespace-nowrap">
+                                                            <div className="px-6 py-3">
+                                                                <span className="block text-md md:text-md  text-gray-200">{data?.prizeAcntInfo.acntNumber}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+
+                                        </tbody>
+                                    </table>
+                                    {/* <!-- End Table --> */}
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                                    )}
+                )}
 
-{open && (
-    <Modal open={open} onClose={onCloseModal} center>
-        <div style={{ overflowX: "auto" }}>
-        <DateRange
-        color='#B600D4'
-        rangeColors={'#B600D4'}
-  editableDateInputs={true}
-  onChange={item => {
-    if (item.selection.endDate === null) {
-      // If endDate is null, set it to undefined to indicate a single date selection
-      setState([{
-        startDate: item.selection.startDate,
-        endDate: undefined,
-        key: 'selection'
-      }]);
-    } else {
-      setState([item.selection]);
-    }
-  }}
-  moveRangeOnFirstSelection={false}
-  ranges={state}
-  className='my-6'
-/>
+                {open && (
+                    <Modal open={open} onClose={onCloseModal} center>
+                        <div style={{ overflowX: "auto" }}>
+                            <DateRange
+                                color='#B600D4'
+                                rangeColors={'#B600D4'}
+                                editableDateInputs={true}
+                                onChange={item => {
+                                    if (item.selection.endDate === null) {
+                                        // If endDate is null, set it to undefined to indicate a single date selection
+                                        setState([{
+                                            startDate: item.selection.startDate,
+                                            endDate: undefined,
+                                            key: 'selection'
+                                        }]);
+                                    } else {
+                                        setState([item.selection]);
+                                    }
+                                }}
+                                moveRangeOnFirstSelection={false}
+                                ranges={state}
+                                className='my-6'
+                            />
 
-        </div>
-    </Modal>
-)}
+                        </div>
+                    </Modal>
+                )}
 
 
-               
+
             </div>
         </>
     )

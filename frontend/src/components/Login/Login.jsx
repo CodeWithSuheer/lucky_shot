@@ -28,7 +28,7 @@ const Login = () => {
     });
     const data = useSelector(state => state.Auth.User);
     const navigate = useNavigate()
-console.log('data',data)
+    console.log('data', data)
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -38,17 +38,17 @@ console.log('data',data)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-     
+
         dispatch(Loginadmin(formData))
-        .then((response) => {
-            if (response.payload ) {
-                setFormData({ email: '', password: '' });
-                navigate('/admin')
-            }
-        })
-        .catch((error) => {
-            console.error('Error occurred:', error);
-        });
+            .then((response) => {
+                if (response.payload) {
+                    setFormData({ email: '', password: '' });
+                    navigate('/admin')
+                }
+            })
+            .catch((error) => {
+                console.error('Error occurred:', error);
+            });
     };
     return (
         <div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat" style={style.box}>
@@ -61,19 +61,19 @@ console.log('data',data)
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
-                            <input type="email" name='email' value={formData.email} onChange={handleChange} required class="input_style block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <label for="username" class="block text-sm text-gray-200">Email</label>
+                            <input type="email" name='email' value={formData.email} onChange={handleChange} required class="input_style block w-full px-3 py-2 mt-2 text-gray-800 bg-white border rounded-lg focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 placeholder:text-gray-500" placeholder='Enter your Email' />
                         </div>
 
                         <div class="mt-4">
                             <div class="flex items-center justify-between">
-                                <label for="password"   class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
+                                <label for="password" class="block text-sm text-gray-200">Password</label>
                             </div>
 
-                            <input type="password" name='password' value={formData.password} onChange={handleChange} required  class="input_style block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <input type="password" name='password' value={formData.password} onChange={handleChange} required class="input_style block w-full px-3 py-2 mt-2 text-gray-700 bg-white border rounded-lg focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40  placeholder:text-gray-500" placeholder='Enter your Password' />
                         </div>
                         <div class="mt-8 flex justify-center items-center text-lg text-black">
-                            <button  type="submit" class="rounded-3xl bg-red-700 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600">Login</button>
+                            <button type="submit" class="rounded-3xl bg-red-700 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600">Login</button>
                         </div>
                     </form>
                 </div>
