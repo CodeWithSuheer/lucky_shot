@@ -124,21 +124,34 @@ const Dashboard = () => {
 
 
 
-
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="custom-tooltip">
-          <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
-          <p className="intro">{`Frequency : ${payload[0].value}`}</p>
-        </div>
-      );
-    }
-
-    return null;
-  };
+          const formatCustomerCount = count => {
+            if (count > 1000) {
+              const formattedCount = (count / 1000).toFixed(1); // Format to one decimal place
+              return `${formattedCount}k`;
+            }
+            return count.toString(); // Return as it is if less than or equal to 1000
+          };
 
 
+
+          const CustomTooltip = ({ payload, label }) => {
+            if (payload && payload.length) {
+              return (
+                <div className="custom-tooltip">
+                  <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
+                  <p className="intro">{`Frequency : ${payload[0].value}`}</p>
+                </div>
+              );
+            }
+          
+            return null;
+          };
+          
+          
+
+          const custumerpercentage = `+${formatCustomerCount(totalCustomers)}`;
+          console.log('customer percentage', custumerpercentage);
+          
 
   return (
     <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
@@ -158,13 +171,13 @@ const Dashboard = () => {
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Customer</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalCustomers}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{totalCustomers}</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{formatCustomerCount(totalCustomers)}</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
                   identifier="development3"
                   startValue={0}
-                  endValue={4}
+                  endValue={custumerpercentage}
                   speed={20}
                   circleColor="#B600D4"
                 />
@@ -184,8 +197,8 @@ const Dashboard = () => {
                 <CircularProgress
                   identifier="development5"
                   startValue={0}
-                  endValue={8}
-                  speed={10}
+                  endValue={SalesPercentageChange}
+                  speed={20}
                   circleColor="#B600D4"
                 />
               </div>
@@ -198,7 +211,7 @@ const Dashboard = () => {
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Total Revenue</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalRevenue}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{RevenuePercentageChange}</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{RevenuePercentageChange}%</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
@@ -279,9 +292,9 @@ const Dashboard = () => {
         </div>
 
 
-        <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
+        {/* <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
 
-        </div>
+        </div> */}
 
 
       </div>
