@@ -61,7 +61,7 @@ export const getFilterdAccounts = async (req, res, next) => {
 
 export const getAllAccounts = async (req, res, next) => {
   try {
-    const accounts = await Accounts.find();
+    const accounts = await Accounts.find().sort({createdAt : -1});
     setMongoose();
     res.status(200).json(accounts);
   } catch (error) {

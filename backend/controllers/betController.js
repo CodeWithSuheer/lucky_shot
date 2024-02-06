@@ -73,7 +73,7 @@ export const createBetWinners = async (req, res, next) => {
   try {
     const { ids } = req.body;
     if (!ids || ids.length === 0) {
-      return res.status(404).json({ msg: "Ids not found" });
+      return res.status(404).json({ msg: "No Bets Selected" });
     }
     await Bets.updateMany(
       { _id: { $in: ids } },
@@ -109,3 +109,13 @@ export const publishWinners = async (req, res, next) => {
   }
 };
 
+export const getBetsOF24Hours = async (req, res, next) => {
+  try {
+    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const bets = await Bets.find({ createdAt: { $gte: twentyFourHoursAgo } }).sort({ createdAt: -1 });
+
+    res.status(200).json(bets);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
