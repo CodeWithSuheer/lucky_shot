@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetBets } from "../Features/BetSlice";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 const Winners = () => {
   const [activeFilter, setActiveFilter] = useState(100);
   const [searchText, setSearchText] = useState("");
@@ -41,7 +42,9 @@ const Winners = () => {
   console.log('filtered data', recentlyUpdatedData)
   console.log(' data', data)
 
-  const handlePublishingWinners = () => { };
+  const handlePublishingWinners = () => { 
+    toast.success('Success')
+  };
 
   return (
     <>

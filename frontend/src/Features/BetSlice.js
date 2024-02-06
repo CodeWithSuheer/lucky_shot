@@ -29,12 +29,23 @@ export const createBetWiners = createAsyncThunk("Bets/createBetWinners", async (
     }
   }
   );
+
+  export const getBetsOF24Hours = createAsyncThunk("Bets/getBetsOF24Hours", async () => {
+    try {
+      const response = await axios.post(`${Url}/getBetsOF24Hours`);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.msg);
+    }
+  }
+  );
  
 
 // INITIAL STATE
 const initialState = {
   loading: false,
   data: [],
+  getBetsOF24Hours:[]
 };
 
 const BetSlice = createSlice({
@@ -50,6 +61,14 @@ const BetSlice = createSlice({
       .addCase(GetBets.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload
+      })
+
+      .addCase(getBetsOF24Hours.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(getBetsOF24Hours.fulfilled, (state, action) => {
+        state.loading = false;
+        state.getBetsOF24Hours = action.payload
       })
   },
 });
