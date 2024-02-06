@@ -70,7 +70,7 @@ const AddAccount = () => {
                             <div className='md:col-span-1 mb-3 sm:mb-0'>
                                 <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Number :</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="accountNumber"
                                     placeholder="Enter Your Name"
                                     className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
@@ -111,9 +111,9 @@ const AddAccount = () => {
                             {/* Radio buttons */}
                             <label htmlFor="jazzCash" className="flex items-center rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 bg-transparent text-gray-400">
                                 <span className='h-8 w-8 p-[3px] bg-white rounded-md mr-2'>
-                                    <img className='rounded-md' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
+                                    <img className='rounded-md cursor-pointer' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
                                 </span>
-                                <span className="text-lg mr-3 text-[#cfcfcf]">Jazz Cash</span>
+                                <span className="text-lg mr-3 text-[#cfcfcf] cursor-pointer">Jazz Cash</span>
                                 <input
                                     type="radio"
                                     id="jazzCash"
@@ -122,15 +122,15 @@ const AddAccount = () => {
                                     required
                                     checked={formData.paymentMethod === 'Jazz Cash'}
                                     onChange={handleRadioChange}
-                                    className="mt-0.5 accent-[#B600D4] border-gray-200 rounded-full text-blue-600 "
+                                    className="mt-0.5 accent-[#B600D4] border-gray-200 rounded-full text-blue-600 cursor-pointer"
                                 />
                             </label>
 
                             <label htmlFor="easyPaisa" className="flex items-center rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 bg-transparent text-gray-400">
                                 <span className='h-8 w-8 p-[3px] bg-white rounded-md mr-2'>
-                                    <img className='rounded-md' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
+                                    <img className='rounded-md cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
                                 </span>
-                                <span className="text-lg mr-3 text-[#cfcfcf]">Easy Paisa</span>
+                                <span className="text-lg mr-3 text-[#cfcfcf] cursor-pointer">Easy Paisa</span>
                                 <input
                                     type="radio"
                                     id="easyPaisa"
@@ -139,7 +139,7 @@ const AddAccount = () => {
                                     required
                                     checked={formData.paymentMethod === 'Easy Paisa'}
                                     onChange={handleRadioChange}
-                                    className="mt-0.5 accent-[#B600D4] border-gray-200 rounded-full text-blue-600 "
+                                    className="mt-0.5 accent-[#B600D4] border-gray-200 rounded-full text-blue-600 cursor-pointer"
                                 />
                             </label>
                         </div>

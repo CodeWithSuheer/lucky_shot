@@ -82,17 +82,17 @@ const Dashboard = () => {
   };
 
   const currentTimestamp = new Date();
-const sevenDaysAgoTimestamp = new Date(
-  currentTimestamp.getTime() - 7 * 24 * 60 * 60 * 1000
-);
+  const sevenDaysAgoTimestamp = new Date(
+    currentTimestamp.getTime() - 7 * 24 * 60 * 60 * 1000
+  );
 
-const sevenDaysAgodata = Betdata?.filter((item) => {
-  const createdAt = new Date(item.createdAt);
-  // Exclude today's data
-  return createdAt >= sevenDaysAgoTimestamp && createdAt < currentTimestamp;
-});
+  const sevenDaysAgodata = Betdata?.filter((item) => {
+    const createdAt = new Date(item.createdAt);
+    // Exclude today's data
+    return createdAt >= sevenDaysAgoTimestamp && createdAt < currentTimestamp;
+  });
 
-console.log('last saven days data',sevenDaysAgodata)
+  console.log('last saven days data', sevenDaysAgodata)
   const calculatelastsavendata = (data) => {
     let revenuelast = 0;
     let customerslast = new Set();
@@ -111,16 +111,16 @@ console.log('last saven days data',sevenDaysAgodata)
   console.log('Sales Percentage Change:', sevenDaysAgodata);
   const customersPercentageChange =
     totalCustomerslast !== 0
-      ? ((totalCustomers ) / totalCustomerslast) * 100
+      ? ((totalCustomers) / totalCustomerslast) * 100
       : 0;
-      const SalesPercentageChange =
-      totalSaleslast !== 0
-        ? ((totalSales ) / totalSaleslast) * 100
-        : 0;
-        const RevenuePercentageChange =
-        totalRevenuelast !== 0
-          ? ((totalRevenue) / totalRevenuelast) * 100
-          : 0;
+  const SalesPercentageChange =
+    totalSaleslast !== 0
+      ? ((totalSales) / totalSaleslast) * 100
+      : 0;
+  const RevenuePercentageChange =
+    totalRevenuelast !== 0
+      ? ((totalRevenue) / totalRevenuelast) * 100
+      : 0;
 
 
 
@@ -262,12 +262,12 @@ console.log('last saven days data',sevenDaysAgodata)
 
 
 
-      <div className="grid sm:grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
-      <div className="bg-[#474747] px-4 py-4 rounded-md">
-<h4 className='text-center text-[#cc76da] font-medium text-xl text-wide'>Most Located</h4>
-<div className="flex justify-between items-center py-1">
-<p className='text-md font-normal text-white'>Punjab</p>
-<p className='text-lg font-medium text-white'>80%</p>
+      <div className="grid grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
+        <div className="bg-[#474747] px-4 py-4 rounded-md">
+          <h4 className='text-center text-[#cc76da] font-medium text-xl text-wide'>Most Located</h4>
+          <div className="flex justify-between items-center py-1">
+            <p className='text-md font-normal text-white'>Punjab</p>
+            <p className='text-lg font-medium text-white'>80%</p>
 
           </div>
           <div className="flex justify-between items-center py-1">

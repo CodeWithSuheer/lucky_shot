@@ -320,9 +320,9 @@ const AmountDetails = () => {
                                 </h5>
                             </div>
 
-                            <div class="flex justify-start items-center flex-wrap">
+                            <div class="flex justify-center items-center flex-wrap">
                                 {selectedRow.map((data) => (
-                                    <div class=" flex flex-col h-full bg-[#0f0f0f] rounded-md mx-0 md:mx-2">
+                                    <div class=" flex flex-col h-full bg-[#0f0f0f] rounded-md mx-0 my-1 md:mx-2">
                                         <div class="h-60 object-cover  flex flex-col justify-center items-center rounded-t-xl">
                                             <img class="" src={data?.image?.secure_url} alt="Image " />
                                         </div>
