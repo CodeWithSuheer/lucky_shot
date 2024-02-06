@@ -180,7 +180,7 @@ const Users = () => {
                                                         </td>
 
                                                         <td className="h-px w-px whitespace-nowrap">
-                                                            <div className="ps-6 lg:ps-3 xl:ps-5 xl:pe-14 pe-6 py-3">
+                                                            <div className="ps-6 lg:ps-3 xl:ps-5 xl:pe-32 pe-6 py-3">
                                                                 <div className="flex items-center gap-x-3">
                                                                     <div className="grow">
                                                                         <span className="block text-md md:text-md text-gray-200">{data.name}</span>

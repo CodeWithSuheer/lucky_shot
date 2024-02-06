@@ -303,28 +303,26 @@ const AmountDetails = () => {
                         overlay: 'customOverlay',
                         modal: 'customModal',
                     }}>
-                        <div class=" px-2 py-4 my-4 md:my-1 sm:px-6 lg:px-4 lg:py-8">
+                        <div class="px-0 py-4 my-4 md:my-1 sm:px-6 lg:px-4 lg:py-8">
 
                             <div class="mb-6">
-                                <h5 class="text-sm sm:text-lg font-normal  text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
+                                <h5 class="text-sm sm:text-lg font-normal  text-gray-100 bg-[#0f0f0f] border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total Winning Amount : {totalWinningAmount}
                                 </h5>
-                                <h5 class="text-sm sm:text-lg font-normal text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
+                                <h5 class="text-sm sm:text-lg font-normal text-gray-100 bg-[#0f0f0f] border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total Winning Bets : {totalWinningBets}
                                 </h5>
-                                <h5 class="text-sm sm:text-lg font-normal text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
+                                <h5 class="text-sm sm:text-lg font-normal text-gray-100 bg-[#0f0f0f] border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total Amount  : {totalAmount}
                                 </h5>
-                                <h5 class="text-sm sm:text-lg font-normal text-gray-300 bg-gray-900 border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
+                                <h5 class="text-sm sm:text-lg font-normal text-gray-100 bg-[#0f0f0f] border border-gray-500 rounded-lg mb-1 px-2 sm:px-4 py-1.5">
                                     Total  Bets : {totalBets}
                                 </h5>
-
                             </div>
 
-
-                            <div class="flex justify-start items-center">
+                            <div class="flex justify-start items-center flex-wrap">
                                 {selectedRow.map((data) => (
-                                    <div class=" flex flex-col h-full bg-[#0f0f0f] rounded-md">
+                                    <div class=" flex flex-col h-full bg-[#0f0f0f] rounded-md mx-0 md:mx-2">
                                         <div class="h-60 object-cover  flex flex-col justify-center items-center rounded-t-xl">
                                             <img class="" src={data?.image?.secure_url} alt="Image " />
                                         </div>

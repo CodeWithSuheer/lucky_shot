@@ -103,7 +103,7 @@ const RemoveAccount = () => {
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td className="h-px w-24 sm:w-44 whitespace-nowrap">
+                                                        <td className="h-px w-20 sm:w-52 whitespace-nowrap">
                                                             <div className="px-6 py-3">
                                                                 <span className="block text-md lg:text-md tracking-wider font-semiboldtext-gray-200">{data.accountTitle}</span>
                                                             </div>

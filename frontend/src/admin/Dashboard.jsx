@@ -243,7 +243,7 @@ console.log('last saven days data',sevenDaysAgodata)
 
       <div className="grid sm:grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
       <div className="bg-[#474747] px-4 py-4 rounded-md">
-<h4 className='text-center text-[#B600D4] font-medium text-xl text-wide'>Most Located</h4>
+<h4 className='text-center text-[#cc76da] font-medium text-xl text-wide'>Most Located</h4>
 <div className="flex justify-between items-center py-1">
 <p className='text-md font-normal text-white'>Punjab</p>
 <p className='text-lg font-medium text-white'>80%</p>
