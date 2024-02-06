@@ -110,11 +110,15 @@ const BackupAccounts = () => {
 
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                {data.paymentMethod === 'Jazz Cash' ? (
-                                                                    <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
-                                                                ) : (
-                                                                    <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="" />
-                                                                )}
+                                                                  {data.paymentMethod === 'Jazz Cash' ? (
+    <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="Jazz Cash" />
+) : data.paymentMethod === 'Nayapay' ? (
+    <img className='h-4' src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/nay_pay.png?v=1707239753" alt="Naya Pay" />
+) : data.paymentMethod === 'Sadapay' ? (
+    <img className='h-4' src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/sada_pay.png?v=1707239753" alt="Sadapay" />
+) : (
+    <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="EasyPaisa" />
+)}
                                                                 <span className="block text-md lg:text-md font-normal text-gray-200">{data.paymentMethod}</span>
                                                             </div>
                                                         </td>
