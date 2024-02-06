@@ -256,22 +256,22 @@ const AmountDetails = () => {
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                <span className="block text-sm md:text-md  font-semibold text-gray-200">{rowData?.betAmount} PKR</span>
+                                                                <span className="block text-sm md:text-md  font-normal text-gray-200">{rowData?.betAmount} PKR</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                <span className="block text-sm md:text-md font-light   text-gray-200">{rowData?.prizeAcntInfo.acntTitle}</span>
+                                                                <span className="block text-sm md:text-md font-normal text-gray-200">{rowData?.prizeAcntInfo.acntTitle}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-76 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-1 items-center">
-                                                                <span className="block text-sm md:text-md font-light  text-gray-200">{rowData?.prizeAcntInfo.acntNumber}</span>
+                                                                <span className="block text-sm md:text-md font-normal text-gray-200">{rowData?.prizeAcntInfo.acntNumber}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3">
-                                                                <span className="block text-sm md:text-md font-light  text-gray-200">{rowData?.mobileNumber}</span>
+                                                                <span className="block text-sm md:text-md font-normal text-gray-200">{rowData?.mobileNumber}</span>
                                                             </div>
                                                         </td>
                                                         <td className="h-px w-72 whitespace-nowrap">
@@ -350,7 +350,7 @@ const AmountDetails = () => {
 
                                             </div>
                                         </div>
-                                        <div class="mt-auto  p-4 md:p-6 border-t border-gray-200 divide-x divide-gray-200 border-gray-700 divide-gray-700">
+                                        <div class="mt-auto  p-4 md:p-6 border-t border-gray-200 divide-x divide-gray-200">
                                             <span class="  text-white text-sm  ">
                                                 Created Date : {new Date(data.createdAt).toLocaleString()}
                                             </span>

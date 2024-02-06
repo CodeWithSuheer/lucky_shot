@@ -201,28 +201,28 @@ const Winners = () => {
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm font-semibold text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.betAmount} PKR
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.prizeAcntInfo.acntTitle}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3 flex gap-1 items-center">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.prizeAcntInfo.acntNumber}
                                 </span>
                               </div>
                             </td>
                             <td className="h-px w-72 whitespace-nowrap">
                               <div className="px-6 py-3">
-                                <span className="block text-sm  text-gray-200">
+                                <span className="block text-sm font-medium text-gray-200">
                                   {rowData?.mobileNumber}
                                 </span>
                               </div>
