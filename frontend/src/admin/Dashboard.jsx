@@ -2,54 +2,121 @@
 import CircularProgress from '../components/Progress/Progress'
 import React, { PureComponent } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
-
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetBets } from '../Features/BetSlice';
+import { useEffect } from 'react';
+import moment from 'moment';
 const Dashboard = () => {
-  const data = [
-    {
-      name: 'Mon',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Tue',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Wed',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Thu',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Fri',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Sat',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Sun',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
-  
+ 
+  const dispatch = useDispatch();
+  const Betdata = useSelector(state => state.Bet.data);
+  const loading = useSelector(state => state.Bet.loading);
+  const [totalCustomers, setTotalCustomers] = useState(0);
+  const [totalRevenue, setTotalRevenue] = useState(0);
+  const [totalSales, setTotalSales] = useState(0);
+  const [mostRepeatedNumbers, setMostRepeatedNumbers] = useState([]);
+  console.log('data',Betdata)
+  useEffect(() => {
+    dispatch(GetBets());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (Betdata) {
+      calculateRevenueAndCustomers(Betdata);
+      calculateMostRepeatedBetNumbers(Betdata);
+    }
+  }, [Betdata]);
+
+  // Calculate total revenue, total customers, and total sales
+  const calculateRevenueAndCustomers = (data) => {
+    let revenue = 0;
+    let customers = new Set();
+    let sales = data.length;
+
+    data.forEach((row) => {
+      revenue += row.betAmount;
+      customers.add(row.accountUsed.number);
+    });
+
+    setTotalRevenue(revenue);
+    setTotalCustomers(customers.size);
+    setTotalSales(sales);
+  };
+
+  const calculateMostRepeatedBetNumbers = (data) => {
+    const betNumbersByDay = {
+      Mon: {}, Tue: {}, Wed: {}, Thu: {}, Fri: {}, Sat: {}, Sun: {}
+    };
+
+    data.forEach(item => {
+      const createdAt = moment(item.createdAt);
+      const dayOfWeek = createdAt.format('ddd');
+      const betNumber = item.betNumber;
+
+      if (!betNumbersByDay[dayOfWeek]) {
+        betNumbersByDay[dayOfWeek] = {};
+      }
+
+      betNumbersByDay[dayOfWeek][betNumber] = (betNumbersByDay[dayOfWeek][betNumber] || 0) + 1;
+    });
+
+    const mostRepeatedNumbers = Object.keys(betNumbersByDay).map(day => {
+      const dayData = betNumbersByDay[day];
+      const mostRepeatedNumber = Object.keys(dayData).reduce((a, b) => dayData[a] > dayData[b] ? a : b, null);
+      const frequency = mostRepeatedNumber ? dayData[mostRepeatedNumber] : 0;
+
+      return {
+        name: day,
+        betNumber: mostRepeatedNumber,
+        frequency: frequency
+      };
+    });
+
+    setMostRepeatedNumbers(mostRepeatedNumbers);
+  };
+  const startDate = moment().startOf('week');
+
+  // Calculate the number of days elapsed in the current week
+  const currentDate = moment();
+  const daysElapsed = currentDate.diff(startDate, 'days') + 1; // Add 1 to include the current day
+
+  // Calculate average daily revenue, sales, and customers
+  const averageDailyRevenue = totalRevenue / daysElapsed;
+  const averageDailySales = totalSales / daysElapsed;
+  const averageDailyCustomers = totalCustomers / daysElapsed;
+
+  // Function to calculate percentage change
+  const calculatePercentageChange = (currentValue, startValue) => {
+    if (startValue === 0) return 0;
+    return ((currentValue - startValue) / startValue) * 100;
+  };
+
+  // Calculate percentage change for revenue, sales, and customers compared to the start of the week
+  const revenuePercentageChange = calculatePercentageChange(totalRevenue, averageDailyRevenue * daysElapsed);
+  const salesPercentageChange = calculatePercentageChange(totalSales, averageDailySales * daysElapsed);
+  const customersPercentageChange = calculatePercentageChange(totalCustomers, averageDailyCustomers * daysElapsed);
+
+
+ 
+
+  console.log('Sales Percentage Change:', salesPercentageChange);
+  console.log('Customers Percentage Change:', customersPercentageChange);
+
+
+ const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
+        <p className="intro">{`Frequency : ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
   return (
     <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
 
@@ -61,14 +128,14 @@ const Dashboard = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Customer</h3>
-                <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">256,356</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+1.9K</div>
+                <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalCustomers}</p>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{averageDailyCustomers}</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
-                  identifier="development5"
+                  identifier="development3"
                   startValue={0}
-                  endValue={80}
+                  endValue={4}
                   speed={20}
                   circleColor="#B600D4"
                 />
@@ -81,15 +148,15 @@ const Dashboard = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">New Sales</h3>
-                <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">256,356</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">60%</div>
+                <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalSales}</p>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{salesPercentageChange}%</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
                   identifier="development5"
                   startValue={0}
-                  endValue={80}
-                  speed={20}
+                  endValue={8}
+                  speed={10}
                   circleColor="#B600D4"
                 />
               </div>
@@ -101,14 +168,14 @@ const Dashboard = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Total Revenue</h3>
-                <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">2 Million</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+1.9K</div>
+                <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalRevenue}</p>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{revenuePercentageChange}</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
-                  identifier="development5"
+                  identifier="development8"
                   startValue={0}
-                  endValue={80}
+                  endValue={89}
                   speed={20}
                   circleColor="#B600D4"
                 />
@@ -127,7 +194,7 @@ const Dashboard = () => {
       <div style={{ width: '100%', height: 300 }}>
      <ResponsiveContainer>
           <AreaChart
-            data={data}
+            data={mostRepeatedNumbers}
             margin={{
               top: 10,
               right: 0,
@@ -138,9 +205,8 @@ const Dashboard = () => {
           >
             <CartesianGrid strokeDasharray="3 3"  />
             <XAxis dataKey="name" />
-           
-            <Tooltip  />
-            <Area type="monotone" dataKey="uv" stroke="#B600D4" fill="#B600D4"  />
+            <Tooltip content={<CustomTooltip />} />
+            <Area type="monotone" dataKey="frequency" stroke="#B600D4" fill="#B600D4"  />
           </AreaChart>
         </ResponsiveContainer>
 
@@ -182,7 +248,7 @@ const Dashboard = () => {
       </div>
 
 
-    <div className=" bg-[#474747] md:col-span-2 px-4 py-2">
+    <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
 
     </div>
 

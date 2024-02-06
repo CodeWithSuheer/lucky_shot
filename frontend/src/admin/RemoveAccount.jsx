@@ -53,28 +53,28 @@ const RemoveAccount = () => {
                                         <tr>
                                             <th scope="col" className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
-                                                        No
+                                                    <span className="text-sm lg:text-md  font-medium uppercase tracking-wide text-gray-200">
+                                                        NO.
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Account Title
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Account Number
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Payment Method
                                                     </span>
                                                 </div>
@@ -82,12 +82,12 @@ const RemoveAccount = () => {
                                           
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
-                                                    <span className="text-sm lg:text-md  font-semibold uppercase tracking-wide text-gray-200">
+                                                    <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                         Remove
                                                     </span>
                                                 </div>
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-end"></th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-600 " >

@@ -14,16 +14,32 @@ const Winners = () => {
   }, [dispatch]);
 
   const filteredData = data?.filter((row) => {
-    // Check if betAmount matches the activeFilter
     const matchAmount = row.betAmount === activeFilter;
-    // Check if mobileNumber contains the searchText (case insensitive)
     const matchSearch = row.mobileNumber
       .toLowerCase()
       .includes(searchText.toLowerCase());
-    // Return true if both conditions are met
     return matchAmount && matchSearch;
   });
+
+  // Filter winners from filtered data
   const WinnerData = filteredData?.filter((item) => item.isBetWinner === true);
+
+  // Filter data updated within the last hour
+  const currentTimestamp = new Date();
+  const oneHourAgoTimestamp = new Date(
+    currentTimestamp.getTime() - 60 * 60 * 1000 // One hour ago
+  );
+  console.log('last hour',oneHourAgoTimestamp)
+
+  const recentlyUpdatedData = WinnerData?.filter((item) => {
+    const updatedAt = new Date(item.updatedAt);
+    console.log('last hour updated data',updatedAt)
+    return updatedAt > oneHourAgoTimestamp;
+  });
+  
+
+console.log('filtered data',recentlyUpdatedData)
+console.log(' data',data)
 
   const handlePublishingWinners = () => {};
 
@@ -70,7 +86,14 @@ const Winners = () => {
           </button>
         </div>
 
-        {/* <!-- Card --> */}
+        {loading ? (
+                                            <div className="flex justify-center mt-12 items-center">
+                                            <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                            </div>
+                                    ) : (
+
         <div className="flex flex-col">
           <div className="-m-1.5 overflow-x-auto">
             <div className="p-1.5 min-w-full inline-block align-middle">
@@ -84,8 +107,8 @@ const Winners = () => {
                         className="px-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start"
                       >
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm lg:text-md font-semibold tracking-wide text-gray-200 uppercase">
-                            No
+                          <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 uppercase">
+                            NO.
                           </span>
                         </div>
                       </th>
@@ -94,7 +117,7 @@ const Winners = () => {
                         className="px-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start"
                       >
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm lg:text-md font-semibold tracking-wide text-gray-200 uppercase">
+                          <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 ">
                             Name
                           </span>
                         </div>
@@ -102,7 +125,7 @@ const Winners = () => {
 
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm lg:text-md font-semibold tracking-wide text-gray-200 uppercase">
+                          <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 ">
                             Bet No
                           </span>
                         </div>
@@ -110,14 +133,14 @@ const Winners = () => {
 
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm lg:text-md font-semibold tracking-wide text-gray-200 uppercase">
+                          <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 ">
                             Bet Amount
                           </span>
                         </div>
                       </th>
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm font-semibold tracking-wide text-gray-200 uppercase">
+                          <span className="text-sm font-medium tracking-wide text-gray-200 ">
                             Account Title
                           </span>
                         </div>
@@ -125,7 +148,7 @@ const Winners = () => {
 
                       <th scope="col" className="px-6 py-3 text-start">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm lg:text-md font-semibold tracking-wide text-gray-200 uppercase">
+                          <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 ">
                             Account Number
                           </span>
                         </div>
@@ -133,7 +156,7 @@ const Winners = () => {
 
                       <th scope="col" className="px-6 py-3 text-center">
                         <div className="flex items-center gap-x-2">
-                          <span className="text-sm lg:text-md font-semibold tracking-wide text-gray-200 uppercase">
+                          <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 ">
                             Phone Number
                           </span>
                         </div>
@@ -142,16 +165,8 @@ const Winners = () => {
                   </thead>
 
                   <tbody className="divide-y divide-gray-700">
-                    {loading ? (
-                      <div
-                        className=" animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full "
-                        role="status"
-                        aria-label="loading"
-                      >
-                        <span className="sr-only">Loading...</span>
-                      </div>
-                    ) : (
-                      WinnerData.map((rowData, index) => (
+                 {
+                      recentlyUpdatedData.map((rowData, index) => (
                         <tr key={rowData.id}>
                           <td className="h-px w-px whitespace-nowrap">
                             <div className="ps-6 lg:ps-3 xl:ps-6 pe-6 py-4">
@@ -182,12 +197,7 @@ const Winners = () => {
                                   .toString()
                                   .split("")
                                   .map((digit, index) => (
-                                    <button
-                                      key={index}
-                                      className="border-2 border-[#B600D4] bg-transparent h-9 w-9 rounded-lg text-lg font-semibold text-gray-200 cursor-text"
-                                    >
-                                      {digit}
-                                    </button>
+                                    <button key={index} className="border-[1px] border-[#B600D4] bg-transparent h-6 w-6 rounded-sm text-sm md:text-md font-semibold text-gray-200 cursor-text">{digit}</button>
                                   ))}
                               </div>
                             </div>
@@ -222,7 +232,7 @@ const Winners = () => {
                           </td>
                         </tr>
                       ))
-                    )}                   
+                    }                   
                   </tbody>
                 </table>
                 {/* <!-- End Table --> */}
@@ -231,14 +241,14 @@ const Winners = () => {
             <div className="flex pt-2 items-center justify-center ">
               <button
                 onClick={handlePublishingWinners}
-                className="bg-[#B600D4] text-3xl p-2 rounded-lg"
+                className="bg-[#B600D4] text-xl px-8 py-2 rounded-md"
               >
                 Publish
               </button>
             </div>
           </div>
         </div>
-        {/* <!-- End Card --> */}
+                                    )}
       </div>
     </>
   );

@@ -36,7 +36,9 @@ const dispatch = useDispatch()
             <Route path="users" element={<Users />} />
             <Route path="bettables" element={<BetTable />} />
             <Route path="winners" element={<Winners />} />
-            <Route path="amountdetails" element={<AmountDetails />} />
+            <Route path="amountdetails" element={<AmountDetails />}>
+    
+            </Route>
             <Route path="WithDraw" element={<WithDraw />} />
             <Route path="addaccounts" element={<AddAccount />} />
             <Route path="removeaccounts" element={<RemoveAccount />} />
