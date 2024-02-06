@@ -25,6 +25,8 @@ const WithDraw = () => {
     dispatch(getBetsOF24Hours());
   }, [dispatch]);
 
+  
+
   console.log("data", data);
   const filteredData = data?.filter((row) => {
     const matchAmount = row.betAmount === activeFilter;

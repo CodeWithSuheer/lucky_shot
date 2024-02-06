@@ -97,17 +97,37 @@ export const getBetWinners = async (req, res, next) => {
 
 export const publishWinners = async (req, res, next) => {
   try {
-    await Bets.updateMany(
-      { isBetWinner : true },
-      { $set: { published : true } }
-    );
-    res
-      .status(200)
-      .json({ message: "Winners will be revealed in 30 minutes." });
+    const { ids } = req.body;
+    if (!ids || ids.length === 0) {
+      return res.status(404).json({ msg: "No Winners Selected" });
+    }
+    
+    // Check if any of the selected winners already have the published flag set to true
+    const winnersWithPublishedFlag = await Bets.find({ _id: { $in: ids }, published: true });
+    
+    // Update the winners
+    const updatePromises = [];
+    ids.forEach((id) => {
+      const updatePromise = Bets.updateOne(
+        { _id: id, isBetWinner: true },
+        { $set: { published: !winnersWithPublishedFlag.includes(id), isBetWinner: true } }
+      );
+      updatePromises.push(updatePromise);
+    });
+    
+    // Execute all update promises
+    await Promise.all(updatePromises);
+    
+    // Fetch and log the updated data
+    const updatedData = await Bets.find({ _id: { $in: ids } });
+    console.log("Updated data:", updatedData);
+    
+    res.status(200).json({ message: "Winners will be revealed in 30 minutes." });
   } catch (error) {
     res.status(500).json({ msg: error.message });
   }
 };
+
 
 export const getBetsOF24Hours = async (req, res, next) => {
   try {
