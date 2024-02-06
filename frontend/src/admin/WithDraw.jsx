@@ -380,11 +380,20 @@ const WithDraw = () => {
         {/* <!-- End Card --> */}
 
         {open &&
-          <Modal open={open} onClose={onCloseModal} center>
-            <div className="aspect-w-16 h-50 my-9"  >
-              <img class="w-full object-cover rounded-t-xl" src={selectedRow?.image?.secure_url} alt="Image Description" />
-            </div>
-          </Modal>
+          <>
+            <section className="bg-black">
+              <Modal open={open} onClose={onCloseModal} center
+                classNames={{
+                  overlay: 'customOverlay',
+                  modal: 'customModal',
+                }}>
+                <div className="w-72 h-50 my-9 flex items-center justify-center "  >
+                  <img class="object-cover rounded-t-xl" src={selectedRow?.image?.secure_url} alt="Image Description" />
+                </div>
+              </Modal>
+            </section>
+          </>
+
         }
 
       </div>
