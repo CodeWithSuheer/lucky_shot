@@ -1,64 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Progress.css';
 
-const CircularProgress = ({ identifier, startValue, endValue, speed, circleColor }) => {
-  const [progressValue, setProgressValue] = useState(startValue);
-  const circularProgressRef = useRef(null);
-  const progressRef = useRef(null);
-  const animationStartedRef = useRef(false);
+const CircularProgress = ({ identifier, startValue, endValue, circleColor }) => {
+  const [progressValue, setProgressValue] = useState(endValue);
 
   useEffect(() => {
-    const circularProgress = circularProgressRef.current;
-
-    const handleIntersection = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animationStartedRef.current) {
-          startAnimation();
-        } else if (!entry.isIntersecting) {
-          stopAnimation();
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
-    if (circularProgress) {
-      observer.observe(circularProgress);
-    }
-
-    // Cleanup function to disconnect the observer
-    return () => {
-      observer.disconnect();
-      stopAnimation();
-    };
-  }, []); // Run only once when the component mounts
-
-  const startAnimation = () => {
-    animationStartedRef.current = true;
-    progressRef.current = setInterval(() => {
-      setProgressValue(prevValue => {
-        const newValue = prevValue + 1;
-        if (circularProgressRef.current) {
-          circularProgressRef.current.style.background = `conic-gradient(${circleColor} ${newValue * 3.6}deg, #6c6c6c 0deg)`;
-        }
-
-        if (newValue === endValue) {
-          clearInterval(progressRef.current);
-          animationStartedRef.current = false;
-        }
-
-        return newValue;
-      });
-    }, speed);
-  };
-
-  const stopAnimation = () => {
-    clearInterval(progressRef.current);
-    setProgressValue(startValue); // Reset progress value
-    animationStartedRef.current = false;
-  };
+    // Set progress value to endValue when component mounts
+    setProgressValue(endValue);
+  }, [endValue]);
 
   return (
-    <div ref={circularProgressRef} id={`circular-progress-${identifier}`} className=" circular-progress">
+    <div id={`circular-progress-${identifier}`} className="circular-progress" style={{ background: `conic-gradient(${circleColor} ${progressValue * 3.6}deg, #6c6c6c 0deg)` }}>
       <span className="progress-value">{`${progressValue}%`}</span>
     </div>
   );

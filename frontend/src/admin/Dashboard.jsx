@@ -15,8 +15,12 @@ const Dashboard = () => {
   const [totalCustomers, setTotalCustomers] = useState(0);
   const [totalRevenue, setTotalRevenue] = useState(0);
   const [totalSales, setTotalSales] = useState(0);
+  const [totalCustomerslast, setTotalCustomerslast] = useState(0);
+  const [totalRevenuelast, setTotalRevenuelast] = useState(0);
+  const [totalSaleslast, setTotalSaleslast] = useState(0);
   const [mostRepeatedNumbers, setMostRepeatedNumbers] = useState([]);
   console.log('data', Betdata)
+
   useEffect(() => {
     dispatch(GetBets());
   }, [dispatch]);
@@ -25,6 +29,7 @@ const Dashboard = () => {
     if (Betdata) {
       calculateRevenueAndCustomers(Betdata);
       calculateMostRepeatedBetNumbers(Betdata);
+      calculatelastsavendata(sevenDaysAgodata)
     }
   }, [Betdata]);
 
@@ -75,33 +80,49 @@ const Dashboard = () => {
 
     setMostRepeatedNumbers(mostRepeatedNumbers);
   };
-  const startDate = moment().startOf('week');
 
-  // Calculate the number of days elapsed in the current week
-  const currentDate = moment();
-  const daysElapsed = currentDate.diff(startDate, 'days') + 1; // Add 1 to include the current day
+  const currentTimestamp = new Date();
+const sevenDaysAgoTimestamp = new Date(
+  currentTimestamp.getTime() - 7 * 24 * 60 * 60 * 1000
+);
 
-  // Calculate average daily revenue, sales, and customers
-  const averageDailyRevenue = totalRevenue / daysElapsed;
-  const averageDailySales = totalSales / daysElapsed;
-  const averageDailyCustomers = totalCustomers / daysElapsed;
+const sevenDaysAgodata = Betdata?.filter((item) => {
+  const createdAt = new Date(item.createdAt);
+  // Exclude today's data
+  return createdAt >= sevenDaysAgoTimestamp && createdAt < currentTimestamp;
+});
 
-  // Function to calculate percentage change
-  const calculatePercentageChange = (currentValue, startValue) => {
-    if (startValue === 0) return 0;
-    return ((currentValue - startValue) / startValue) * 100;
+console.log('last saven days data',sevenDaysAgodata)
+  const calculatelastsavendata = (data) => {
+    let revenuelast = 0;
+    let customerslast = new Set();
+    let saleslast = data.length;
+
+    data.forEach((row) => {
+      revenuelast += row.betAmount;
+      customerslast.add(row.accountUsed.number);
+    });
+
+    setTotalRevenuelast(revenuelast);
+    setTotalCustomerslast(customerslast.size);
+    setTotalSaleslast(saleslast);
   };
 
-  // Calculate percentage change for revenue, sales, and customers compared to the start of the week
-  const revenuePercentageChange = calculatePercentageChange(totalRevenue, averageDailyRevenue * daysElapsed);
-  const salesPercentageChange = calculatePercentageChange(totalSales, averageDailySales * daysElapsed);
-  const customersPercentageChange = calculatePercentageChange(totalCustomers, averageDailyCustomers * daysElapsed);
+  console.log('Sales Percentage Change:', sevenDaysAgodata);
+  const customersPercentageChange =
+    totalCustomerslast !== 0
+      ? ((totalCustomers ) / totalCustomerslast) * 100
+      : 0;
+      const SalesPercentageChange =
+      totalSaleslast !== 0
+        ? ((totalSales ) / totalSaleslast) * 100
+        : 0;
+        const RevenuePercentageChange =
+        totalRevenuelast !== 0
+          ? ((totalRevenue) / totalRevenuelast) * 100
+          : 0;
 
 
-
-
-  console.log('Sales Percentage Change:', salesPercentageChange);
-  console.log('Customers Percentage Change:', customersPercentageChange);
 
 
   const CustomTooltip = ({ active, payload, label }) => {
@@ -117,6 +138,8 @@ const Dashboard = () => {
     return null;
   };
 
+
+
   return (
     <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
 
@@ -129,7 +152,7 @@ const Dashboard = () => {
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Customer</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalCustomers}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{averageDailyCustomers}</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{totalCustomers}</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
@@ -147,9 +170,9 @@ const Dashboard = () => {
           <div className="p-4 md:p-5">
             <div className="flex justify-between items-center">
               <div>
-                <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">New Sales</h3>
+                <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">New Bets</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalSales}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{salesPercentageChange}%</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{SalesPercentageChange}%</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
@@ -169,13 +192,13 @@ const Dashboard = () => {
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Total Revenue</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalRevenue}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{revenuePercentageChange}</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{RevenuePercentageChange}</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
                   identifier="development8"
                   startValue={0}
-                  endValue={89}
+                  endValue={RevenuePercentageChange}
                   speed={20}
                   circleColor="#B600D4"
                 />
@@ -219,11 +242,11 @@ const Dashboard = () => {
 
 
       <div className="grid sm:grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
-        <div className="bg-[#474747] px-4 py-4 rounded-md">
-          <h4 className='text-center text-[#B600D4] font-medium text-xl'>Most Located</h4>
-          <div className="flex justify-between items-center py-1">
-            <p className='text-md font-normal text-white'>Punjab</p>
-            <p className='text-lg font-medium text-white'>80%</p>
+      <div className="bg-[#474747] px-4 py-4 rounded-md">
+<h4 className='text-center text-[#B600D4] font-medium text-xl text-wide'>Most Located</h4>
+<div className="flex justify-between items-center py-1">
+<p className='text-md font-normal text-white'>Punjab</p>
+<p className='text-lg font-medium text-white'>80%</p>
 
           </div>
           <div className="flex justify-between items-center py-1">
