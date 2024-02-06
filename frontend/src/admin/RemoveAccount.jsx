@@ -72,7 +72,7 @@ const RemoveAccount = () => {
                                                         </span>
                                                     </div>
                                                 </th>
-                                                <th scope="col" className="px-6 py-3 text-start">
+                                                <th scope="col" className="pl-16 py-3 text-start">
                                                     <div className="flex items-center gap-x-2">
                                                         <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                             Payment Method
@@ -80,7 +80,7 @@ const RemoveAccount = () => {
                                                     </div>
                                                 </th>
 
-                                                <th scope="col" className="px-6 py-3 text-start">
+                                                <th scope="col" className="pl-10 py-3 text-start">
                                                     <div className="flex items-center gap-x-2">
                                                         <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                             Remove
@@ -103,17 +103,20 @@ const RemoveAccount = () => {
                                                                 </div>
                                                             </div>
                                                         </td>
+
                                                         <td className="h-px w-20 sm:w-52 whitespace-nowrap">
                                                             <div className="px-6 py-3">
                                                                 <span className="block text-md lg:text-md tracking-wider font-semiboldtext-gray-200">{data.accountTitle}</span>
                                                             </div>
                                                         </td>
+
                                                         <td className="h-px w-72 whitespace-nowrap">
                                                             <div className="px-6 py-3">
                                                                 <span className="block text-md lg:text-md font-normal text-gray-200">{data.accountNumber}</span>
                                                             </div>
                                                         </td>
-                                                        <td className="h-px w-72 whitespace-nowrap">
+
+                                                        <td className="h-px w-72 pl-10 whitespace-nowrap">
                                                             <div className="px-6 py-3 flex gap-3 items-center">
                                                                 {data.paymentMethod === 'Jazz Cash' ? (
                                                                     <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="" />
@@ -124,9 +127,7 @@ const RemoveAccount = () => {
                                                             </div>
                                                         </td>
 
-
-
-                                                        <td className="flex items-center justify-center py-3" onClick={() => DeleteAccount(data?.id)}>
+                                                        <td className="flex items-center justify-center pr-3 py-3" onClick={() => DeleteAccount(data?.id)}>
                                                             <div className="trash_button rounded-full bg-[#676767] text-[#ffffff] p-2 ms-2.5 transition hover:scale-110 cursor-pointer">
                                                                 <Trash2 size={18} />
                                                             </div>

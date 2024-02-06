@@ -151,7 +151,7 @@ const WithDraw = () => {
                         >
                           <div className="flex items-center gap-x-2">
                             <span className="text-sm font-medium tracking-wide text-gray-200">
-                              NO.
+                              No
                             </span>
                           </div>
                         </th>

@@ -4,22 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetBets } from '../Features/BetSlice';
 import { useEffect } from 'react';
 import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
-import { Calendar, DateRange, DateRangePicker } from 'react-date-range';
-import { parseISO } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 const Users = () => {
     const [activeFilter, setActiveFilter] = useState(100);
-    const [state, setState] = useState([
-        {
-            startDate: new Date(),
-            endDate: null,
-            key: 'selection'
-        }
-    ]);
-    const [open, setOpen] = useState(false);
-
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
+    const [date,setdate] = useState()
     const dispatch = useDispatch();
     const data = useSelector(state => state.Bet.data);
     const loading = useSelector(state => state.Bet.loading);
@@ -28,45 +16,21 @@ const Users = () => {
     }, [dispatch]);
 
 
-    const currentdate = new Date().toLocaleDateString();
+ 
     const filteredData = data?.filter(row => {
-        // Check if betAmount matches the activeFilter
         const matchAmount = row.betAmount === activeFilter;
 
-        if (state[0]?.startDate && state[0]?.endDate && state[0]?.startDate.toLocaleDateString() !== state[0]?.endDate.toLocaleDateString()) {
-            // Parse ISO format createdAt string to Date object
-            const createdAtDate = parseISO(row.createdAt);
+        // Check if date is selected and row's date matches
+        const dateMatches = date ? format(new Date(row.createdAt), 'yyyy-MM-dd') === date : true;
 
-            // Check if the createdAtDate falls within the selected date range
-            return (
-                (!state[0]?.startDate || createdAtDate >= state[0]?.startDate) &&
-                (!state[0]?.endDate || createdAtDate <= state[0]?.endDate)
-            ) && matchAmount;
-        } else if (state[0]?.startDate && state[0]?.endDate && state[0]?.startDate.toLocaleDateString() === state[0]?.endDate.toLocaleDateString()) {
-            // If startDate and endDate are the same, filter data for that single date
-            console.log('single date ')
-            const selectedDate = state[0]?.startDate.toLocaleDateString();
-
-            const createdAtDate = new Date(row?.createdAt);
-            const formattedDate = createdAtDate.toLocaleDateString("en-GB");
-
-
-
-            return (
-                formattedDate === selectedDate
-            ) && matchAmount;
-        } else {
-            // No date range selected, return true to include all data
-            return matchAmount;
-        }
+        return matchAmount && dateMatches;
     });
 
 
 
 
 
-    console.log('payment method', filteredData)
-    console.log('date range', state[0]?.startDate.toLocaleDateString())
+   
 
     return (
         <>
@@ -77,10 +41,9 @@ const Users = () => {
                 <div className="flex justify-between flex-wrap items-center text-white">
                     <h2 className='text-3xl sm:text-4xl font-semibold tracking-wide'>Users</h2>
 
-                    <button onClick={onOpenModal} className='bg-[#676767] text-gray-200 px-3 py-2.5 mt-2 sm:mt-0 rounded-md flex items-center gap-6'>
-                        <span className="text-xs md:text-sm">{currentdate}</span>
-                        <span><CalendarDays size={20} /></span>
-                    </button>
+                    <div  className='bg-[#676767] text-gray-200 px-3 py-2.5 mt-2 sm:mt-0 rounded-md flex items-center gap-6'>
+                        <input type='date' name='date' value={date} onChange={(e)=>setdate(e.target.value)} className='bg-[#676767] onFoucs:border-none accent-[#B600D4] focus:outline-none focus:ring-0'  />
+                    </div>
                 </div>
 
                 {/* <!-- Tabs --> */}
@@ -225,33 +188,7 @@ const Users = () => {
                     </div>
                 )}
 
-                {open && (
-                    <Modal open={open} onClose={onCloseModal} center>
-                        <div style={{ overflowX: "auto" }}>
-                            <DateRange
-                                color='#B600D4'
-                                rangeColors={'#B600D4'}
-                                editableDateInputs={true}
-                                onChange={item => {
-                                    if (item.selection.endDate === null) {
-                                        // If endDate is null, set it to undefined to indicate a single date selection
-                                        setState([{
-                                            startDate: item.selection.startDate,
-                                            endDate: undefined,
-                                            key: 'selection'
-                                        }]);
-                                    } else {
-                                        setState([item.selection]);
-                                    }
-                                }}
-                                moveRangeOnFirstSelection={false}
-                                ranges={state}
-                                className='my-6'
-                            />
-
-                        </div>
-                    </Modal>
-                )}
+             
 
 
 

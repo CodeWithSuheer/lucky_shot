@@ -82,17 +82,17 @@ const Dashboard = () => {
   };
 
   const currentTimestamp = new Date();
-const sevenDaysAgoTimestamp = new Date(
-  currentTimestamp.getTime() - 7 * 24 * 60 * 60 * 1000
-);
+  const sevenDaysAgoTimestamp = new Date(
+    currentTimestamp.getTime() - 7 * 24 * 60 * 60 * 1000
+  );
 
-const sevenDaysAgodata = Betdata?.filter((item) => {
-  const createdAt = new Date(item.createdAt);
-  // Exclude today's data
-  return createdAt >= sevenDaysAgoTimestamp && createdAt < currentTimestamp;
-});
+  const sevenDaysAgodata = Betdata?.filter((item) => {
+    const createdAt = new Date(item.createdAt);
+    // Exclude today's data
+    return createdAt >= sevenDaysAgoTimestamp && createdAt < currentTimestamp;
+  });
 
-console.log('last saven days data',sevenDaysAgodata)
+  console.log('last saven days data', sevenDaysAgodata)
   const calculatelastsavendata = (data) => {
     let revenuelast = 0;
     let customerslast = new Set();
@@ -111,34 +111,47 @@ console.log('last saven days data',sevenDaysAgodata)
   console.log('Sales Percentage Change:', sevenDaysAgodata);
   const customersPercentageChange =
     totalCustomerslast !== 0
-      ? ((totalCustomers ) / totalCustomerslast) * 100
+      ? ((totalCustomers) / totalCustomerslast) * 100
       : 0;
-      const SalesPercentageChange =
-      totalSaleslast !== 0
-        ? ((totalSales ) / totalSaleslast) * 100
-        : 0;
-        const RevenuePercentageChange =
-        totalRevenuelast !== 0
-          ? ((totalRevenue) / totalRevenuelast) * 100
-          : 0;
+  const SalesPercentageChange =
+    totalSaleslast !== 0
+      ? ((totalSales) / totalSaleslast) * 100
+      : 0;
+  const RevenuePercentageChange =
+    totalRevenuelast !== 0
+      ? ((totalRevenue) / totalRevenuelast) * 100
+      : 0;
 
 
 
-
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="custom-tooltip">
-          <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
-          <p className="intro">{`Frequency : ${payload[0].value}`}</p>
-        </div>
-      );
-    }
-
-    return null;
-  };
+          const formatCustomerCount = count => {
+            if (count > 1000) {
+              const formattedCount = (count / 1000).toFixed(1); // Format to one decimal place
+              return `${formattedCount}k`;
+            }
+            return count.toString(); // Return as it is if less than or equal to 1000
+          };
 
 
+
+          const CustomTooltip = ({ payload, label }) => {
+            if (payload && payload.length) {
+              return (
+                <div className="custom-tooltip">
+                  <p className="label">{` Bet Number ${payload[0].payload.betNumber}`}</p>
+                  <p className="intro">{`Frequency : ${payload[0].value}`}</p>
+                </div>
+              );
+            }
+          
+            return null;
+          };
+          
+          
+
+          const custumerpercentage = `+${formatCustomerCount(totalCustomers)}`;
+          console.log('customer percentage', custumerpercentage);
+          
 
   return (
     <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
@@ -158,13 +171,13 @@ console.log('last saven days data',sevenDaysAgodata)
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Customer</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalCustomers}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{totalCustomers}</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">+{formatCustomerCount(totalCustomers)}</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
                   identifier="development3"
                   startValue={0}
-                  endValue={4}
+                  endValue={custumerpercentage}
                   speed={20}
                   circleColor="#B600D4"
                 />
@@ -184,8 +197,8 @@ console.log('last saven days data',sevenDaysAgodata)
                 <CircularProgress
                   identifier="development5"
                   startValue={0}
-                  endValue={8}
-                  speed={10}
+                  endValue={SalesPercentageChange}
+                  speed={20}
                   circleColor="#B600D4"
                 />
               </div>
@@ -198,7 +211,7 @@ console.log('last saven days data',sevenDaysAgodata)
               <div>
                 <h3 className="text-xl xs:text-2xl sm:text-xl mb-2 font-regular tracking-wide">Total Revenue</h3>
                 <p className="text-xl xs:text-2xl sm:text-3xl mb-3 font-bold tracking-wide">{totalRevenue}</p>
-                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{RevenuePercentageChange}</div>
+                <div className="text-sm w-16 bg-[#5E4D61] text-center xs:text-xl sm:text-lg rounded-lg font-normal tracking-wide ">{RevenuePercentageChange}%</div>
               </div>
               <div className="ps-3">
                 <CircularProgress
@@ -249,12 +262,12 @@ console.log('last saven days data',sevenDaysAgodata)
 
 
 
-      <div className="grid sm:grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
-      <div className="bg-[#474747] px-4 py-4 rounded-md">
-<h4 className='text-center text-[#cc76da] font-medium text-xl text-wide'>Most Located</h4>
-<div className="flex justify-between items-center py-1">
-<p className='text-md font-normal text-white'>Punjab</p>
-<p className='text-lg font-medium text-white'>80%</p>
+      <div className="grid grid-cols-1 my-5 sm:grid-cols-2 md:grid-cols-3  gap-3 sm:gap-6">
+        <div className="bg-[#474747] px-4 py-4 rounded-md">
+          <h4 className='text-center text-[#cc76da] font-medium text-xl text-wide'>Most Located</h4>
+          <div className="flex justify-between items-center py-1">
+            <p className='text-md font-normal text-white'>Punjab</p>
+            <p className='text-lg font-medium text-white'>80%</p>
 
           </div>
           <div className="flex justify-between items-center py-1">
@@ -279,9 +292,9 @@ console.log('last saven days data',sevenDaysAgodata)
         </div>
 
 
-        <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
+        {/* <div className=" bg-[#474747] md:col-span-2 px-4 py-2 rounded-md">
 
-        </div>
+        </div> */}
 
 
       </div>
