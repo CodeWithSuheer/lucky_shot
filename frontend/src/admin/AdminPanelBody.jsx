@@ -34,7 +34,7 @@ const AdminPanelBody = () => {
         <>
             <div className={`bg-black `}>
                 {/* <----------------- Sidebar Toggle -----------------> */}
-                <div className="sticky top-0 inset-x-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden bg-gray-900 border-gray-700">
+                <div className="sticky top-0 inset-x-0 z-20 border-y px-4 h-16 sm:px-6 md:px-8 lg:hidden bg-gray-900 border-gray-700">
                     <div className="flex justify-between items-center py-4">
                         {/* <!-- Navigation Toggle --> */}
 
@@ -49,7 +49,7 @@ const AdminPanelBody = () => {
                 </div>
 
 
-                <div className={`  transition-all duration-300 transform fixed top-24 start-0 bottom-0 z-50 w-64 border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ${isSidebarOpen ? 'block' : 'hidden'} [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-700 [&::-webkit-scrollbar-thumb]:bg-slate-500 bg-black`}>
+                <div className={`transition-all duration-300 transform fixed top-16 sm:top-24 start-0 bottom-0 z-50 w-64 border-e border-[#B600D4] pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ${isSidebarOpen ? 'block' : 'hidden'} [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-700 [&::-webkit-scrollbar-thumb]:bg-slate-500 bg-black`}>
 
                     <nav className=" py-0 px-0 w-full flex flex-col flex-wrap" >
                         <ul className="space-y-1.5">
