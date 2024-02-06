@@ -144,7 +144,13 @@ console.log('last saven days data',sevenDaysAgodata)
     <div className="max-w-[85rem] px-1 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
 
       <h2 className='text-2xl xs:text-3xl sm:text-4xl font-semibold tracking-wide'>Dashboard</h2>
-
+      {loading ? (
+                    <div className="flex justify-center mt-12 items-center">
+                        <div className=" animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#B600D4] rounded-full " role="status" aria-label="loading">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
       <div className="grid sm:grid-cols-1 my-5 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
         <a className="group flex flex-col bg-[#474747] border-none shadow-sm rounded-md hover:shadow-md dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
           <div className="p-4 md:p-5">
@@ -213,6 +219,8 @@ console.log('last saven days data',sevenDaysAgodata)
 
 
       </div>
+
+                )}
 
       <div style={{ width: '100%', height: 300 }}>
         <ResponsiveContainer>
