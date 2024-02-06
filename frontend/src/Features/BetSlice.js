@@ -39,6 +39,18 @@ export const createBetWiners = createAsyncThunk("Bets/createBetWinners", async (
     }
   }
   );
+  export const PublishedBetWiners = createAsyncThunk("Bets/PublishedBetWiners", async (ids) => {
+    try {
+      const response = await axios.post(`${Url}/publishWinners`,ids);
+      toast.success(response.data.message);
+      console.log(response.data);
+      console.log(ids);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.msg);
+    }
+  }
+  );
  
 
 // INITIAL STATE

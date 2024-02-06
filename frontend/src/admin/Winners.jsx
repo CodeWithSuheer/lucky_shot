@@ -4,15 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetBets } from "../Features/BetSlice";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { PublishedBetWiners } from "../Features/BetSlice";
 const Winners = () => {
   const [activeFilter, setActiveFilter] = useState(100);
   const [searchText, setSearchText] = useState("");
+  const [selectedIds, setSelectedIds] = useState([]);
+
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Bet.data);
   const loading = useSelector((state) => state.Bet.loading);
   useEffect(() => {
     dispatch(GetBets());
   }, [dispatch]);
+
+ 
 
   const filteredData = data?.filter((row) => {
     const matchAmount = row.betAmount === activeFilter;
@@ -30,21 +35,25 @@ const Winners = () => {
   const oneHourAgoTimestamp = new Date(
     currentTimestamp.getTime() - 60 * 60 * 1000 // One hour ago
   );
-  console.log('last hour', oneHourAgoTimestamp)
+
 
   const recentlyUpdatedData = WinnerData?.filter((item) => {
     const updatedAt = new Date(item.updatedAt);
-    console.log('last hour updated data', updatedAt)
+ 
     return updatedAt > oneHourAgoTimestamp;
   });
 
 
-  console.log('filtered data', recentlyUpdatedData)
-  console.log(' data', data)
+  const ids = recentlyUpdatedData?.map((data)=> data?.id)
+  
+  
 
   const handlePublishingWinners = () => { 
-    toast.success('Success')
-  };
+
+ dispatch(PublishedBetWiners({ ids: ids }));
+    
+ 
+  }; 
 
   return (
     <>
