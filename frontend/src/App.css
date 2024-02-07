@@ -74,3 +74,15 @@ input::-webkit-inner-spin-button {
 
   }
 }
+
+
+@media screen and (max-width: 400px) {
+
+  .customModal {
+    background: rgb(160, 159, 159) !important;
+    width: 100% !important;
+    margin-inline: auto;
+    border-radius: 7px !important;
+    padding-block: 1.5rem !important;
+  }
+}

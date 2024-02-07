@@ -323,8 +323,12 @@ const AmountDetails = () => {
                             <div class="flex justify-center items-center flex-wrap">
                                 {selectedRow.map((data) => (
                                     <div class=" flex flex-col h-full bg-[#0f0f0f] rounded-md mx-0 my-1 md:mx-2">
-                                        <div class="h-60 object-cover  flex flex-col justify-center items-center rounded-t-xl">
-                                            <img class="" src={data?.image?.secure_url} alt="Image " />
+                                        <div className="w-72 h-50 my-9 pl-0 sm:pl-2 flex items-center justify-center ">
+                                            <img
+                                                class="object-cover rounded-t-md"
+                                                src={data?.image?.secure_url}
+                                                alt="Image Description"
+                                            />
                                         </div>
                                         <div class="p-4 md:p-6">
                                             <span class="block mb-1 text-md  uppercase text-white ">
