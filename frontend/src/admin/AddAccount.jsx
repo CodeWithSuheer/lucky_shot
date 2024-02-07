@@ -72,7 +72,7 @@ const AddAccount = () => {
                                 <input
                                     type="number"
                                     name="accountNumber"
-                                    placeholder="Enter Your Name"
+                                    placeholder="Enter Your Account Number"
                                     className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
                                     value={formData.accountNumber}
                                     onChange={handleChange}

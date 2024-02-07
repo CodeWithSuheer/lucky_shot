@@ -7,7 +7,7 @@ import 'react-responsive-modal/styles.css';
 import { parseISO, format } from 'date-fns';
 const Users = () => {
     const [activeFilter, setActiveFilter] = useState(100);
-    const [date,setdate] = useState()
+    const [date, setdate] = useState()
     const dispatch = useDispatch();
     const data = useSelector(state => state.Bet.data);
     const loading = useSelector(state => state.Bet.loading);
@@ -16,7 +16,7 @@ const Users = () => {
     }, [dispatch]);
 
 
- 
+
     const filteredData = data?.filter(row => {
         const matchAmount = row.betAmount === activeFilter;
 
@@ -30,7 +30,7 @@ const Users = () => {
 
 
 
-   
+
 
     return (
         <>
@@ -41,8 +41,8 @@ const Users = () => {
                 <div className="flex justify-between flex-wrap items-center text-white">
                     <h2 className='text-3xl sm:text-4xl font-semibold tracking-wide'>Users</h2>
 
-                    <div  className='bg-[#676767] text-gray-200 px-3 py-2.5 mt-2 sm:mt-0 rounded-md flex items-center gap-6'>
-                        <input type='date' name='date' value={date} onChange={(e)=>setdate(e.target.value)} className='bg-[#676767] onFoucs:border-none accent-[#B600D4] focus:outline-none focus:ring-0'  />
+                    <div className='bg-[#676767] text-gray-200 px-3 py-2.5 mt-2 sm:mt-0 rounded-md flex items-center gap-6'>
+                        <input type='date' name='date' value={date} onChange={(e) => setdate(e.target.value)} className='bg-[#676767] onFoucs:border-none accent-[#B600D4] focus:outline-none focus:ring-0' />
                     </div>
                 </div>
 
@@ -136,7 +136,7 @@ const Users = () => {
                                                             <div className="ps-6 lg:ps-3 xl:ps-5 pe-6 py-4">
                                                                 <div className="flex items-center gap-x-3">
                                                                     <div className="grow">
-                                                                        <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-md lg:text-md text-gray-200">{index + 1}</span>
+                                                                        <span className="flex items-center justify-center bg-[#B600D4] text-center h-6 w-6 rounded-full text-sm lg:text-sm text-gray-200">{index + 1}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -157,15 +157,15 @@ const Users = () => {
                                                             </div>
                                                         </td>
                                                         <div className="px-6 py-3 flex gap-2 items-center">
-                                                        {data.prizeAcntInfo.paymentMethod === 'Jazz Cash' ? (
-    <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="Jazz Cash" />
-) : data.prizeAcntInfo.paymentMethod === 'Nayapay' ? (
-    <img className='h-4' src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/nay_pay.png?v=1707239753" alt="Naya Pay" />
-) : data.prizeAcntInfo.paymentMethod === 'Sadapay' ? (
-    <img className='h-4' src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/sada_pay.png?v=1707239753" alt="Sadapay" />
-) : (
-    <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="Default Image" />
-)}
+                                                            {data.prizeAcntInfo.paymentMethod === 'Jazz Cash' ? (
+                                                                <img className='h-4' src="https://play-lh.googleusercontent.com/9-0wlkGycWAJRsuQ-p_bMqDGE0liYgihxKka0PtRjxqEiRVkDKaROEyFxYg520lLbpk" alt="Jazz Cash" />
+                                                            ) : data.prizeAcntInfo.paymentMethod === 'Nayapay' ? (
+                                                                <img className='h-4' src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/nay_pay.png?v=1707239753" alt="Naya Pay" />
+                                                            ) : data.prizeAcntInfo.paymentMethod === 'Sadapay' ? (
+                                                                <img className='h-4' src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/sada_pay.png?v=1707239753" alt="Sadapay" />
+                                                            ) : (
+                                                                <img className='h-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5OMeGQnlZ-I81VAAluwyoYy7-62iQP11lGtti4qaxg&s" alt="Default Image" />
+                                                            )}
 
                                                             <span className="block text-sm text-wider md:text-md  text-gray-200">{data.prizeAcntInfo.paymentMethod}</span>
                                                         </div>
@@ -187,11 +187,6 @@ const Users = () => {
                         </div>
                     </div>
                 )}
-
-             
-
-
-
             </div>
         </>
     )

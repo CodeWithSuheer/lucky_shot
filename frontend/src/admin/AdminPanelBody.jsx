@@ -4,6 +4,9 @@ import { LogOut } from "lucide-react";
 import { useDispatch } from 'react-redux';
 import { Logout } from '../Features/AuthSlice';
 import { useNavigate } from 'react-router-dom';
+import { AlignLeft } from 'lucide-react';
+
+
 const AdminPanelBody = () => {
     const location = useLocation();
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -38,13 +41,10 @@ const AdminPanelBody = () => {
                     <div className="flex justify-between items-center py-4">
                         {/* <!-- Navigation Toggle --> */}
 
-                        <button type="button" class="text-gray-500 hover:text-gray-600" aria-label="Toggle navigation" onClick={toggleSidebar}>
-                            <span class="sr-only">Toggle Navigation</span>
-                            <svg class="w-5 h-5" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                            </svg>
+                        <button type="button" class="text-gray-100" aria-label="Toggle navigation" onClick={toggleSidebar}>
+                            <AlignLeft />
                         </button>
-                        <button onClick={LogoutAdmin} className='mr-3 sm:mr-10 p-1 rounded-lg bg-[#474747]'><LogOut /></button>
+                        <button onClick={LogoutAdmin} className='mr-3 sm:mr-10 p-1 rounded-lg bg-transparent sm:bg-[#474747]'><LogOut /></button>
                     </div>
                 </div>
 

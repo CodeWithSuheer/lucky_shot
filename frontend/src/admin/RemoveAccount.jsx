@@ -80,7 +80,7 @@ const RemoveAccount = () => {
                                                     </div>
                                                 </th>
 
-                                                <th scope="col" className="pl-10 py-3 text-start">
+                                                <th scope="col" className="pl-1 pr-2 sm:pl-10 py-3 text-start">
                                                     <div className="flex items-center gap-x-2">
                                                         <span className="text-sm lg:text-md  font-medium  tracking-wide text-gray-200">
                                                             Remove
