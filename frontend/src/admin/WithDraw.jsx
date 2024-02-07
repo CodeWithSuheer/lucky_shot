@@ -339,7 +339,7 @@ const WithDraw = () => {
               <div className="flex pt-2 py-3 items-center justify-center ">
                 <button
                   onClick={handleCreateWinners}
-                  className="bg-[#B600D4] text-lg px-8 py-1.5 rounded-md"
+                  className="gradent px-7 py-2 rounded-md text-lg font-normal"
                 >
                   Done
                 </button>

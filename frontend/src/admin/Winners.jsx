@@ -116,8 +116,8 @@ const Winners = () => {
                           className="px-6 lg:ps-3 xl:ps-6 pe-6 py-4 text-start"
                         >
                           <div className="flex items-center gap-x-2">
-                            <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 uppercase">
-                              NO.
+                            <span className="text-sm lg:text-md font-medium tracking-wide text-gray-200 ">
+                              No
                             </span>
                           </div>
                         </th>
@@ -250,7 +250,7 @@ const Winners = () => {
               <div className="flex pt-3 items-center justify-center ">
                 <button
                   onClick={handlePublishingWinners}
-                  className="bg-[#B600D4] text-lg px-7 py-1.5 rounded-md"
+                  className="gradent px-7 py-2 rounded-md text-lg font-normal"
                 >
                   Publish
                 </button>
