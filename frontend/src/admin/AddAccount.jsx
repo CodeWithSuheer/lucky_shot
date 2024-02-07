@@ -68,7 +68,7 @@ const AddAccount = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 gap-3 mt-5 sm:grid-cols-1 md:grid-cols-2">
                             <div className='md:col-span-1 mb-3 sm:mb-0'>
-                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Number :</label>
+                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Number</label>
                                 <input
                                     type="number"
                                     name="accountNumber"
@@ -81,7 +81,7 @@ const AddAccount = () => {
                             </div>
 
                             <div className='md:col-span-1 mb-3 sm:mb-0'>
-                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Title :</label>
+                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Title</label>
                                 <input
                                     type="text"
                                     name="accountTitle"
@@ -93,7 +93,7 @@ const AddAccount = () => {
                                 />
                             </div>
                             <div className='md:col-span-2'>
-                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Limit :</label>
+                                <label className="block mb-2 text-sm sm:text-md font-medium text-gray-200">Account Limit</label>
                                 <input
                                     type="text"
                                     name="limit"

@@ -42,7 +42,7 @@ const Users = () => {
                     <h2 className='text-3xl sm:text-4xl font-semibold tracking-wide'>Users</h2>
 
                     <div className='bg-[#676767] text-gray-200 px-3 py-2.5 mt-2 sm:mt-0 rounded-md flex items-center gap-6'>
-                        <input type='date' name='date' value={date} onChange={(e) => setdate(e.target.value)} className='bg-[#676767] onFoucs:border-none accent-[#B600D4] focus:outline-none focus:ring-0' />
+                        <input type='date' name='date' placeholder='Select Date' value={date} onChange={(e) => setdate(e.target.value)} className='bg-[#676767]  placeholder:text-sm sm:placeholder:text-md  onFoucs:border-none accent-[#B600D4] focus:outline-none focus:ring-0' />
                     </div>
                 </div>
 
