@@ -73,7 +73,7 @@ const AddAccount = () => {
                                     type="number"
                                     name="accountNumber"
                                     placeholder="Enter Your Account Number"
-                                    className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
+                                    className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] placeholder:text-sm sm:placeholder:text-md bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
                                     value={formData.accountNumber}
                                     onChange={handleChange}
                                     required
@@ -86,7 +86,7 @@ const AddAccount = () => {
                                     type="text"
                                     name="accountTitle"
                                     placeholder="Enter Your Account Title"
-                                    className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
+                                    className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] placeholder:text-sm sm:placeholder:text-md bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
                                     value={formData.accountTitle}
                                     onChange={handleChange}
                                     required
@@ -98,7 +98,7 @@ const AddAccount = () => {
                                     type="text"
                                     name="limit"
                                     placeholder="Enter Your Account Limit"
-                                    className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
+                                    className="block w-full px-5 py-4 mt-2 border rounded-lg placeholder-[#b4b4b4] placeholder:text-sm sm:placeholder:text-md bg-transparent text-gray-300 border-[#B600D4] focus:border-[#B600D4] focus:ring-[#B600D4] focus:outline-none focus:ring focus:ring-opacity-40"
                                     value={formData.limit}
                                     onChange={handleChange}
 
