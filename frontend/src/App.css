@@ -64,6 +64,9 @@ input::-webkit-inner-spin-button {
   padding-block: 1.5rem !important;
 }
 
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
 
 /* Add this media query at the end of your CSS */
 @media screen and (max-width: 768px) {
